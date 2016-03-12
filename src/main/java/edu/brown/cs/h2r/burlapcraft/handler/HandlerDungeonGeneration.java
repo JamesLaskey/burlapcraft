@@ -78,7 +78,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int height = 50;
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
 		try {
-			BurlapCraft.registerDungeon(new FileDungeon("testfile", testPose));
+			BurlapCraft.registerDungeon(new FileDungeon("testfile.5x2x5.df", testPose));
 		} catch (IOException e) {
 			BurlapCraft.registerDungeon(new DungeonTest(testPose));
 			e.printStackTrace();
