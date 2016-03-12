@@ -21,6 +21,7 @@ import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonSmallBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTest;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTinyBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.FileDungeon;
+import edu.brown.cs.h2r.burlapcraft.dungeongenerator.ReadDungeon;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperPos;
 
@@ -78,7 +79,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int height = 50;
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
 		try {
-			BurlapCraft.registerDungeon(new FileDungeon("testfile.5x2x5.df", testPose));
+			BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
 		} catch (IOException e) {
 			BurlapCraft.registerDungeon(new DungeonTest(testPose));
 			e.printStackTrace();
