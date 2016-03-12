@@ -1,5 +1,6 @@
 package edu.brown.cs.h2r.burlapcraft.handler;
 
+import java.io.IOException;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
@@ -19,6 +20,7 @@ import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze1;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonSmallBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTest;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTinyBridge;
+import edu.brown.cs.h2r.burlapcraft.dungeongenerator.FileDungeon;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperPos;
 
@@ -75,7 +77,12 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		playerSpawnPose = Pose.fromXyz(coordinates.posX, 30, coordinates.posZ);
 		int height = 50;
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
-		BurlapCraft.registerDungeon(new DungeonTest(testPose));
+		try {
+			BurlapCraft.registerDungeon(new FileDungeon("testfile", testPose));
+		} catch (IOException e) {
+			BurlapCraft.registerDungeon(new DungeonTest(testPose));
+			e.printStackTrace();
+		}
 		
 		for (Dungeon d : BurlapCraft.dungeons) {
 			d.regenerate(world);

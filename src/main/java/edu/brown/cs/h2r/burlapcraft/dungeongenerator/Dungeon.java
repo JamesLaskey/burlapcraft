@@ -2,12 +2,18 @@ package edu.brown.cs.h2r.burlapcraft.dungeongenerator;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import net.minecraft.block.Block;
 
 public abstract class Dungeon {
-	
 	
 	public static void makeAir(World world, int x, int y, int z, int width) {
 		for (int dx = 0; dx < width; dx++) {
@@ -18,7 +24,6 @@ public abstract class Dungeon {
 			}
 		}
 	}
-
 	
 	private final Pose pose;
 	
@@ -38,6 +43,7 @@ public abstract class Dungeon {
 		playerStartOffset = _playerStartOffset;
 		
 	}
+	
 	public int getLength() {
 		return length;
 	}
@@ -72,6 +78,4 @@ public abstract class Dungeon {
 	}
 
 	protected abstract void generate(World world, int x, int y, int z);
-	
-	
 }
