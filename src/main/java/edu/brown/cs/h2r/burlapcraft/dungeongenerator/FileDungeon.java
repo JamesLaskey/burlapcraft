@@ -34,10 +34,10 @@ public abstract class FileDungeon extends Dungeon {
 		}
 	}
 	
-	String filename;
+	protected String filename;
 	// whenever you add a block to the world from an initial pose
 	// with an offset dx, dy, dz, call map.set(blockid, dx, dy, dz)
-	DungeonMap map;
+	protected DungeonMap map;
 	
 	public FileDungeon(String filename, Pose _pose) throws IOException {
 		super(filename.split("\\.")[0], _pose,
