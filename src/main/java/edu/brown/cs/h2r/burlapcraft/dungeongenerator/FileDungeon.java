@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public abstract class FileDungeon extends Dungeon {
 	
-	private static final String DIRECTORY = "dungeons/"; 
+	protected static final String DIRECTORY = "dungeons/"; 
 	
 	protected static class DungeonMap {
 		private int [][][] map;

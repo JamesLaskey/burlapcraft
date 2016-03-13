@@ -16,7 +16,7 @@ public class ReadDungeon extends FileDungeon {
 	}
 	
 	public void read() throws IOException {
-		BufferedReader r = new BufferedReader(new FileReader("dungeons/" + filename));
+		BufferedReader r = new BufferedReader(new FileReader(DIRECTORY + filename));
 		String cur = r.readLine();
 		
 		int y = 0;
