@@ -294,6 +294,24 @@ public class HelperActions {
 
 		return true;
 	}
+	
+	public static boolean jump() {
+		MovementInput movement = new MovementInput();
+		movement.jump = true;
+		
+		overrideMovement(movement);
+		
+		final Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				resetAllInputs();
+				timer.cancel();
+			}
+		}, 440, 10);
+		
+		return true;
+	}
 
 	final private static double qDecay = 90.0;
 	final private static double snapThresh = 0.025;
