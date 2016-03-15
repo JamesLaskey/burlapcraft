@@ -442,6 +442,11 @@ public class HelperActions {
 				.floor_double(getMinecraft().thePlayer.rotationYaw / 360.0F * 4.0F + 0.5D) & 0x3);
 	}
 
+	public static void faceDown() {
+		// mc.thePlayer.rotationPitch = (float) 57;
+		movePitchToTarget(90);
+	}
+	
 	public static void faceDownOne() {
 		// mc.thePlayer.rotationPitch = (float) 57;
 		movePitchToTarget(57);
