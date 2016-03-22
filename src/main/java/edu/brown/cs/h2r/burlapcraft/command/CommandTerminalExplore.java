@@ -3,7 +3,13 @@ package edu.brown.cs.h2r.burlapcraft.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import burlap.oomdp.auxiliary.common.NullTermination;
 import burlap.oomdp.core.Domain;
+import burlap.oomdp.singleagent.Action;
+import burlap.oomdp.singleagent.GroundedAction;
+import burlap.oomdp.singleagent.common.NullRewardFunction;
+import burlap.oomdp.singleagent.environment.Environment;
+import burlap.oomdp.singleagent.environment.SimulatedEnvironment;
 import burlap.oomdp.singleagent.explorer.TerminalExplorer;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
 import edu.brown.cs.h2r.burlapcraft.domaingenerator.MinecraftDomainGenerator;
@@ -47,8 +53,27 @@ public class CommandTerminalExplore implements ICommand {
 		MinecraftDomainGenerator mdg = new MinecraftDomainGenerator(StateGenerator.getMap(BurlapCraft.currentDungeon));
 		domain = mdg.generateDomain();
 		
-		TerminalExplorer exp = new TerminalExplorer(domain, StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon)); 
-		exp.explore();
+		Environment env = new SimulatedEnvironment(domain, new NullRewardFunction(), new NullTermination(), 
+				StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon));
+		String actionName = args[0];
+		Action action = domain.getAction(actionName);
+		if(action == null){
+			System.out.println("Unknown action: " + actionName + "; nothing changed");
+		}
+		else{
+			GroundedAction ga = action.getAssociatedGroundedAction();
+			ga.initParamsWithStringRep(new String[0]);
+			if(action.applicableInState(env.getCurrentObservation(), ga)) {
+				ga.executeIn(env);
+				System.out.println("executed action");
+			}
+			else{
+				System.out.println(ga.toString() + " is not applicable in the current state; nothing changed");
+			}
+		}
+		
+		//TerminalExplorer exp = new TerminalExplorer(domain, StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon)); 
+		//exp.explore();
 		
 	}
 

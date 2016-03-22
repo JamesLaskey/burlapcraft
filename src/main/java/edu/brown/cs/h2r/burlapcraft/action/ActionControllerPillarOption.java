@@ -4,13 +4,13 @@ import burlap.oomdp.singleagent.GroundedAction;
 import burlap.oomdp.singleagent.environment.Environment;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 
-public class ActionPillarOption implements ActionController {
+public class ActionControllerPillarOption implements ActionController {
 
 	protected int delayMS;
 	protected Environment environment;
 	protected int height = 3;
 	
-	public ActionPillarOption(int delayMS, Environment e) {
+	public ActionControllerPillarOption(int delayMS, Environment e) {
 		this.delayMS = delayMS;
 		this.environment = e;
 	}
@@ -18,7 +18,7 @@ public class ActionPillarOption implements ActionController {
 	@Override
 	public int executeAction(GroundedAction ga) {
 		
-		System.out.println("Pillar");
+		System.out.println("\n*********************************************** Pillar\n");
 		HelperActions.faceDown();
 		for (int i = 0; i < height; i++) {
 			long lStartTime = System.currentTimeMillis();

@@ -29,6 +29,7 @@ import edu.brown.cs.h2r.burlapcraft.action.ActionChangePitchSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionChangeYawSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionDestroyBlockSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionMoveForwardSimulated;
+import edu.brown.cs.h2r.burlapcraft.action.ActionPillarOptionSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionPlaceBlockSimulated;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
@@ -193,6 +194,8 @@ public class MinecraftDomainGenerator implements DomainGenerator {
 			new ActionChangeItemSimulated(HelperNameSpace.ACTIONCHANGEITEM, domain);
 		}
 
+		new ActionPillarOptionSimulated(HelperNameSpace.ACTIONPILLAR, domain, this.map);
+		
 		// Propositional Functions
 		new PFAgentInRoom(HelperNameSpace.PFAGENTINROOM, domain, new String[]{HelperNameSpace.CLASSAGENT, HelperNameSpace.CLASSROOM});
 		new PFRoomIsRed(HelperNameSpace.PFROOMRED, domain, HelperNameSpace.CLASSROOM);

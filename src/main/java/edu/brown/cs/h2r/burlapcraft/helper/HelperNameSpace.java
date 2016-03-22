@@ -44,6 +44,7 @@ public class HelperNameSpace {
 	public static final String							ACTIONAHEAD = "lookAhead";
 	public static final String							ACTIONDOWNONE = "lookDown";
 	public static final String							ACTIONCHANGEITEM = "changeItem";
+	public static final String 							ACTIONPILLAR = "pillar";
 	
 	//-------------PROPOSITIONAL FUNCTION STRINGS-------------
 	public static final String							PFAGENTINROOM = "agentInRoom";
@@ -63,6 +64,7 @@ public class HelperNameSpace {
 	public static final String							PFBLOCKCHAIR = PFBLOCKBASE+"Chair";
 	public static final String							PFBLOCKBAG = PFBLOCKBASE+"Bag";
 	public static final String							PFBLOCKISTYPE = PFBLOCKBASE + "TYPE";
+	
 	
 	
 	//-------------ENUMS-------------
