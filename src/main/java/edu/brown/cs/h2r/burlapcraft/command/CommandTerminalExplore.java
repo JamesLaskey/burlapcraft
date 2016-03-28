@@ -16,6 +16,7 @@ import edu.brown.cs.h2r.burlapcraft.domaingenerator.MinecraftDomainGenerator;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
+import edu.brown.cs.h2r.burlapcraft.environment.MinecraftEnvironment;
 
 public class CommandTerminalExplore implements ICommand {
 
@@ -53,8 +54,9 @@ public class CommandTerminalExplore implements ICommand {
 		MinecraftDomainGenerator mdg = new MinecraftDomainGenerator(StateGenerator.getMap(BurlapCraft.currentDungeon));
 		domain = mdg.generateDomain();
 		
-		Environment env = new SimulatedEnvironment(domain, new NullRewardFunction(), new NullTermination(), 
-				StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon));
+//		Environment env = new SimulatedEnvironment(domain, new NullRewardFunction(), new NullTermination(), 
+//				StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon));
+		Environment env = new MinecraftEnvironment(domain);
 		String actionName = args[0];
 		Action action = domain.getAction(actionName);
 		if(action == null){
@@ -65,7 +67,7 @@ public class CommandTerminalExplore implements ICommand {
 			ga.initParamsWithStringRep(new String[0]);
 			if(action.applicableInState(env.getCurrentObservation(), ga)) {
 				ga.executeIn(env);
-				System.out.println("executed action");
+				System.out.println("executed action " + action.getName());
 			}
 			else{
 				System.out.println(ga.toString() + " is not applicable in the current state; nothing changed");

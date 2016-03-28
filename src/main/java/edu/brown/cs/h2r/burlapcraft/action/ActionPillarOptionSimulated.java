@@ -28,9 +28,9 @@ public class ActionPillarOptionSimulated extends SimpleDeterministicAction {
 		
 		StateGenerator.validate(s);
 //		//get agent and current position
-//		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 //		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
-//		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 //		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
 //		int rotDir = agent.getIntValForAttribute(HelperNameSpace.ATROTDIR);
 //		//get objects and their positions
@@ -48,11 +48,11 @@ public class ActionPillarOptionSimulated extends SimpleDeterministicAction {
 //		
 //		//set the new position
 //		agent.setValue(HelperNameSpace.ATX, newPos.x);
-//		agent.setValue(HelperNameSpace.ATY, newPos.y);
+		agent.setValue(HelperNameSpace.ATY, curY + 1);
 //		agent.setValue(HelperNameSpace.ATZ, newPos.z);
-//		StateGenerator.validate(s);
+		StateGenerator.validate(s);
 //		//return the state we just modified
-		System.out.println("ActionPillarOptionSimulated performActionHelper");
+		System.out.println("\nActionPillarOptionSimulated performActionHelper\n");
 		return s;
 		
 	}

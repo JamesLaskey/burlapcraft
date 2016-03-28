@@ -54,6 +54,7 @@ public class ReadDungeon extends FileDungeon {
 	@Override
 	protected void generate(World world, int x, int y, int z) {
 		// treat the given coordinate as the top left
+		System.out.println("dungeon generated");
 		for (int i = 0; i < getHeight(); i++) {
 			for (int j = 0; j < getLength(); j++) {
 				for (int k = 0; k < getWidth(); k++) {
