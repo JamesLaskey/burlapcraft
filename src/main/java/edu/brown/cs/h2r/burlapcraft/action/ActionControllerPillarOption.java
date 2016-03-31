@@ -24,7 +24,7 @@ public class ActionControllerPillarOption implements ActionController {
 	public int executeAction(GroundedAction ga) {
 		
 		System.out.println("\n*********************************************** Pillar\n");
-		HelperActions.movePitchToTarget(130);
+		HelperActions.faceDown();
 
 		final Timer timer = new Timer();
 		final ArrayList<Integer> iters = new ArrayList<Integer>(1);
@@ -44,10 +44,13 @@ public class ActionControllerPillarOption implements ActionController {
 				iters.set(0, val + 1);
 				if (val > 5) {
 					HelperActions.resetAllInputs();
+					
+					HelperActions.faceAhead();
+					
 					timer.cancel();
 				}
 			}
-		}, 700, 100);
+		}, 700, 400);
 //		for (int i = 0; i < height; i++) {
 //			long lStartTime = System.currentTimeMillis();
 //			float y = HelperActions.getPlayerPosition().y;
@@ -66,10 +69,6 @@ public class ActionControllerPillarOption implements ActionController {
 //			System.out.println("length of jump " + difference);
 //			HelperActions.placeBlock();
 //		}
-		
-		
-		
-		HelperActions.faceAhead();
 		
 		return this.delayMS;
 	}
