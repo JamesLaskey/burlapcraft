@@ -13,11 +13,17 @@ public class ActionControllerPillarOption implements ActionController {
 
 	protected int delayMS;
 	protected Environment environment;
+	protected int numJumps;
 	protected int height = 3;
 	
-	public ActionControllerPillarOption(int delayMS, Environment e) {
+	protected int faceDownDelay = 700;
+	protected int jumpDelay = 400;
+	protected int faceUpDelay = 500;
+	
+	public ActionControllerPillarOption(int delayMS, Environment e, int numJumps) {
 		this.delayMS = delayMS;
 		this.environment = e;
+		this.numJumps = numJumps;
 	}
 	
 	@Override
@@ -42,7 +48,7 @@ public class ActionControllerPillarOption implements ActionController {
 				//}
 				int val = iters.get(0);
 				iters.set(0, val + 1);
-				if (val > 5) {
+				if (val >= numJumps) {
 					HelperActions.resetAllInputs();
 					
 					HelperActions.faceAhead();
@@ -50,7 +56,7 @@ public class ActionControllerPillarOption implements ActionController {
 					timer.cancel();
 				}
 			}
-		}, 700, 400);
+		}, faceDownDelay, jumpDelay);
 //		for (int i = 0; i < height; i++) {
 //			long lStartTime = System.currentTimeMillis();
 //			float y = HelperActions.getPlayerPosition().y;
@@ -70,7 +76,7 @@ public class ActionControllerPillarOption implements ActionController {
 //			HelperActions.placeBlock();
 //		}
 		
-		return this.delayMS;
+		return faceDownDelay + (jumpDelay * numJumps) + faceUpDelay;
 	}
 	
 	@Override
