@@ -17,6 +17,7 @@ import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonFourRooms;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonGrid;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze0;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze1;
+import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomOneDimensionPillar;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonSmallBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTest;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTinyBridge;
@@ -78,12 +79,17 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		playerSpawnPose = Pose.fromXyz(coordinates.posX, 30, coordinates.posZ);
 		int height = 50;
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
-		try {
-			BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
-			BurlapCraft.registerDungeon(new ReadDungeon("pillar.5x10x5.df", testPose));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+		BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(testPose, 10, 10));
+		
+		// @note the reason why it's not making more than one dungeon is because the poses are the same.
+		// One's overwriting the next
+//		try {
+//			BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
+//			BurlapCraft.registerDungeon(new ReadDungeon("pillar.5x10x5.df", testPose));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		for (Dungeon d : BurlapCraft.dungeons) {
 			d.regenerate(world);
