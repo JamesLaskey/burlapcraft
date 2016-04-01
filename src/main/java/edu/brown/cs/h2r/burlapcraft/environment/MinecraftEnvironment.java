@@ -10,6 +10,7 @@ import edu.brown.cs.h2r.burlapcraft.action.ActionControllerChangeYaw;
 import edu.brown.cs.h2r.burlapcraft.action.ActionControllerDestroyBlock;
 import edu.brown.cs.h2r.burlapcraft.action.ActionControllerMoveForward;
 import edu.brown.cs.h2r.burlapcraft.action.ActionControllerPlaceBlock;
+import edu.brown.cs.h2r.burlapcraft.action.ActionControllerPillarOption;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 import burlap.oomdp.auxiliary.common.NullTermination;
@@ -44,6 +45,8 @@ public class MinecraftEnvironment implements Environment {
 		actionControllerMap.put(HelperNameSpace.ACTIONDESTBLOCK, new ActionControllerDestroyBlock(delayMS, this));
 		actionControllerMap.put(HelperNameSpace.ACTIONPLACEBLOCK, new ActionControllerPlaceBlock(delayMS, this));
 		actionControllerMap.put(HelperNameSpace.ACTIONCHANGEITEM, new ActionControllerChangeItem(delayMS, this));
+		actionControllerMap.put(HelperNameSpace.ACTIONPILLAR4, new ActionControllerPillarOption(delayMS, this, 4));
+		actionControllerMap.put(HelperNameSpace.ACTIONJUMPANDPLACE, new ActionControllerPillarOption(delayMS, this, 1));
 	}
 	
 	@Override
@@ -56,6 +59,7 @@ public class MinecraftEnvironment implements Environment {
 		State startState = this.getCurrentObservation();
 		
 		ActionController ac = this.actionControllerMap.get(ga.actionName());
+		System.out.println("executing inside of the environment " + ga.actionName() + " " + ac.toString());
 		int delay = ac.executeAction(ga);
 		if (delay > 0) {
 			try {
