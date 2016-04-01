@@ -114,8 +114,10 @@ public class MinecraftSolver {
 		MinecraftEnvironment me = new MinecraftEnvironment(domain);
 		me.setTerminalFunction(tf);
 		
-		p.evaluateBehavior(me);
-		
+		EpisodeAnalysis analysis = p.evaluateBehavior(me);
+		for (GroundedAction a : analysis.actionSequence) {
+			System.out.println(a);
+		}
 	}
 
 	public static void learn(){
