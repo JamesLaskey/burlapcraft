@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import edu.brown.cs.h2r.burlapcraft.block.BlockBlueRock;
+import edu.brown.cs.h2r.burlapcraft.block.BlockBurlapStone;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -57,7 +59,10 @@ public class ReadDungeon extends FileDungeon {
 		for (int i = 0; i < getHeight(); i++) {
 			for (int j = 0; j < getLength(); j++) {
 				for (int k = 0; k < getWidth(); k++) {
-					world.setBlock(x + k, y - i, z + j, Block.getBlockById(map.get(k, i, j)));
+					int id = map.get(k, i, j);
+					System.out.println(id);
+					Block b = id == -1 ? new BlockBlueRock() : Block.getBlockById(id);
+					world.setBlock(x + k, y - i, z + j, b);
 				}
 			}
 		}
