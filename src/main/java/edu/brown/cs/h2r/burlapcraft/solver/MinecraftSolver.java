@@ -27,6 +27,7 @@ import burlap.oomdp.singleagent.GroundedAction;
 import burlap.oomdp.singleagent.RewardFunction;
 import burlap.oomdp.statehashing.SimpleHashableStateFactory;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
+import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionSimulated;
 import edu.brown.cs.h2r.burlapcraft.domaingenerator.MinecraftDomainGenerator;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
 import edu.brown.cs.h2r.burlapcraft.environment.MinecraftEnvironment;
@@ -98,6 +99,8 @@ public class MinecraftSolver {
 				}
 			};
 			planner = new AStar(domain, rf, gc, new SimpleHashableStateFactory(false), mdistHeuristic);
+			planner.addNonDomainReferencedAction(new ActionPillarParameterizedOptionSimulated(
+					HelperNameSpace.ACTIONPILLAR, domain, map, 2, 10));
 		}
 		else{
 			throw new RuntimeException("Error: planner type is " + planner + "; use 0 for BFS or 1 for A*");
