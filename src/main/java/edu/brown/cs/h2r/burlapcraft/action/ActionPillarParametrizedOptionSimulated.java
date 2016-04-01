@@ -54,7 +54,16 @@ public class ActionPillarParametrizedOptionSimulated extends Option {
 	@Override
 	public double probabilityOfTermination(State s,
 			GroundedAction groundedAction) {
-		return 1;
+		int height = Integer.valueOf(groundedAction.getParametersAsString()[0]);
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		int startY = Integer.valueOf(groundedAction.getParametersAsString()[1]);
+		
+		if (curY >= (startY + height)) {
+			return 1.;
+		} else {
+			return 0.;
+		}
 	}
 
 	@Override
@@ -66,8 +75,8 @@ public class ActionPillarParametrizedOptionSimulated extends Option {
 	@Override
 	public GroundedAction oneStepActionSelection(State s,
 			GroundedAction groundedAction) {
-		// TODO Auto-generated method stub
-		return null;
+		Action jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain);
+		return jumpPlace.getAssociatedGroundedAction();
 	}
 
 	@Override
@@ -79,8 +88,7 @@ public class ActionPillarParametrizedOptionSimulated extends Option {
 
 	@Override
 	public boolean applicableInState(State s, GroundedAction groundedAction) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -123,8 +131,10 @@ public class ActionPillarParametrizedOptionSimulated extends Option {
 	public List<GroundedAction> getAllApplicableGroundedActions(State s) {
 		List<GroundedAction> actions = new ArrayList<GroundedAction>();
 		for (int i = minPillarHeight; i < maxPillarHeight; i++) {
+			ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+			int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
-					new String[]{new Integer(i).toString()});
+					new String[]{new Integer(i).toString(), new Integer(curY).toString()});
 			actions.add(a);
 		}
 		return actions;
