@@ -85,6 +85,13 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 			e.printStackTrace();
 		}
 		
+		try {
+			BurlapCraft.registerDungeon(new ReadDungeon("pillar.20x20x20.df", testPose));
+		} catch (IOException e) {
+			BurlapCraft.registerDungeon(new DungeonTest(testPose));
+			e.printStackTrace();
+		}
+		
 		for (Dungeon d : BurlapCraft.dungeons) {
 			d.regenerate(world);
 		}
