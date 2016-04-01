@@ -32,7 +32,7 @@ public abstract class Dungeon {
 	private final int width;
 	private final int height;
 	
-	private final Pose playerStartOffset;
+	private Pose playerStartOffset;
 	
 	public Dungeon(String _name, Pose _pose, int _length, int _width, int _height, Pose _playerStartOffset) {
 		name = _name;
@@ -61,6 +61,11 @@ public abstract class Dungeon {
 	public Pose getPose() {
 		return pose;
 	}
+	
+	public void setPlayerStartOffset(Pose playerStartOffset) {
+		this.playerStartOffset = playerStartOffset;
+	}
+	
 	public Pose getPlayerStartOffset() {
 		return playerStartOffset;
 	}

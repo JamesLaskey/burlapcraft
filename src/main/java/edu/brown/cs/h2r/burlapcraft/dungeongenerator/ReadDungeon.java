@@ -42,6 +42,10 @@ public class ReadDungeon extends FileDungeon {
 			for (int i = 0; i < line.length; i++) {
 				String token = line[i];
 				if (!token.isEmpty()) {
+					int t = Integer.parseInt(token);
+					if (t == -1) {
+						setPlayerStartOffset(Pose.fromXyz(x, getHeight()-y, z));
+					}
 					map.set(Integer.parseInt(token), x, y, z);
 					x++;
 				}
@@ -61,9 +65,8 @@ public class ReadDungeon extends FileDungeon {
 			for (int j = 0; j < getLength(); j++) {
 				for (int k = 0; k < getWidth(); k++) {
 					int id = map.get(k, i, j);
-					System.out.println(id);
-					Block b = id == -1 ? new BlockBlueRock() : Block.getBlockById(id);
-					world.setBlock(x + k, y - i, z + j, b);
+					Block b = Block.getBlockById(id);
+					world.setBlock(x + k, y + getHeight() - i, z + j, b);
 				}
 			}
 		}

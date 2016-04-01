@@ -44,7 +44,7 @@ public abstract class FileDungeon extends Dungeon {
 				Integer.parseInt(filename.split("\\.")[1].split("x")[2]),
 				Integer.parseInt(filename.split("\\.")[1].split("x")[0]),
 				Integer.parseInt(filename.split("\\.")[1].split("x")[1]),
-				Pose.fromXyz(1, 1, 3));
+				null);
 
 		this.filename = filename;
 		
