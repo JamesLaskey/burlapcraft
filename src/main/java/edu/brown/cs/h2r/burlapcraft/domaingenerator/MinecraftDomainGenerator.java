@@ -8,6 +8,7 @@ import java.util.Set;
 import edu.brown.cs.h2r.burlapcraft.domaingenerator.propositionalfunction.*;
 import net.minecraft.block.Block;
 import net.minecraft.util.RegistryNamespaced;
+import burlap.behavior.singleagent.options.MacroAction;
 import burlap.oomdp.auxiliary.DomainGenerator;
 import burlap.oomdp.core.Attribute;
 import burlap.oomdp.core.Attribute.AttributeType;
@@ -28,8 +29,8 @@ import edu.brown.cs.h2r.burlapcraft.action.ActionChangeItemSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionChangePitchSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionChangeYawSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionDestroyBlockSimulated;
+import edu.brown.cs.h2r.burlapcraft.action.ActionJumpPlaceSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionMoveForwardSimulated;
-import edu.brown.cs.h2r.burlapcraft.action.ActionPillarOptionSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionPlaceBlockSimulated;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
@@ -194,7 +195,15 @@ public class MinecraftDomainGenerator implements DomainGenerator {
 			new ActionChangeItemSimulated(HelperNameSpace.ACTIONCHANGEITEM, domain);
 		}
 
-		new ActionPillarOptionSimulated(HelperNameSpace.ACTIONPILLAR, domain, this.map);
+		int height = 4;
+
+		ArrayList<GroundedAction> seq = new ArrayList<GroundedAction>();
+		for (int i = 0; i < height; i++) {
+			ActionJumpPlaceSimulated jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain);
+			seq.add(jumpPlace.getAssociatedGroundedAction());
+		}
+		domain.addAction(new MacroAction(HelperNameSpace.ACTIONPILLAR4, seq));
+		//new ActionPillarMacroActionSimulated(HelperNameSpace.ACTIONPILLAR4, domain, this.map, height);
 		
 		// Propositional Functions
 		new PFAgentInRoom(HelperNameSpace.PFAGENTINROOM, domain, new String[]{HelperNameSpace.CLASSAGENT, HelperNameSpace.CLASSROOM});

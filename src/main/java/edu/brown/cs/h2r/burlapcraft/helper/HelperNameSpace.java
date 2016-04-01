@@ -45,6 +45,8 @@ public class HelperNameSpace {
 	public static final String							ACTIONDOWNONE = "lookDown";
 	public static final String							ACTIONCHANGEITEM = "changeItem";
 	public static final String 							ACTIONPILLAR = "pillar";
+	public static final String 							ACTIONPILLAR4 = "pillar4";
+	public static final String 							ACTIONJUMPANDPLACE = "jumpAndPlace";
 	
 	//-------------PROPOSITIONAL FUNCTION STRINGS-------------
 	public static final String							PFAGENTINROOM = "agentInRoom";

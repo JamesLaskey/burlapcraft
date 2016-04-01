@@ -26,8 +26,16 @@ public class ActionControllerPillarOption implements ActionController {
 		this.numJumps = numJumps;
 	}
 	
+	public ActionControllerPillarOption(int delayMS, Environment e) {
+		this(delayMS, e, 1);
+	}
+	
 	@Override
 	public int executeAction(GroundedAction ga) {
+		
+		if (ga.isParameterized()) {
+			numJumps = Integer.getInteger(ga.getParametersAsString()[0]);
+		}
 		
 		System.out.println("\n*********************************************** Pillar\n");
 		HelperActions.faceDown();
