@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityEvent;
@@ -30,6 +32,7 @@ public class HandlerEvents {
 			EntityPlayer player = (EntityPlayer) event.entity;
 			if (!player.inventory.hasItem(Items.diamond_pickaxe)) {
 				player.inventory.addItemStackToInventory(new ItemStack(Items.diamond_pickaxe));
+				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
 			}
 		}
 	}
