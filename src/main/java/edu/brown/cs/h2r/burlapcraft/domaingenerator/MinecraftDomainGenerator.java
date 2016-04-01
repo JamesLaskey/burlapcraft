@@ -195,14 +195,14 @@ public class MinecraftDomainGenerator implements DomainGenerator {
 			new ActionChangeItemSimulated(HelperNameSpace.ACTIONCHANGEITEM, domain);
 		}
 
-		int height = 4;
-
-		ArrayList<GroundedAction> seq = new ArrayList<GroundedAction>();
-		for (int i = 0; i < height; i++) {
-			ActionJumpPlaceSimulated jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain);
-			seq.add(jumpPlace.getAssociatedGroundedAction());
-		}
-		domain.addAction(new MacroAction(HelperNameSpace.ACTIONPILLAR4, seq));
+//		int height = 4;
+//
+//		ArrayList<GroundedAction> seq = new ArrayList<GroundedAction>();
+//		for (int i = 0; i < height; i++) {
+//			ActionJumpPlaceSimulated jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain);
+//			seq.add(jumpPlace.getAssociatedGroundedAction());
+//		}
+//		domain.addAction(new MacroAction(HelperNameSpace.ACTIONPILLAR4, seq));
 		//new ActionPillarMacroActionSimulated(HelperNameSpace.ACTIONPILLAR4, domain, this.map, height);
 		
 		// Propositional Functions

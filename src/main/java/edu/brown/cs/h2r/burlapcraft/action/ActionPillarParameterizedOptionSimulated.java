@@ -17,13 +17,13 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperPos;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 
-public class ActionPillarParametrizedOptionSimulated extends Option {
+public class ActionPillarParameterizedOptionSimulated extends Option {
 	
 	private int[][][] map;
 	int minPillarHeight = 0;
 	int maxPillarHeight = 12;
 
-	public ActionPillarParametrizedOptionSimulated(String name, Domain domain, int[][][] map, 
+	public ActionPillarParameterizedOptionSimulated(String name, Domain domain, int[][][] map, 
 			int minPillarHeight, int maxPillarHeight) {
 		super(name, domain);
 		this.map = map;
@@ -31,7 +31,7 @@ public class ActionPillarParametrizedOptionSimulated extends Option {
 		this.maxPillarHeight = maxPillarHeight;
 	}
 	
-	public ActionPillarParametrizedOptionSimulated(String name, Domain domain, int[][][] map) {
+	public ActionPillarParameterizedOptionSimulated(String name, Domain domain, int[][][] map) {
 		super(name, domain);
 		this.map = map;
 	}

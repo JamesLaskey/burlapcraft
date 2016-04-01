@@ -45,7 +45,7 @@ public class MinecraftEnvironment implements Environment {
 		actionControllerMap.put(HelperNameSpace.ACTIONDESTBLOCK, new ActionControllerDestroyBlock(delayMS, this));
 		actionControllerMap.put(HelperNameSpace.ACTIONPLACEBLOCK, new ActionControllerPlaceBlock(delayMS, this));
 		actionControllerMap.put(HelperNameSpace.ACTIONCHANGEITEM, new ActionControllerChangeItem(delayMS, this));
-		actionControllerMap.put(HelperNameSpace.ACTIONPILLAR4, new ActionControllerPillarOption(delayMS, this, 4));
+		//actionControllerMap.put(HelperNameSpace.ACTIONPILLAR4, new ActionControllerPillarOption(delayMS, this, 4));
 		actionControllerMap.put(HelperNameSpace.ACTIONJUMPANDPLACE, new ActionControllerPillarOption(delayMS, this, 1));
 	}
 	
