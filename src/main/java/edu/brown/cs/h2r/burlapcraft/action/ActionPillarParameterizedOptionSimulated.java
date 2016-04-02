@@ -75,7 +75,7 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 	@Override
 	public GroundedAction oneStepActionSelection(State s,
 			GroundedAction groundedAction) {
-		Action jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain);
+		Action jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain, map);
 		return jumpPlace.getAssociatedGroundedAction();
 	}
 
