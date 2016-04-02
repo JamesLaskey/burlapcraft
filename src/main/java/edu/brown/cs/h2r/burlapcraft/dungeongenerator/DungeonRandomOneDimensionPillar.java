@@ -9,8 +9,8 @@ import scala.actors.threadpool.Arrays;
 
 public class DungeonRandomOneDimensionPillar extends Dungeon {
 
-	public DungeonRandomOneDimensionPillar(Pose _pose, int maxLength, int maxHeight) {
-		super("one_d_pillar", _pose, maxLength, maxLength, maxHeight, Pose.fromXyz(2, 1, 1));
+	public DungeonRandomOneDimensionPillar(String name, Pose _pose, int maxLength, int maxHeight) {
+		super(name, _pose, maxLength, maxLength, maxHeight, Pose.fromXyz(2, 1, 1));
 	}
 
 	@Override
