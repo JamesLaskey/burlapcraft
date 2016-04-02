@@ -1,6 +1,8 @@
 package edu.brown.cs.h2r.burlapcraft.handler;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
@@ -78,9 +80,18 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		//playerSpawnPos = getPlayerPosition();
 		playerSpawnPose = Pose.fromXyz(coordinates.posX, 30, coordinates.posZ);
 		int height = 50;
+		List<Pose> poses = new ArrayList<Pose>();
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
 		
-		BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(testPose, 10, 10));
+		int xIncOffset = 40;
+		for (int i = 0; i < 20; i++) {
+			poses.add(Pose.fromXyz(playerSpawnPose.getX() + (i * xIncOffset), 
+					playerSpawnPose.getY() + height, playerSpawnPose.getZ()));
+		}
+		
+		for (Pose pose : poses) {
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(pose, 10, 10));
+		}
 		
 		// @note the reason why it's not making more than one dungeon is because the poses are the same.
 		// One's overwriting the next
