@@ -45,7 +45,7 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 		}
 		
 		//get resulting position
-		HelperPos newPos = this.moveResult(curX, curY, curZ, rotDir, coords);
+		HelperPos newPos = this.moveResult(s, curX, curY, curZ, rotDir, coords);
 		
 		//set the new position
 		agent.setValue(HelperNameSpace.ATX, newPos.x);
@@ -57,7 +57,7 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 		
 	}
 	
-	protected HelperPos moveResult(int curX, int curY, int curZ, int direction, List<HelperPos> coords) {
+	protected HelperPos moveResult(State s, int curX, int curY, int curZ, int direction, List<HelperPos> coords) {
 		
 		//first get change in x and z from direction using 0: south; 1: west; 2: north; 3: east
 		int xdelta = 0;
@@ -81,11 +81,42 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 		int length = this.map[curY].length;
 		int width = this.map[curY][curX].length;
 		
+		//   :(
+		ObjectInstance nearestBlockUnder = null;
+		int nearestBlockUnderY = Integer.MIN_VALUE;
+		boolean blockingBlock = false;
+		List<ObjectInstance> blocks = s.getObjectsOfClass(HelperNameSpace.CLASSBLOCK);
+		for (ObjectInstance block : blocks) {
+			int blockX = block.getIntValForAttribute(HelperNameSpace.ATX);
+			int blockY = block.getIntValForAttribute(HelperNameSpace.ATY);
+			int blockZ = block.getIntValForAttribute(HelperNameSpace.ATZ);
+			
+			if (nx == blockX && nz == blockZ) {
+				//in the column we will walk into
+				if (blockY == curY || blockY == curY + 1) {
+					//would smack head or feet into block
+					blockingBlock = true;
+				}
+				
+				if (blockY <= curY && (nearestBlockUnder == null || blockY > nearestBlockUnderY)) {
+					nearestBlockUnder = block;
+					nearestBlockUnderY = blockY;
+				}
+			}
+		}
+		for (int y = 0; y < map.length; y++) {
+			if (map[y][nx][nz] >= 1 && y <= curY) {
+				nearestBlockUnderY = y;
+			}
+		}
+		int ny = nearestBlockUnderY;
+		
 		//make sure new position is valid (not a wall or off bounds)
-		if(nx < 0 || nx >= length || nz < 0 || nz >= width ||  
+		if(blockingBlock || nx < 0 || nx >= length || nz < 0 || nz >= width ||  
 			map[curY][nx][nz] >= 1 || map[curY + 1][nx][nz] >= 1){
 			nx = curX;
 			nz = curZ;
+			ny = curY;
 		}
 		
 		for(HelperPos coord : coords) {
