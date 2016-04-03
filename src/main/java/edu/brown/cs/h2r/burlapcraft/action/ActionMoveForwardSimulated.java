@@ -104,6 +104,11 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 				}
 			}
 		}
+		
+		if (nx < 0 || nx >= length || nz < 0 || nz >= width ) {
+			return new HelperPos(curX, curY, curZ);
+		}
+		
 		for (int y = 0; y < map.length; y++) {
 			if (map[y][nx][nz] >= 1 && y <= curY) {
 				nearestBlockUnderY = y;
@@ -111,9 +116,10 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 		}
 		int ny = nearestBlockUnderY;
 		
+		
+		
 		//make sure new position is valid (not a wall or off bounds)
-		if(blockingBlock || nx < 0 || nx >= length || nz < 0 || nz >= width ||  
-			map[curY][nx][nz] >= 1 || map[curY + 1][nx][nz] >= 1){
+		if(blockingBlock || map[curY][nx][nz] >= 1 || curY + 1 >= map.length || map[curY + 1][nx][nz] >= 1){
 			nx = curX;
 			nz = curZ;
 			ny = curY;
@@ -126,7 +132,7 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 			}
 		}
 		
-		return new HelperPos(nx, curY, nz);
+		return new HelperPos(nx, ny, nz);
 		
 	}
 	

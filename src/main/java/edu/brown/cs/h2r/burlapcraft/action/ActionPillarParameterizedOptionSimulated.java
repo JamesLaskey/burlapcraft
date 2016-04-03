@@ -58,12 +58,20 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 		int startY = Integer.valueOf(groundedAction.getParametersAsString()[1]);
+		int iters = Integer.valueOf(groundedAction.getParametersAsString()[2]);
 		
-		if (curY >= (startY + height)) {
+		if (iters == height) {
 			return 1.;
 		} else {
+			groundedAction.getParametersAsString()[2] = new Integer(iters + 1).toString();
 			return 0.;
 		}
+		
+//		if (curY >= (startY + height)) {
+//			return 1.;
+//		} else {
+//			return 0.;
+//		}
 	}
 
 	@Override
@@ -129,12 +137,27 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 	
 	@Override
 	public List<GroundedAction> getAllApplicableGroundedActions(State s) {
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		int currentItemID = agent.getIntValForAttribute(HelperNameSpace.ATSELECTEDITEMID);
+		
+		//get inventoryBlocks
+		int numBlocks = 0;
+		List<ObjectInstance> invBlocks = s.getObjectsOfClass(HelperNameSpace.CLASSINVENTORYBLOCK);
+		for (ObjectInstance invBlock : invBlocks) {
+			if (invBlock.getIntValForAttribute(HelperNameSpace.ATBTYPE) == currentItemID) {
+				numBlocks++;
+			}
+		}
+		
 		List<GroundedAction> actions = new ArrayList<GroundedAction>();
-		for (int i = minPillarHeight; i < maxPillarHeight; i++) {
-			ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
 			int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
-					new String[]{new Integer(i).toString(), new Integer(curY).toString()});
+					new String[]{
+						new Integer(i).toString(),  //height of pillar
+						new Integer(curY).toString(), //current height
+						new Integer(0).toString() //number of iterations attempted
+					});
 			actions.add(a);
 		}
 		return actions;

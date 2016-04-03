@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import burlap.oomdp.core.Domain;
 import burlap.oomdp.core.objects.MutableObjectInstance;
 import burlap.oomdp.core.objects.ObjectInstance;
@@ -267,6 +268,63 @@ public class StateGenerator {
 				}
 			}
 		}
+		
+		//total hack cuz I don't know why its not aware of inventory blocks
+		ObjectInstance o = new MutableObjectInstance(
+							domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+							"inventoryBlockCobble");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+					domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+					"inventoryBlockCobble2");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble3");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble4");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble5");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble6");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble7");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
+		
+		o = new MutableObjectInstance(
+				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+				"inventoryBlockCobble8");
+		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+		s.addObject(o);
 
 		s.addObject(agent);
 		validate(s);

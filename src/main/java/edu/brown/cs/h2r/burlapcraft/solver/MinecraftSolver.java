@@ -62,9 +62,9 @@ public class MinecraftSolver {
 
 		MinecraftDomainGenerator simdg = new MinecraftDomainGenerator(map);
 		
-		if (!place) {
-			simdg.setActionWhiteListToNavigationAndDestroy();
-		}
+		//if (!place) {
+		simdg.setActionWhiteListToNavigationAndDestroy();
+		//}
 		
 		Domain domain = simdg.generateDomain();
 
@@ -73,7 +73,8 @@ public class MinecraftSolver {
 		DeterministicPlanner planner = null;
 		if(plannerToUse == 0){
 			planner = new BFS(domain, gc, new SimpleHashableStateFactory(false));
-
+			planner.addNonDomainReferencedAction(new ActionPillarParameterizedOptionSimulated(
+					HelperNameSpace.ACTIONPILLAR, domain, map, 2, 4));
 		}
 		else if(plannerToUse == 1){
 			Heuristic mdistHeuristic = new Heuristic() {

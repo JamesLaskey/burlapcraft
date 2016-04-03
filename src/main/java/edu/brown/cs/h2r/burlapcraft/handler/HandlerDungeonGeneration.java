@@ -81,7 +81,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		playerSpawnPose = Pose.fromXyz(coordinates.posX, 30, coordinates.posZ);
 		int height = 50;
 		List<Pose> poses = new ArrayList<Pose>();
-		Pose testPose = Pose.fromXyz(playerSpawnPose.getX(), playerSpawnPose.getY() + height, playerSpawnPose.getZ());
+		Pose testPose = Pose.fromXyz(playerSpawnPose.getX() - 20, playerSpawnPose.getY() + height, playerSpawnPose.getZ());
 		
 		int xIncOffset = 40;
 		int numDungeons = 20;
@@ -98,12 +98,12 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		
 		// @note the reason why it's not making more than one dungeon is because the poses are the same.
 		// One's overwriting the next
-//		try {
-//			BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
-//			BurlapCraft.registerDungeon(new ReadDungeon("pillar.5x10x5.df", testPose));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			//BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
+			BurlapCraft.registerDungeon(new ReadDungeon("pillar.5x10x5.df", testPose));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		for (Dungeon d : BurlapCraft.dungeons) {
 			d.regenerate(world);

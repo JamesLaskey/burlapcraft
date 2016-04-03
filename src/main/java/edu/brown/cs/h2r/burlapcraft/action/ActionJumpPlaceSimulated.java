@@ -26,22 +26,35 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 	protected State performActionHelper(State s, GroundedAction groundedAction) {
 		StateGenerator.validate(s);
 		//get agent and current position
+		
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
-		
 		int currentItemID = agent.getIntValForAttribute(HelperNameSpace.ATSELECTEDITEMID);
-		
-		if (map[curY + 2][curX][curZ] != -1) {
-			//check if there is headspace
-			StateGenerator.validate(s);
-			return s;
+
+		//get block objects and their positions
+		List<ObjectInstance> blocks = s.getObjectsOfClass(HelperNameSpace.CLASSBLOCK);
+		for (ObjectInstance block : blocks) {
+			int blockX = block.getIntValForAttribute(HelperNameSpace.ATX);
+			int blockY = block.getIntValForAttribute(HelperNameSpace.ATY);
+			int blockZ = block.getIntValForAttribute(HelperNameSpace.ATZ);
+			if ((curY + 2 < map.length && map[curY + 2][curX][curZ] != 0) ||
+					(blockX == curX && blockZ == curZ && blockY == (2 + curY)
+					|| curY + 2 >= map.length)) {
+				//block is above our head
+				StateGenerator.validate(s);
+				System.out.println(s);
+				System.out.println("failing, no headspace ");
+				System.out.println(curY + 2 >= map.length ? "top of map" : map[curY + 2][curX][curZ]);
+				System.out.println(block.getName() + " " + blockX + " " + blockY + " " + blockZ);
+				return s;
+			}
 		}
+		
 
 		//get inventoryBlocks
 		List<ObjectInstance> invBlocks = s.getObjectsOfClass(HelperNameSpace.CLASSINVENTORYBLOCK);
-		
 		for (ObjectInstance invBlock : invBlocks) {
 			if (invBlock.getIntValForAttribute(HelperNameSpace.ATBTYPE) == currentItemID) {
 				return simulatePlaceBlockBelow(s, curX, curY, curZ, invBlock, agent);
@@ -50,40 +63,27 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 
 		StateGenerator.validate(s);
 		//return the state we just modified
-		System.out.println("\nActionJumpPlaceSimulated performActionHelper\n");
 		return s;
 	}
 	
 	private State simulatePlaceBlockBelow(State s, int curX, int curY, int curZ, ObjectInstance invBlock, ObjectInstance agent) {
-		boolean anchorsPresent = false;
-		ObjectInstance replaceBlock = null;
-		if (map[curY - 1][curX][curZ] > 0) {
-			//block below feet
-			anchorsPresent = true;
-		}
+		int blockID = invBlock.getIntValForAttribute(HelperNameSpace.ATBTYPE);
+		System.out.println(s);
+		s.removeObject(invBlock);
+			
+		String blockName = invBlock.getName();
+		ObjectInstance newBlock = new MutableObjectInstance(domain.getObjectClass(HelperNameSpace.CLASSBLOCK), blockName);
+		newBlock.setValue(HelperNameSpace.ATX, curX);
+		newBlock.setValue(HelperNameSpace.ATY, curY);
+		newBlock.setValue(HelperNameSpace.ATZ, curZ);
+		newBlock.setValue(HelperNameSpace.ATBTYPE, blockID);
+		s.addObject(newBlock);
 		
-		if (anchorsPresent) {
-			int blockID = invBlock.getIntValForAttribute(HelperNameSpace.ATBTYPE);
-			
-			Set<String> blockNames = invBlock.getAllRelationalTargets(HelperNameSpace.ATBLOCKNAMES);
-			String blockName = blockNames.iterator().next();
-			if (blockNames.size() == 1) {
-				s.removeObject(invBlock);
-				agent.setValue(HelperNameSpace.ATSELECTEDITEMID, -1);
-			}
-			else {
-				blockNames.remove(blockName);
-			}
-			
-			ObjectInstance newBlock = new MutableObjectInstance(domain.getObjectClass(HelperNameSpace.CLASSBLOCK), blockName);
-			newBlock.setValue(HelperNameSpace.ATX, curX);
-			newBlock.setValue(HelperNameSpace.ATY, curY - 1);
-			newBlock.setValue(HelperNameSpace.ATZ, curZ + 1);
-			newBlock.setValue(HelperNameSpace.ATBTYPE, blockID);
-			s.addObject(newBlock);
-			
-			agent.setValue(HelperNameSpace.ATY, curY + 1);
-		}
+		int prevY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		
+		agent.setValue(HelperNameSpace.ATY, curY + 1);
+		//System.out.println(agent.getIntValForAttribute(HelperNameSpace.ATY) + " " + prevY);
+		System.out.println(s);
 		StateGenerator.validate(s);
 		return s;
 	}
