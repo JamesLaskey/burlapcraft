@@ -81,7 +81,7 @@ public class CommandBFS implements ICommand {
 			Thread bthread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					MinecraftSolver.plan(0, fclosed, fplace);
+					MinecraftSolver.plan(BurlapCraft.currentDungeon, 0, fclosed, fplace);
 				}
 			});
 

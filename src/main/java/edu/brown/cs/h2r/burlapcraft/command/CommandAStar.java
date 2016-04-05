@@ -83,7 +83,7 @@ public class CommandAStar implements ICommand {
 			Thread bthread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					MinecraftSolver.plan(1, fclosed, fplace);
+					MinecraftSolver.plan(BurlapCraft.currentDungeon, 1, fclosed, fplace);
 				}
 			});
 

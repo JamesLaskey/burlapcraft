@@ -117,7 +117,7 @@ public class BurlapCraft {
     	event.registerServerCommand(new CommandReadLanguageData());
         event.registerServerCommand(new CommandWriteLanguageModel());
         event.registerServerCommand(new CommandCurrentPath());
-        
+        event.registerServerCommand(new CommandRunDungeons());
     }
     
     @EventHandler
