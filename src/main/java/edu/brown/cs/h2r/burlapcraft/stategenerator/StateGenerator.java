@@ -124,10 +124,9 @@ public class StateGenerator {
 						}
 					}
 
-					if (HelperActions.blockIsOneOf(block,
-							HelperActions.mineableBlocks)
-							|| HelperActions.blockIsOneOf(block,
-									HelperActions.dangerBlocks)) {
+					if (HelperActions.blockIsOneOf(block, HelperActions.mineableBlocks)
+							|| HelperActions.blockIsOneOf(block, HelperActions.dangerBlocks)
+							|| HelperActions.blockIsOneOf(block, HelperActions.goalBlocks)) {
 						int blockID = HelperActions.getBlockId(
 								dungeonPose.getX() + j, dungeonPose.getY() + i,
 								dungeonPose.getZ() + k);

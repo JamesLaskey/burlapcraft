@@ -44,10 +44,10 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 					|| curY + 2 >= map.length)) {
 				//block is above our head
 				StateGenerator.validate(s);
-				System.out.println(s);
-				System.out.println("failing, no headspace ");
-				System.out.println(curY + 2 >= map.length ? "top of map" : map[curY + 2][curX][curZ]);
-				System.out.println(block.getName() + " " + blockX + " " + blockY + " " + blockZ);
+//				System.out.println(s);
+//				System.out.println("failing, no headspace ");
+//				System.out.println(curY + 2 >= map.length ? "top of map" : map[curY + 2][curX][curZ]);
+//				System.out.println(block.getName() + " " + blockX + " " + blockY + " " + blockZ);
 				return s;
 			}
 		}
@@ -68,7 +68,8 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 	
 	private State simulatePlaceBlockBelow(State s, int curX, int curY, int curZ, ObjectInstance invBlock, ObjectInstance agent) {
 		int blockID = invBlock.getIntValForAttribute(HelperNameSpace.ATBTYPE);
-		System.out.println(s);
+
+		//System.out.println(s);
 		s.removeObject(invBlock);
 			
 		String blockName = invBlock.getName();
@@ -79,11 +80,11 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 		newBlock.setValue(HelperNameSpace.ATBTYPE, blockID);
 		s.addObject(newBlock);
 		
-		int prevY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		//int prevY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 		
 		agent.setValue(HelperNameSpace.ATY, curY + 1);
 		//System.out.println(agent.getIntValForAttribute(HelperNameSpace.ATY) + " " + prevY);
-		System.out.println(s);
+		//System.out.println(s);
 		StateGenerator.validate(s);
 		return s;
 	}

@@ -105,7 +105,7 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 			}
 		}
 		
-		if (nx < 0 || nx >= length || nz < 0 || nz >= width ) {
+		if (nx < 0 || nx >= length || nz < 0 || nz >= width) {
 			return new HelperPos(curX, curY, curZ);
 		}
 		
@@ -114,7 +114,12 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 				nearestBlockUnderY = y;
 			}
 		}
-		int ny = nearestBlockUnderY;
+		
+		if (nearestBlockUnderY == Integer.MIN_VALUE) {
+			// :( if dungeon doesn't have a floor everywhere)
+			return new HelperPos(curX, curY, curZ);
+		}
+		int ny = nearestBlockUnderY + 1;
 		
 		
 		
@@ -129,6 +134,7 @@ public class ActionMoveForwardSimulated extends SimpleDeterministicAction {
 			if (nx == coord.x && (curY == coord.y || curY + 1 == coord.y) && nz == coord.z) {
 				nx = curX;
 				nz = curZ;
+				ny = curY;
 			}
 		}
 		

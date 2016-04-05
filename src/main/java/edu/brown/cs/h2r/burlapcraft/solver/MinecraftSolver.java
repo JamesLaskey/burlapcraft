@@ -172,6 +172,7 @@ public class MinecraftSolver {
 	 */
 	public static HelperGeometry.Pose getGoalPose(State s) {
 		List<ObjectInstance> blocks = s.getObjectsOfClass(HelperNameSpace.CLASSBLOCK);
+		//System.out.println(s);
 		for (ObjectInstance block : blocks) {
 			if (block.getIntValForAttribute(HelperNameSpace.ATBTYPE) == 41) {
 				int goalX = block.getIntValForAttribute(HelperNameSpace.ATX);

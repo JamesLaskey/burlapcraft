@@ -53,12 +53,16 @@ public class ActionDestroyBlockSimulated extends SimpleDeterministicAction {
 			int blockX = block.getIntValForAttribute(HelperNameSpace.ATX);
 			int blockY = block.getIntValForAttribute(HelperNameSpace.ATY);
 			int blockZ = block.getIntValForAttribute(HelperNameSpace.ATZ);
+			int blockID = block.getIntValForAttribute(HelperNameSpace.ATBTYPE);
+			if (blockID == 41) {
+				continue;
+			}
 			if (((blockX == curX) && (blockZ == curZ + 1) && (blockY == curY) && (rotDir == 0) && (vertDir == 1)) 
 					|| ((blockX == curX) && (blockZ == curZ - 1) && (blockY == curY) && (rotDir == 2) && (vertDir == 1))
 					|| ((blockX == curX + 1) && (blockZ == curZ) && (blockY == curY) && (rotDir == 3) && (vertDir == 1)) 
 					|| ((blockX == curX - 1) && (blockZ == curZ) && (blockY == curY) && (rotDir == 1) && (vertDir == 1))) {
 				// get id of the block
-				int blockID = block.getIntValForAttribute(HelperNameSpace.ATBTYPE);
+				
 				// get the blockname
 				String blockName = block.getName();
 				boolean present = false;
