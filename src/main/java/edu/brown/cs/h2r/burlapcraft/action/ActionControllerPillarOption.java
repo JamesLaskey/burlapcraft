@@ -16,9 +16,9 @@ public class ActionControllerPillarOption implements ActionController {
 	protected int numJumps;
 	protected int height = 3;
 	
-	protected int faceDownDelay = 1200;
+	protected int faceDownDelay = 1500;
 	protected int jumpDelay = 400;
-	protected int faceUpDelay = 1200;
+	protected int faceUpDelay = 1500;
 	
 	public ActionControllerPillarOption(int delayMS, Environment e, int numJumps) {
 		this.delayMS = delayMS;

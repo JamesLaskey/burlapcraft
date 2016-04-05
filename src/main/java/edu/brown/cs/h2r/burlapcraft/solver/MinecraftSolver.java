@@ -57,9 +57,9 @@ public class MinecraftSolver {
 	 * @param plannerToUse 0: BFS; 1: A*
 	 * @param closedLoop if true then a closed loop policy will be followed; if false, then open loop.
 	 */
-	public static void plan(int plannerToUse, boolean closedLoop, boolean place){
+	public static void plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place){
 
-		int [][][] map = StateGenerator.getMap(BurlapCraft.currentDungeon);
+		int [][][] map = StateGenerator.getMap(d);
 
 		MinecraftDomainGenerator simdg = new MinecraftDomainGenerator(map);
 		
@@ -69,7 +69,7 @@ public class MinecraftSolver {
 		
 		Domain domain = simdg.generateDomain();
 
-		State initialState = StateGenerator.getCurrentState(domain, BurlapCraft.currentDungeon);
+		State initialState = StateGenerator.getCurrentState(domain, d);
 
 		DeterministicPlanner planner = null;
 		if(plannerToUse == 0){
@@ -106,8 +106,8 @@ public class MinecraftSolver {
 //		planner.setTf(tf);
 
 		Action pillarAction = new ActionPillarParameterizedOptionSimulated(
-				HelperNameSpace.ACTIONPILLAR, domain, map, 8, 9);
-		System.out.println(((ActionPillarParameterizedOptionSimulated) pillarAction).getMinPillarHeight());
+				HelperNameSpace.ACTIONPILLAR, domain, map);
+		//System.out.println(((ActionPillarParameterizedOptionSimulated) pillarAction).getMinPillarHeight());
 		planner.addNonDomainReferencedAction(pillarAction);
 		planner.planFromState(initialState);
 
@@ -130,21 +130,21 @@ public class MinecraftSolver {
 		}
 	}
 
-	public static void learn(){
+	public static void learn(Dungeon d) {
 
-		if(BurlapCraft.currentDungeon != lastDungeon || lastLearningAgent == null){
-			int [][][] map = StateGenerator.getMap(BurlapCraft.currentDungeon);
+		if(d != lastDungeon || lastLearningAgent == null){
+			int [][][] map = StateGenerator.getMap(d);
 			MinecraftDomainGenerator mdg = new MinecraftDomainGenerator(map);
 			mdg.setActionWhiteListToNavigationOnly();
 			
 			lastDomain = mdg.generateDomain();
 			lastLearningAgent = new PotentialShapedRMax(lastDomain, 0.99, new SimpleHashableStateFactory(false), 0, 1, 0.01, 200);
-			lastDungeon = BurlapCraft.currentDungeon;
+			lastDungeon = d;
 			
 			System.out.println("Starting new RMax");
 		}
 
-		State initialState = StateGenerator.getCurrentState(lastDomain, BurlapCraft.currentDungeon);
+		State initialState = StateGenerator.getCurrentState(lastDomain, d);
 		MinecraftEnvironment me = new MinecraftEnvironment(lastDomain);
 		me.setRewardFunction(rf);
 		me.setTerminalFunction(tf);

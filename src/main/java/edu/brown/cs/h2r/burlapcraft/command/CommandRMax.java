@@ -60,7 +60,7 @@ public class CommandRMax implements ICommand {
 			Thread btread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					MinecraftSolver.learn();
+					MinecraftSolver.learn(BurlapCraft.currentDungeon);
 				}
 			});
 			btread.start();
