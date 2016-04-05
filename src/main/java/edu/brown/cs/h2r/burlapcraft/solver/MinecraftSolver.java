@@ -1,6 +1,7 @@
 package edu.brown.cs.h2r.burlapcraft.solver;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import burlap.oomdp.singleagent.Action;
@@ -73,8 +74,6 @@ public class MinecraftSolver {
 		DeterministicPlanner planner = null;
 		if(plannerToUse == 0){
 			planner = new BFS(domain, gc, new SimpleHashableStateFactory(false));
-			planner.addNonDomainReferencedAction(new ActionPillarParameterizedOptionSimulated(
-					HelperNameSpace.ACTIONPILLAR, domain, map, 2, 4));
 		}
 		else if(plannerToUse == 1){
 			Heuristic mdistHeuristic = new Heuristic() {
@@ -100,14 +99,16 @@ public class MinecraftSolver {
 				}
 			};
 			planner = new AStar(domain, rf, gc, new SimpleHashableStateFactory(false), mdistHeuristic);
-			planner.addNonDomainReferencedAction(new ActionPillarParameterizedOptionSimulated(
-					HelperNameSpace.ACTIONPILLAR, domain, map, 2, 10));
 		}
 		else{
 			throw new RuntimeException("Error: planner type is " + planner + "; use 0 for BFS or 1 for A*");
 		}
 //		planner.setTf(tf);
-		
+
+		Action pillarAction = new ActionPillarParameterizedOptionSimulated(
+				HelperNameSpace.ACTIONPILLAR, domain, map, 8, 9);
+		System.out.println(((ActionPillarParameterizedOptionSimulated) pillarAction).getMinPillarHeight());
+		planner.addNonDomainReferencedAction(pillarAction);
 		planner.planFromState(initialState);
 
 		Policy p = closedLoop ? new DDPlannerPolicy(planner) : new SDPlannerPolicy(planner);
@@ -116,8 +117,16 @@ public class MinecraftSolver {
 		me.setTerminalFunction(tf);
 		
 		EpisodeAnalysis analysis = p.evaluateBehavior(me);
+		List<State> states = analysis.stateSequence;
+		Iterator<State> stateIter = states.iterator();
 		for (GroundedAction a : analysis.actionSequence) {
 			System.out.println(a);
+			System.out.println(a.action.getName());
+			if (a.actionName().equals(HelperNameSpace.ACTIONPILLAR)) {
+				System.out.println(stateIter.next());
+			} else {
+				stateIter.next();
+			}
 		}
 	}
 
