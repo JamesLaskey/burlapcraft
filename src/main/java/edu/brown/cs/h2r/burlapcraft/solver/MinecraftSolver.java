@@ -1,5 +1,6 @@
 package edu.brown.cs.h2r.burlapcraft.solver;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,13 +29,16 @@ import burlap.oomdp.singleagent.GroundedAction;
 import burlap.oomdp.singleagent.RewardFunction;
 import burlap.oomdp.statehashing.SimpleHashableStateFactory;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
+import edu.brown.cs.h2r.burlapcraft.action.ActionChangeItemSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionSimulated;
 import edu.brown.cs.h2r.burlapcraft.domaingenerator.MinecraftDomainGenerator;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
+import edu.brown.cs.h2r.burlapcraft.dungeongenerator.ReadDungeon;
 import edu.brown.cs.h2r.burlapcraft.environment.MinecraftEnvironment;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
+import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 
 /**
@@ -105,8 +109,19 @@ public class MinecraftSolver {
 		}
 //		planner.setTf(tf);
 
-		Action pillarAction = new ActionPillarParameterizedOptionSimulated(
-				HelperNameSpace.ACTIONPILLAR, domain, map);
+		ActionPillarParameterizedOptionSimulated pillarAction = new ActionPillarParameterizedOptionSimulated(
+				HelperNameSpace.ACTIONPILLAR, domain, map, 6,9);
+//		pillarAction.setExernalTermination(null);
+		
+//		State selectedBlockState = initialState.copy();
+//		ObjectInstance agent = selectedBlockState.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+//		agent.setValue(HelperNameSpace.ATSELECTEDITEMID, 4);
+//		System.out.println(selectedBlockState);
+//		for (GroundedAction a : pillarAction.getAllApplicableGroundedActions(selectedBlockState)) {
+//			State resultState = pillarAction.performAction(selectedBlockState, a);
+//			System.out.println(resultState);
+//		}
+		
 		//System.out.println(((ActionPillarParameterizedOptionSimulated) pillarAction).getMinPillarHeight());
 		planner.addNonDomainReferencedAction(pillarAction);
 		planner.planFromState(initialState);

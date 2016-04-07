@@ -269,62 +269,15 @@ public class StateGenerator {
 		}
 		
 		//total hack cuz I don't know why its not aware of inventory blocks
-		ObjectInstance o = new MutableObjectInstance(
-							domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-							"inventoryBlockCobble");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
+		for (int i = 0; i < 30; i++) {
+			ObjectInstance o = new MutableObjectInstance(
+								domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
+								"inventoryBlockCobble" + i);
+			o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
+			o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
+			s.addObject(o);
+		}
 		
-		o = new MutableObjectInstance(
-					domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-					"inventoryBlockCobble2");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble3");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble4");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble5");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble6");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble7");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-		
-		o = new MutableObjectInstance(
-				domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
-				"inventoryBlockCobble8");
-		o.setValue(HelperNameSpace.ATBTYPE, 4); //4 is cobblestone id
-		o.addRelationalTarget(HelperNameSpace.ATBLOCKNAMES, "cobble");
-		s.addObject(o);
-
 		s.addObject(agent);
 		validate(s);
 		return s;

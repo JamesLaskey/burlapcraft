@@ -20,8 +20,8 @@ import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 public class ActionPillarParameterizedOptionSimulated extends Option {
 	
 	private int[][][] map;
-	int minPillarHeight = 0;
-	int maxPillarHeight = 12;
+	private int minPillarHeight = 1;
+	private int maxPillarHeight = 12;
 
 	public ActionPillarParameterizedOptionSimulated(String name, Domain domain, int[][][] map, 
 			int minPillarHeight, int maxPillarHeight) {
@@ -59,8 +59,9 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 		int startY = Integer.valueOf(groundedAction.getParametersAsString()[1]);
 		int iters = Integer.valueOf(groundedAction.getParametersAsString()[2]);
-		
+
 		if (iters == height) {
+			groundedAction.getParametersAsString()[2] = new Integer(0).toString();
 			return 1.;
 		} else {
 			groundedAction.getParametersAsString()[2] = new Integer(iters + 1).toString();
@@ -150,8 +151,8 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		}
 		
 		List<GroundedAction> actions = new ArrayList<GroundedAction>();
+		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 		for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
-			int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
 					new String[]{
 						new Integer(i).toString(),  //height of pillar
@@ -163,5 +164,8 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		return actions;
 	}
 
+	public int getMinPillarHeight() {
+		return minPillarHeight;
+	}
 }
 
