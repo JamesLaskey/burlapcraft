@@ -17,23 +17,16 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperPos;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 
-public class ActionPillarParameterizedOptionSimulated extends Option {
+public class ActionRedstoneParameterizedOptionSimulated extends Option {
 	
 	private int[][][] map;
-	private int minPillarHeight = 1;
-	private int maxPillarHeight = 12;
-
-	public ActionPillarParameterizedOptionSimulated(String name, Domain domain, int[][][] map, 
-			int minPillarHeight, int maxPillarHeight) {
-		super(name, domain);
-		this.map = map;
-		this.minPillarHeight = minPillarHeight;
-		this.maxPillarHeight = maxPillarHeight;
-	}
+	private int searchRadius = 1;
 	
-	public ActionPillarParameterizedOptionSimulated(String name, Domain domain, int[][][] map) {
+	public ActionRedstoneParameterizedOptionSimulated(String name, Domain domain, int[][][] map, 
+			int searchRadius) {
 		super(name, domain);
 		this.map = map;
+		this.searchRadius = searchRadius;
 	}
 
 	@Override
@@ -67,12 +60,6 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 			groundedAction.getParametersAsString()[2] = new Integer(iters + 1).toString();
 			return 0.;
 		}
-		
-//		if (curY >= (startY + height)) {
-//			return 1.;
-//		} else {
-//			return 0.;
-//		}
 	}
 
 	@Override
@@ -142,9 +129,9 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 		int currentItemID = agent.getIntValForAttribute(HelperNameSpace.ATSELECTEDITEMID);
-//		if (currentItemID != 4) { //cobblestone ID = 331
-//			return actions;
-//		}
+		if (currentItemID != 331) { //redstone ID = 331
+			return actions;
+		}
 		//get inventoryBlocks
 		int numBlocks = 0;
 		List<ObjectInstance> invBlocks = s.getObjectsOfClass(HelperNameSpace.CLASSINVENTORYBLOCK);
@@ -154,21 +141,29 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 			}
 		}
 		
-		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
-		for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
-			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
-					new String[]{
-						new Integer(i).toString(),  //height of pillar
-						new Integer(curY).toString(), //current height
-						new Integer(0).toString() //number of iterations attempted
-					});
-			actions.add(a);
+		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
+		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+		int width = Math.min(map[0].length, curX + searchRadius);
+		int length = Math.min(map[0][0].length, curZ + searchRadius);
+		for (int i = Math.max(0, curX - searchRadius); i < width; i++) {
+			for (int j = Math.max(0, curZ - searchRadius); j < length; j++) {
+				if (numBlocks < (Math.abs(curX - i) + Math.abs(curZ - j))) {
+					//not enough redstone to complete to the selected target block
+					continue;
+				}
+				GroundedAction a = new SimpleParameterizedGroundedAction(this, 
+						new String[]{
+							new Integer(i).toString(),  //x spot to redstone to
+							new Integer(j).toString(), //z spot to redstone to
+							new Integer(curX).toString(), //starting X
+							new Integer(curZ).toString(), //starting Z
+							new Integer(numBlocks).toString(), //starting amount of redstone
+							new Integer(0).toString() //number of iterations attempted
+						});
+				actions.add(a);
+			}
 		}
 		return actions;
-	}
-
-	public int getMinPillarHeight() {
-		return minPillarHeight;
 	}
 }
 

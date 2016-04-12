@@ -42,13 +42,10 @@ public class CommandBFS implements ICommand {
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void processCommand(ICommandSender sender, final String[] args) {
 		World world = sender.getEntityWorld();
 		if (!world.isRemote) {
-			if (args.length > 2) {
-				sender.addChatMessage(new ChatComponentText("This command takes only 2 optional arguments: closed or open as the first, and all or noplace as the second."));
-				return;
-			}
+			
 			
 			Dungeon dungeon = BurlapCraft.currentDungeon;
 			
@@ -81,7 +78,7 @@ public class CommandBFS implements ICommand {
 			Thread bthread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					MinecraftSolver.plan(BurlapCraft.currentDungeon, 0, fclosed, fplace);
+					MinecraftSolver.plan(BurlapCraft.currentDungeon, 0, fclosed, fplace, args);
 				}
 			});
 

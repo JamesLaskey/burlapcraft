@@ -47,7 +47,7 @@ public class DungeonRandomOneDimensionPillar extends Dungeon {
 			}
 		}
 		// set goal block as topmost, farthest part of dungeon
-		world.setBlock(x + l, y + h, z + 1, Block.getBlockById(41));
+		world.setBlock(x + l, y + h - 2, z + 1, Block.getBlockById(41));
 	}
 	
 	

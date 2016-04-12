@@ -39,9 +39,9 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 			int blockX = block.getIntValForAttribute(HelperNameSpace.ATX);
 			int blockY = block.getIntValForAttribute(HelperNameSpace.ATY);
 			int blockZ = block.getIntValForAttribute(HelperNameSpace.ATZ);
-			if ((curY + 2 < map.length && map[curY + 2][curX][curZ] != 0) ||
+			if ((curY + 3 < map.length && map[curY + 2][curX][curZ] != 0) ||
 					(blockX == curX && blockZ == curZ && blockY == (2 + curY)
-					|| curY + 2 >= map.length)) {
+					|| curY + 3 >= map.length)) {
 				//block is above our head
 				StateGenerator.validate(s);
 //				System.out.println(s);

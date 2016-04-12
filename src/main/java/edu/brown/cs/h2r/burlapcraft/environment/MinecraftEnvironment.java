@@ -59,7 +59,7 @@ public class MinecraftEnvironment implements Environment {
 		State startState = this.getCurrentObservation();
 		
 		ActionController ac = this.actionControllerMap.get(ga.actionName());
-		System.out.println("executing inside of the environment " + ga.actionName() + " " + ac.toString());
+		//System.out.println("executing inside of the environment " + ga.actionName() + " " + ac.toString());
 		int delay = ac.executeAction(ga);
 		if (delay > 0) {
 			try {

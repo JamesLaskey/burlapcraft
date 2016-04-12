@@ -19,6 +19,8 @@ import burlap.behavior.singleagent.planning.deterministic.informed.Heuristic;
 import burlap.behavior.singleagent.planning.deterministic.informed.NullHeuristic;
 import burlap.behavior.singleagent.planning.deterministic.informed.astar.AStar;
 import burlap.behavior.singleagent.planning.deterministic.uninformed.bfs.BFS;
+import burlap.behavior.singleagent.planning.stochastic.sparsesampling.SparseSampling;
+import burlap.behavior.singleagent.pomdp.wrappedmdpalgs.BeliefSparseSampling;
 import burlap.debugtools.MyTimer;
 import burlap.oomdp.auxiliary.DomainGenerator;
 import burlap.oomdp.core.Domain;
@@ -61,12 +63,12 @@ public class MinecraftSolver {
 	 * @param plannerToUse 0: BFS; 1: A*
 	 * @param closedLoop if true then a closed loop policy will be followed; if false, then open loop.
 	 */
-	public static void plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place){
+	public static void plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place, String[] params){
 
 		int [][][] map = StateGenerator.getMap(d);
 
 		MinecraftDomainGenerator simdg = new MinecraftDomainGenerator(map);
-		
+
 		//if (!place) {
 		simdg.setActionWhiteListToNavigationAndDestroy();
 		//}
@@ -108,9 +110,20 @@ public class MinecraftSolver {
 			throw new RuntimeException("Error: planner type is " + planner + "; use 0 for BFS or 1 for A*");
 		}
 //		planner.setTf(tf);
-
+		int minHeight = 0;
+		int maxHeight = 15;
+		if (params.length >= 2) {
+			try {
+				minHeight = Integer.valueOf(params[0]);
+				System.out.println("Pillar minHeight param " + minHeight);
+				maxHeight = Integer.valueOf(params[1]);
+				System.out.println("Pillar maxHeight param " + maxHeight);
+			} catch (NumberFormatException e) {
+				System.out.println("invalid params arguments, need two integers for minPillar and MaxPillar");
+			}
+		}
 		ActionPillarParameterizedOptionSimulated pillarAction = new ActionPillarParameterizedOptionSimulated(
-				HelperNameSpace.ACTIONPILLAR, domain, map, 6,9);
+				HelperNameSpace.ACTIONPILLAR, domain, map, minHeight, maxHeight);
 //		pillarAction.setExernalTermination(null);
 		
 //		State selectedBlockState = initialState.copy();
@@ -131,16 +144,18 @@ public class MinecraftSolver {
 		MinecraftEnvironment me = new MinecraftEnvironment(domain);
 		me.setTerminalFunction(tf);
 		
-		EpisodeAnalysis analysis = p.evaluateBehavior(me);
-		List<State> states = analysis.stateSequence;
-		Iterator<State> stateIter = states.iterator();
-		for (GroundedAction a : analysis.actionSequence) {
-			System.out.println(a);
-			System.out.println(a.action.getName());
-			if (a.actionName().equals(HelperNameSpace.ACTIONPILLAR)) {
-				System.out.println(stateIter.next());
-			} else {
-				stateIter.next();
+		if (params.length >=3 && params[2].equals("run")) {
+			EpisodeAnalysis analysis = p.evaluateBehavior(me);
+			List<State> states = analysis.stateSequence;
+			Iterator<State> stateIter = states.iterator();
+			for (GroundedAction a : analysis.actionSequence) {
+				System.out.println(a);
+				System.out.println(a.action.getName());
+				if (a.actionName().equals(HelperNameSpace.ACTIONPILLAR)) {
+					System.out.println(stateIter.next());
+				} else {
+					stateIter.next();
+				}
 			}
 		}
 	}

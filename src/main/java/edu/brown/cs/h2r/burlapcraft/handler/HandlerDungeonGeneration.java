@@ -93,7 +93,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int n = 0;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, 10, 10));
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, (n * 2) + 4, n > 10 ? 40 : 15));
 		}
 		
 		// @note the reason why it's not making more than one dungeon is because the poses are the same.

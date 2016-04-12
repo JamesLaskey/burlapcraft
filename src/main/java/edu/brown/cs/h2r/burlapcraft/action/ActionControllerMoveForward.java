@@ -19,7 +19,7 @@ public class ActionControllerMoveForward implements ActionController {
 	@Override
 	public int executeAction(GroundedAction ga) {
 		
-		System.out.println("Move Forward");
+		//System.out.println("Move Forward");
 		HelperActions.moveForward(false);
 		
 		return this.delayMS;

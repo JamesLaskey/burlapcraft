@@ -46,7 +46,7 @@ public class CommandRunDungeons implements ICommand {
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void processCommand(ICommandSender sender, final String[] args) {
 		World world = sender.getEntityWorld();
 		if (!world.isRemote) {
 			if (args.length > 0) {
@@ -78,7 +78,7 @@ public class CommandRunDungeons implements ICommand {
 						HelperActions.setPlayerPosition(player, playerPose);
 
 						BurlapCraft.currentDungeon = d;
-						MinecraftSolver.plan(d, PLANNER, true, true);
+						MinecraftSolver.plan(d, PLANNER, true, true, args);
 						//break;
 					}
 				}

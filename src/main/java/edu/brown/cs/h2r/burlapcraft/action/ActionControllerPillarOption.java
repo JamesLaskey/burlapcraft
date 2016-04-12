@@ -37,7 +37,7 @@ public class ActionControllerPillarOption implements ActionController {
 			numJumps = Integer.getInteger(ga.getParametersAsString()[0]);
 		}
 		
-		System.out.println("\n*********************************************** Pillar\n");
+		//System.out.println("\n*********************************************** Pillar\n");
 		HelperActions.faceDown();
 
 		final Timer timer = new Timer();

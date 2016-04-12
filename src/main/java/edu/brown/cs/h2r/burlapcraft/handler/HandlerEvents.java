@@ -33,6 +33,10 @@ public class HandlerEvents {
 			if (!player.inventory.hasItem(Items.diamond_pickaxe)) {
 				player.inventory.addItemStackToInventory(new ItemStack(Items.diamond_pickaxe));
 				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
+				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
+				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
+				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
+				player.inventory.addItemStackToInventory(new ItemStack(Blocks.cobblestone, 64));
 			}
 		}
 	}

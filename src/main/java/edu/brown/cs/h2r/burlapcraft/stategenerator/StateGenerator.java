@@ -226,8 +226,8 @@ public class StateGenerator {
 		int rotateDirection = HelperActions.getYawDirection();
 		int rotateVertDirection = HelperActions.getPitchDirection();
 		int selectedItemID = HelperActions.getCurrentItemID();
-		System.out.println("Player position: " + curPos);
-		System.out.println("Dungeon: " + dungeonPose);
+		//System.out.println("Player position: " + curPos);
+		//System.out.println("Dungeon: " + dungeonPose);
 		ObjectInstance agent = new MutableObjectInstance(
 				domain.getObjectClass(HelperNameSpace.CLASSAGENT), "agent0");
 		agent.setValue(HelperNameSpace.ATX, curPos.x - dungeonPose.getX());
@@ -269,7 +269,7 @@ public class StateGenerator {
 		}
 		
 		//total hack cuz I don't know why its not aware of inventory blocks
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 50; i++) {
 			ObjectInstance o = new MutableObjectInstance(
 								domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
 								"inventoryBlockCobble" + i);

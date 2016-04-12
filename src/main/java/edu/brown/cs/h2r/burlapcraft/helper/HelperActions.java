@@ -369,7 +369,7 @@ public class HelperActions {
 			@Override
 			public void run() {
 				if (player.rotationPitch == pitchTarget) {
-					System.out.println("movePitchToTarget: target reached.");
+					//System.out.println("movePitchToTarget: target reached.");
 					timer.cancel();
 				} else if (Math.abs(pitchTarget - player.rotationPitch) > snapThresh) {
 					double update = (pitchTarget - player.rotationPitch)
