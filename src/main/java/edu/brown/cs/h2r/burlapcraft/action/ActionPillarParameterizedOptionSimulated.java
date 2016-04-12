@@ -85,7 +85,9 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 	public GroundedAction oneStepActionSelection(State s,
 			GroundedAction groundedAction) {
 		Action jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain, map);
-		return jumpPlace.getAssociatedGroundedAction();
+		GroundedAction a = jumpPlace.getAssociatedGroundedAction();
+		a.getParametersAsString()[0] = groundedAction.getParametersAsString()[2];
+		return a;
 	}
 
 	@Override
@@ -136,13 +138,59 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		}
 	}
 	
+	private GroundedAction getHeuristicBestAction(State s) {
+		int heuristicHeight = 0;
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
+		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+		int rotDir = agent.getIntValForAttribute(HelperNameSpace.ATROTDIR);
+		
+		int xdelta = 0;
+		int zdelta = 0;
+		if(rotDir == 0){
+			zdelta = 1;
+		}
+		else if(rotDir == 1){
+			xdelta = -1;
+		}
+		else if(rotDir == 2){
+			zdelta = -1;
+		}
+		else{
+			xdelta = 1;
+		}
+		
+		int nx = curX + xdelta;
+		int nz = curZ + zdelta;
+		
+		if (nx < 0 || nx > map[0].length || nz < 0 || nz > map[0][0].length) {
+			nx = curX;
+			nz = curZ;
+		}
+		
+		for (int i = curY; i < map.length; i++) {
+			if (map[i][nx][nz] >= 1) {
+				heuristicHeight = i;
+			}
+		}
+		
+		GroundedAction a = new SimpleParameterizedGroundedAction(this, 
+				new String[]{
+					new Integer(heuristicHeight).toString(),  //height of pillar
+					new Integer(curY).toString(), //current height
+					new Integer(0).toString() //number of iterations attempted
+				});
+		return a;
+	}
+	
 	@Override
 	public List<GroundedAction> getAllApplicableGroundedActions(State s) {
 		List<GroundedAction> actions = new ArrayList<GroundedAction>();
 		
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 		int currentItemID = agent.getIntValForAttribute(HelperNameSpace.ATSELECTEDITEMID);
-//		if (currentItemID != 4) { //cobblestone ID = 331
+//		if (currentItemID != 4) { //cobblestone ID = 4
 //			return actions;
 //		}
 		//get inventoryBlocks
@@ -164,6 +212,8 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 					});
 			actions.add(a);
 		}
+		
+		//actions.add(getHeuristicBestAction(s));
 		return actions;
 	}
 

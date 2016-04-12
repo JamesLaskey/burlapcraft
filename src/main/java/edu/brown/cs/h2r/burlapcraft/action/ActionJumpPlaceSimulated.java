@@ -12,6 +12,7 @@ import burlap.oomdp.core.objects.MutableObjectInstance;
 import burlap.oomdp.core.objects.ObjectInstance;
 import burlap.oomdp.core.states.State;
 import burlap.oomdp.singleagent.GroundedAction;
+import burlap.oomdp.singleagent.common.SimpleGroundedAction;
 import burlap.oomdp.singleagent.common.SimpleAction.SimpleDeterministicAction;
 
 public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
@@ -22,6 +23,11 @@ public class ActionJumpPlaceSimulated extends SimpleDeterministicAction {
 		this.map= map;
 	}
 
+	@Override
+	public GroundedAction getAssociatedGroundedAction() {
+		return new ActionPillarParameterizedOptionSimulated.SimpleParameterizedGroundedAction(this, new String[] {"0"});
+	}
+	
 	@Override
 	protected State performActionHelper(State s, GroundedAction groundedAction) {
 		StateGenerator.validate(s);

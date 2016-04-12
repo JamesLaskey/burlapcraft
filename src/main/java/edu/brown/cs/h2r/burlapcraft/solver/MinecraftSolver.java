@@ -198,6 +198,12 @@ public class MinecraftSolver {
 			int ax = agent.getIntValForAttribute(HelperNameSpace.ATX);
 			int ay = agent.getIntValForAttribute(HelperNameSpace.ATY);
 			int az = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+			String[] params = a.getParametersAsString();
+			if (params != null && params.length == 1) {
+				if (Integer.valueOf(params[0]) > 0) {
+					return 0.;
+				}
+			}
 
 			return -1.0;
 		}
