@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import weka.classifiers.bayes.NaiveBayesMultinomial;
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.SparseInstance;
 import burlap.oomdp.singleagent.Action;
 import net.minecraft.block.Block;
 import burlap.behavior.singleagent.EpisodeAnalysis;
@@ -160,6 +166,78 @@ public class MinecraftSolver {
 		}
 	}
 
+	private static Instance getInstanceFromData(int[][][] map, State s, int pillarHeight, int featLength,
+			FastVector attrs) {
+		SparseInstance instance = new SparseInstance(featLength);
+		
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
+		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+		int rotDir = agent.getIntValForAttribute(HelperNameSpace.ATROTDIR);
+		
+		instance.setValue((Attribute) attrs.elementAt(0), curY);
+		for (int y = 0; y < map.length; y++) {
+			if(rotDir == 0){
+				instance.setValue((Attribute) attrs.elementAt(1 + (y * 9)), map[y][curX][curZ]);
+				instance.setValue((Attribute) attrs.elementAt(2 + (y * 9)), map[y][curX][curZ+1]);
+				instance.setValue((Attribute) attrs.elementAt(3 + (y * 9)), map[y][curX+1][curZ+1]);
+				instance.setValue((Attribute) attrs.elementAt(4 + (y * 9)), map[y][curX+1][curZ]);
+				instance.setValue((Attribute) attrs.elementAt(5 + (y * 9)), map[y][curX+1][curZ-1]);
+				instance.setValue((Attribute) attrs.elementAt(6 + (y * 9)), map[y][curX][curZ-1]);
+				instance.setValue((Attribute) attrs.elementAt(7 + (y * 9)), map[y][curX-1][curZ-1]);
+				instance.setValue((Attribute) attrs.elementAt(8 + (y * 9)), map[y][curX-1][curZ]);
+				instance.setValue((Attribute) attrs.elementAt(9 + (y * 9)), map[y][curX-1][curZ+1]);
+			}
+			else if(rotDir == 1){
+			}
+			else if(rotDir == 2){
+			}
+			else{
+			}
+		}
+		
+		return null;
+	}
+	
+	public static void classifierTrain(int[][][] map, List<State> stateSeq, List<Integer> pillarHeights,
+			int maxPillarHeight, int dungeonHeight) {
+		FastVector attrs = new FastVector();
+		
+		int numFeats = 3 * 3 * dungeonHeight + 1; //3 by 3 by dungeonheight patch of the map
+		for (int i = 0; i < numFeats; i++) { 
+			Attribute attr = new Attribute(i + "Numeric");
+			attrs.addElement(attr);
+		}
+		
+		FastVector classTypes = new FastVector();
+		for (int i = 1; i < maxPillarHeight; i++) {
+			classTypes.addElement(i);
+		}
+		Attribute classAttribute = new Attribute("theClass", classTypes);
+		attrs.addElement(classAttribute);
+		
+		int dataSetSize = stateSeq.size();
+		Instances instances = new Instances("TrainingData", attrs, dataSetSize);
+		instances.setClassIndex(numFeats);
+		
+		Iterator<State> stateIter = stateSeq.iterator();
+		Iterator<Integer> heightIter = pillarHeights.iterator();
+
+		for (int i = 0; i < dataSetSize; i++) {
+			instances.add(getInstanceFromData(map, stateIter.next(), heightIter.next(), numFeats, attrs));
+		}
+		
+		NaiveBayesMultinomial classifier = new NaiveBayesMultinomial();
+		try {
+			classifier.buildClassifier(instances);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 	public static void learn(Dungeon d) {
 
 		if(d != lastDungeon || lastLearningAgent == null){
@@ -193,6 +271,28 @@ public class MinecraftSolver {
 		@Override
 		public double reward(State s, GroundedAction a, State sprime) {
 
+			//get location of agent in next state
+			ObjectInstance agent = sprime.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+			int ax = agent.getIntValForAttribute(HelperNameSpace.ATX);
+			int ay = agent.getIntValForAttribute(HelperNameSpace.ATY);
+			int az = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+			String[] params = a.getParametersAsString();
+			if (params != null && params.length == 1) {
+				if (Integer.valueOf(params[0]) > 0) {
+					return 0.;
+				}
+			}
+
+			return -1.0;
+		}
+	}
+	
+	
+	
+	public static class WalkWallsRF implements RewardFunction {
+
+		@Override
+		public double reward(State s, GroundedAction a, State sprime) {
 			//get location of agent in next state
 			ObjectInstance agent = sprime.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 			int ax = agent.getIntValForAttribute(HelperNameSpace.ATX);
