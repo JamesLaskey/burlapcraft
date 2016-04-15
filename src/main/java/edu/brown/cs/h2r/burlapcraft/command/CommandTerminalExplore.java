@@ -94,5 +94,4 @@ public class CommandTerminalExplore implements ICommand {
 	public boolean isUsernameIndex(String[] p_82358_1_, int p_82358_2_) {
 		return false;
 	}
-	
 }

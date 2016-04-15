@@ -15,10 +15,12 @@ import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 public class CommandAStar implements ICommand {
 	
 	private final List aliases;
+	private List<Thread> threads;
 	
-	public CommandAStar() {
+	public CommandAStar(List<Thread> threads) {
 		aliases = new ArrayList();
 		aliases.add("astar");
+		this.threads = threads;
 	}
 
 	@Override
@@ -76,17 +78,15 @@ public class CommandAStar implements ICommand {
 
 			final boolean fclosed = closed;
 			final boolean fplace = place;
-
+			
 			Thread bthread = new Thread(new Runnable() {
 				@Override
 				public void run() {
 					MinecraftSolver.plan(BurlapCraft.currentDungeon, 1, fclosed, fplace, args);
 				}
 			});
-
+			threads.add(bthread);
 			bthread.start();
-
-
 		}
 	}
 

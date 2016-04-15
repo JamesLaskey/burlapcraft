@@ -20,6 +20,8 @@ public class CommandRunDungeons implements ICommand {
 	
 	private final List aliases;
 	
+	private Thread bthread;
+	
 	public CommandRunDungeons() {
 		aliases = new ArrayList();
 		aliases.add("runDungeons");
@@ -85,8 +87,6 @@ public class CommandRunDungeons implements ICommand {
 			});
 
 			bthread.start();
-			
-			
 		}
 
 	}

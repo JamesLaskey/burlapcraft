@@ -96,11 +96,12 @@ public class BurlapCraft {
     @EventHandler
     public void serverLoad(FMLServerStartingEvent event)
     {
+    	List<Thread> threads = new ArrayList<Thread>();
         // register server commands
     	event.registerServerCommand(new CommandTeleport());
     	event.registerServerCommand(new CommandSmoothMove());
-    	event.registerServerCommand(new CommandAStar());
-    	event.registerServerCommand(new CommandBFS());
+    	event.registerServerCommand(new CommandAStar(threads));
+    	event.registerServerCommand(new CommandBFS(threads));
     	event.registerServerCommand(new CommandRMax());
     	event.registerServerCommand(new CommandCreateDungeons());
         event.registerServerCommand(new CommandInventory());
@@ -118,6 +119,7 @@ public class BurlapCraft {
         event.registerServerCommand(new CommandWriteLanguageModel());
         event.registerServerCommand(new CommandCurrentPath());
         event.registerServerCommand(new CommandRunDungeons());
+        event.registerServerCommand(new CommandKill(threads));
     }
     
     @EventHandler

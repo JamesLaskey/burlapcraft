@@ -15,10 +15,12 @@ import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
 public class CommandBFS implements ICommand {
 
 	private final List aliases;
+	private List<Thread> threads;
 	
-	public CommandBFS() {
+	public CommandBFS(List<Thread> threads) {
 		aliases = new ArrayList();
 		aliases.add("bfs");
+		this.threads = threads;
 	}
 
 	@Override
@@ -81,10 +83,9 @@ public class CommandBFS implements ICommand {
 					MinecraftSolver.plan(BurlapCraft.currentDungeon, 0, fclosed, fplace, args);
 				}
 			});
-
+			
+			threads.add(bthread);
 			bthread.start();
-
-
 		}
 	}
 
