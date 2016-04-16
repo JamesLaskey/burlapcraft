@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
 import weka.core.Attribute;
 import weka.core.FastVector;
@@ -151,21 +152,35 @@ public class MinecraftSolver {
 		me.setTerminalFunction(tf);
 		
 		if (params.length >=3 && params[2].equals("run")) {
+			
 			EpisodeAnalysis analysis = p.evaluateBehavior(me);
 			List<State> states = analysis.stateSequence;
 			Iterator<State> stateIter = states.iterator();
+			
+			List<State> pillarStates = new ArrayList<State>();
+			List<Integer> pillarHeights = new ArrayList<Integer>();
 			for (GroundedAction a : analysis.actionSequence) {
 				System.out.println(a);
 				System.out.println(a.action.getName());
-				if (a.actionName().equals(HelperNameSpace.ACTIONPILLAR)) {
-					System.out.println(stateIter.next());
+				if (a.toString().contains("pillar") && a.toString().charAt(12) == '0') {
+					pillarStates.add(stateIter.next());
+					pillarHeights.add(Integer.valueOf(a.toString().split(" ")[2]));
 				} else {
 					stateIter.next();
 				}
 			}
+			classifierTrain(map, pillarStates, pillarHeights, 20, map.length);
 		}
 	}
 
+	private static void addMapFeat(Instance instance, FastVector attrs, int featno, int[][][] map, int x, int y, int z) {
+		if (y < 0 || y >= map.length || x < 0 || x >= map[y].length || z < 0 || z >= map[y][x].length) {
+			instance.setValue((Attribute) attrs.elementAt(featno), 0);
+		} else {
+			instance.setValue((Attribute) attrs.elementAt(featno), map[y][x][z]);
+		}
+	}
+	
 	private static Instance getInstanceFromData(int[][][] map, State s, int pillarHeight, int featLength,
 			FastVector attrs) {
 		SparseInstance instance = new SparseInstance(featLength);
@@ -176,43 +191,43 @@ public class MinecraftSolver {
 		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
 		int rotDir = agent.getIntValForAttribute(HelperNameSpace.ATROTDIR);
 		
-		instance.setValue((Attribute) attrs.elementAt(0), curY);
+		int featno = 0;
+		instance.setValue((Attribute) attrs.elementAt(featno++), curY);
 		for (int y = 0; y < map.length; y++) {
+			addMapFeat(instance, attrs, featno++, map, y, curX, curZ);
 			if(rotDir == 0){
-				instance.setValue((Attribute) attrs.elementAt(1 + (y * 9)), map[y][curX][curZ]);
-				instance.setValue((Attribute) attrs.elementAt(2 + (y * 9)), map[y][curX][curZ+1]);
-				instance.setValue((Attribute) attrs.elementAt(3 + (y * 9)), map[y][curX+1][curZ+1]);
-				instance.setValue((Attribute) attrs.elementAt(4 + (y * 9)), map[y][curX+1][curZ]);
-				instance.setValue((Attribute) attrs.elementAt(5 + (y * 9)), map[y][curX+1][curZ-1]);
-				instance.setValue((Attribute) attrs.elementAt(6 + (y * 9)), map[y][curX][curZ-1]);
-				instance.setValue((Attribute) attrs.elementAt(7 + (y * 9)), map[y][curX-1][curZ-1]);
-				instance.setValue((Attribute) attrs.elementAt(8 + (y * 9)), map[y][curX-1][curZ]);
-				instance.setValue((Attribute) attrs.elementAt(9 + (y * 9)), map[y][curX-1][curZ+1]);
+				addMapFeat(instance, attrs, featno++, map, y, curX, curZ+1);
 			}
 			else if(rotDir == 1){
+				addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ);
 			}
 			else if(rotDir == 2){
+				addMapFeat(instance, attrs, featno++, map, y, curX, curZ-1);
 			}
 			else{
+				addMapFeat(instance, attrs, featno++, map, y, curX+1, curZ);
 			}
 		}
 		
-		return null;
+		instance.setValue((Attribute) attrs.elementAt(featno), pillarHeight);
+		System.out.println(featno);
+		
+		return instance;
 	}
 	
 	public static void classifierTrain(int[][][] map, List<State> stateSeq, List<Integer> pillarHeights,
 			int maxPillarHeight, int dungeonHeight) {
 		FastVector attrs = new FastVector();
 		
-		int numFeats = 3 * 3 * dungeonHeight + 1; //3 by 3 by dungeonheight patch of the map
+		int numFeats = (2 * dungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
 		for (int i = 0; i < numFeats; i++) { 
 			Attribute attr = new Attribute(i + "Numeric");
 			attrs.addElement(attr);
 		}
-		
+		System.out.println(numFeats);
 		FastVector classTypes = new FastVector();
 		for (int i = 1; i < maxPillarHeight; i++) {
-			classTypes.addElement(i);
+			classTypes.addElement(new Integer(i).toString());
 		}
 		Attribute classAttribute = new Attribute("theClass", classTypes);
 		attrs.addElement(classAttribute);
@@ -231,6 +246,10 @@ public class MinecraftSolver {
 		NaiveBayesMultinomial classifier = new NaiveBayesMultinomial();
 		try {
 			classifier.buildClassifier(instances);
+			
+			Evaluation e = new Evaluation(instances);
+			e.evaluateModel(classifier, instances);
+			System.out.println(e.toSummaryString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -262,8 +281,6 @@ public class MinecraftSolver {
 		newTimer.stop();
 		
 		System.out.println(newTimer.getTotalTime());
-
-
 	}
 
 	public static class GotoRF implements RewardFunction {

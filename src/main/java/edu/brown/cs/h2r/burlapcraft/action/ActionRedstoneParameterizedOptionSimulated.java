@@ -45,8 +45,7 @@ public class ActionRedstoneParameterizedOptionSimulated extends Option {
 	}
 
 	@Override
-	public double probabilityOfTermination(State s,
-			GroundedAction groundedAction) {
+	public double probabilityOfTermination(State s, GroundedAction groundedAction) {
 		int height = Integer.valueOf(groundedAction.getParametersAsString()[0]);
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
