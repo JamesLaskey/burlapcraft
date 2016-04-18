@@ -49,6 +49,7 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
+import machinelearning.WekaClassifierWrapper;
 
 /**
  * @author James MacGlashan.
@@ -70,7 +71,7 @@ public class MinecraftSolver {
 	 * @param plannerToUse 0: BFS; 1: A*
 	 * @param closedLoop if true then a closed loop policy will be followed; if false, then open loop.
 	 */
-	public static void plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place, String[] params){
+	public static WekaClassifierWrapper.DungeonTrainExample plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place, String[] params){
 
 		int [][][] map = StateGenerator.getMap(d);
 
@@ -151,6 +152,7 @@ public class MinecraftSolver {
 		MinecraftEnvironment me = new MinecraftEnvironment(domain);
 		me.setTerminalFunction(tf);
 		
+		// do we only want to generate a state instance if the "run" option is set?
 		if (params.length >=3 && params[2].equals("run")) {
 			
 			EpisodeAnalysis analysis = p.evaluateBehavior(me);
@@ -169,8 +171,8 @@ public class MinecraftSolver {
 					stateIter.next();
 				}
 			}
-			classifierTrain(map, pillarStates, pillarHeights, 20, map.length);
-		}
+			return new WekaClassifierWrapper.DungeonTrainExample(map, pillarStates, pillarHeights);//, 20, map.length);
+		} return null;
 	}
 
 	

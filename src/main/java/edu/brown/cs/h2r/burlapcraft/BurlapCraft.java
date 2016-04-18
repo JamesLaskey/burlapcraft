@@ -28,6 +28,7 @@ import edu.brown.cs.h2r.burlapcraft.block.BlockRedRock;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerDungeonGeneration;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerEvents;
+import machinelearning.WekaClassifierWrapper;
 
 @Mod(modid = BurlapCraft.MODID, version = BurlapCraft.VERSION)
 public class BurlapCraft {
@@ -96,7 +97,12 @@ public class BurlapCraft {
     @EventHandler
     public void serverLoad(FMLServerStartingEvent event)
     {
+    	// a thread list to kill, if necessary
     	List<Thread> threads = new ArrayList<Thread>();
+    	
+    	// the list of training info
+    	List<WekaClassifierWrapper.DungeonTrainExample> training = new ArrayList();
+    	
         // register server commands
     	event.registerServerCommand(new CommandTeleport());
     	event.registerServerCommand(new CommandSmoothMove());
@@ -118,7 +124,7 @@ public class BurlapCraft {
     	event.registerServerCommand(new CommandReadLanguageData());
         event.registerServerCommand(new CommandWriteLanguageModel());
         event.registerServerCommand(new CommandCurrentPath());
-        event.registerServerCommand(new CommandRunDungeons());
+        event.registerServerCommand(new CommandRunDungeons(training));
         event.registerServerCommand(new CommandKill(threads));
     }
     

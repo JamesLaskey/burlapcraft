@@ -10,6 +10,7 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
+import machinelearning.WekaClassifierWrapper;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,11 +21,13 @@ public class CommandRunDungeons implements ICommand {
 	
 	private final List aliases;
 	
-	private Thread bthread;
+	final List<WekaClassifierWrapper.DungeonTrainExample> training;
 	
-	public CommandRunDungeons() {
+	public CommandRunDungeons(List<WekaClassifierWrapper.DungeonTrainExample> training) {
 		aliases = new ArrayList();
 		aliases.add("runDungeons");
+		
+		this.training = training;
 	}
 
 	@Override
@@ -51,9 +54,6 @@ public class CommandRunDungeons implements ICommand {
 	public void processCommand(ICommandSender sender, final String[] args) {
 		World world = sender.getEntityWorld();
 		if (!world.isRemote) {
-			if (args.length > 0) {
-				sender.addChatMessage(new ChatComponentText("This command doesn't take any arguments. Ignoring..."));
-			}
 			
 			final List<Dungeon> DUNGEONS = BurlapCraft.dungeons;
 			final ICommandSender SENDER = sender;
@@ -68,8 +68,13 @@ public class CommandRunDungeons implements ICommand {
 			Thread bthread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					for (Dungeon d : DUNGEONS) {
-						EntityPlayer player = HandlerEvents.player;
+					int count = 1;
+					
+					EntityPlayer player = HandlerEvents.player;
+					
+					for (Dungeon d : DUNGEONS) {						
+						System.out.println("DUNGEON CALL #" + count);
+						count++;
 						
 						StateGenerator.blockNameMap.clear();
 						StateGenerator.invBlockNameMap.clear();
@@ -78,16 +83,25 @@ public class CommandRunDungeons implements ICommand {
 						Pose playerPose = d.getPose().add(offset);
 						
 						HelperActions.setPlayerPosition(player, playerPose);
-
+						
 						BurlapCraft.currentDungeon = d;
-						MinecraftSolver.plan(d, PLANNER, true, true, args);
+						
+						System.out.println(d.getName());
+						// @bug I don't know why, but the player position gets off on the second teleport
+						WekaClassifierWrapper.DungeonTrainExample example = MinecraftSolver.plan(d, PLANNER, true, true, args);
+						if (example != null) { training.add(example); }
 						//break;
 					}
+					for (WekaClassifierWrapper.DungeonTrainExample e : training) {
+						System.out.println("TRAINING:" + e);
+					}
+					// @note make instance of WekaClassifierWrapper, do computation and recording here?
+					// otherwise, there'll need to be polling, right?
 				}
 			});
-
 			bthread.start();
 		}
+		
 
 	}
 

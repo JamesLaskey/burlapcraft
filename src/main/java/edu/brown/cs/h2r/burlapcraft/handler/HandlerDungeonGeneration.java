@@ -90,7 +90,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 					playerSpawnPose.getY() + height, playerSpawnPose.getZ()));
 		}
 		
-		int n = 0;
+		int n = 1;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
 			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, (n * 2) + 4, n > 10 ? 40 : 15));
