@@ -84,7 +84,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		Pose testPose = Pose.fromXyz(playerSpawnPose.getX() - 20, playerSpawnPose.getY() + height, playerSpawnPose.getZ());
 		
 		int xIncOffset = 40;
-		int numDungeons = 20;
+		int numDungeons = 2;
 		for (int i = 0; i < numDungeons; i++) {
 			poses.add(Pose.fromXyz(playerSpawnPose.getX() + (i * xIncOffset), 
 					playerSpawnPose.getY() + height, playerSpawnPose.getZ()));

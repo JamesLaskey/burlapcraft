@@ -130,8 +130,9 @@ public class WekaClassifierWrapper {
 		for (DungeonTrainExample dungeon : rawTrainExamples) {
 			Iterator<State> stateIter = dungeon.states.iterator();
 			Iterator<Integer> heightIter = dungeon.pillarHeights.iterator();
-	
-			for (int i = 0; i < dataSetSize; i++) {
+			
+			int dungeonExampleSize = dungeon.states.size();
+			for (int i = 0; i < dungeonExampleSize; i++) {
 				training.add(getInstanceFromData(dungeon.map, stateIter.next(), 
 						heightIter.next(), numFeats, attrs));
 			}
@@ -153,5 +154,9 @@ public class WekaClassifierWrapper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Instances getTrainingInstances() {
+		return this.training;
 	}
 }

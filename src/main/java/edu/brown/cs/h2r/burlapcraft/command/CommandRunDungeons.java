@@ -3,6 +3,7 @@ package edu.brown.cs.h2r.burlapcraft.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import weka.classifiers.bayes.NaiveBayes;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerEvents;
@@ -52,6 +53,12 @@ public class CommandRunDungeons implements ICommand {
 
 	@Override
 	public void processCommand(ICommandSender sender, final String[] args) {
+		
+		if (args.length == 1) {
+			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(15, this.training, new NaiveBayes());
+			wrapper.runClassifier(wrapper.getTrainingInstances());
+		} else {
+		
 		World world = sender.getEntityWorld();
 		if (!world.isRemote) {
 			
@@ -85,11 +92,17 @@ public class CommandRunDungeons implements ICommand {
 						HelperActions.setPlayerPosition(player, playerPose);
 						
 						BurlapCraft.currentDungeon = d;
-						
+						try {
+							Thread.sleep(200);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						System.out.println(d.getName());
 						// @bug I don't know why, but the player position gets off on the second teleport
 						WekaClassifierWrapper.DungeonTrainExample example = MinecraftSolver.plan(d, PLANNER, true, true, args);
 						if (example != null) { training.add(example); }
+						System.out.println(example);
 						//break;
 					}
 					for (WekaClassifierWrapper.DungeonTrainExample e : training) {
@@ -101,7 +114,7 @@ public class CommandRunDungeons implements ICommand {
 			});
 			bthread.start();
 		}
-		
+		}
 
 	}
 
