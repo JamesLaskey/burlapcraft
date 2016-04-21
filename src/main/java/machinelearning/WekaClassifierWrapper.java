@@ -106,18 +106,16 @@ public class WekaClassifierWrapper {
 		instance.setValue((Attribute) attrs.elementAt(featno++), curY);
 		for (int y = 0; y < map.length; y++) {
 			addMapFeat(instance, attrs, featno++, map, y, curX, curZ);
-			if(rotDir == 0){
-				addMapFeat(instance, attrs, featno++, map, y, curX, curZ+1);
-			}
-			else if(rotDir == 1){
-				addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ);
-			}
-			else if(rotDir == 2){
-				addMapFeat(instance, attrs, featno++, map, y, curX, curZ-1);
-			}
-			else{
-				addMapFeat(instance, attrs, featno++, map, y, curX+1, curZ);
-			}
+			//cardinal
+			addMapFeat(instance, attrs, featno++, map, y, curX, curZ+1);
+			addMapFeat(instance, attrs, featno++, map, y, curX+1, curZ);
+			addMapFeat(instance, attrs, featno++, map, y, curX, curZ-1);
+			addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ);
+			//diagonal
+			addMapFeat(instance, attrs, featno++, map, y, curX+1, curZ+1);
+			addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ-1);
+			addMapFeat(instance, attrs, featno++, map, y, curX+1, curZ-1);
+			addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ+1);
 		}
 		
 		instance.setValue((Attribute) attrs.elementAt(featno), pillarHeight);
@@ -129,7 +127,7 @@ public class WekaClassifierWrapper {
 	private Instances generateTrainingInstances() {
 		attrs = new FastVector();
 		
-		int numFeats = (2 * maxDungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
+		int numFeats = (3 * 3 * maxDungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
 		for (int i = 0; i < numFeats; i++) { 
 			Attribute attr = new Attribute(i + "Numeric");
 			attrs.addElement(attr);

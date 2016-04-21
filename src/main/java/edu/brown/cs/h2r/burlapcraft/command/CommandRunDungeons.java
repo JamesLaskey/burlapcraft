@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Instances;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
@@ -58,14 +59,20 @@ public class CommandRunDungeons implements ICommand {
 		return this.aliases;
 	}
 
+	//Usage:
+	// Step 1: /runDungeons 0 14 run
+	// Step 2: once step 1 finishes run /runDungeons nameOfFile
+	
 	@Override
 	public void processCommand(ICommandSender sender, final String[] args) {
 		
+		Classifier classifier = new NaiveBayes();
+		
 		if (args.length == 1) {
-			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(15, this.training, new NaiveBayes());
+			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(15, this.training, classifier);
 			ObjectOutputStream out;
 			try {
-				out = new ObjectOutputStream(new FileOutputStream("training" + args[0] + ".dat"));
+				out = new ObjectOutputStream(new FileOutputStream(args[0] + ".dat"));
 				out.writeObject(wrapper.getTrainingInstances());
 				out.flush();
 				out.close();
@@ -80,7 +87,7 @@ public class CommandRunDungeons implements ICommand {
 			Instances training;
 			
 			try {
-				ObjectInputStream in = new ObjectInputStream(new FileInputStream("training" + args[0] + ".dat"));
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0] + ".dat"));
 				training = (Instances) in.readObject();
 				in.close();
 			} catch (FileNotFoundException e) {
