@@ -1,9 +1,16 @@
 package edu.brown.cs.h2r.burlapcraft.command;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import weka.classifiers.bayes.NaiveBayes;
+import weka.core.Instances;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerEvents;
@@ -56,6 +63,37 @@ public class CommandRunDungeons implements ICommand {
 		
 		if (args.length == 1) {
 			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(15, this.training, new NaiveBayes());
+			ObjectOutputStream out;
+			try {
+				out = new ObjectOutputStream(new FileOutputStream("training" + args[0] + ".dat"));
+				out.writeObject(wrapper.getTrainingInstances());
+				out.flush();
+				out.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			Instances training;
+			
+			try {
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream("training" + args[0] + ".dat"));
+				training = (Instances) in.readObject();
+				in.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			wrapper.runClassifier(wrapper.getTrainingInstances());
 		} else {
 		

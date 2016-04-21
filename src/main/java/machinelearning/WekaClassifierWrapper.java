@@ -1,11 +1,18 @@
 package machinelearning;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
+import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
 import weka.core.Attribute;
 import weka.core.FastVector;
@@ -52,6 +59,17 @@ public class WekaClassifierWrapper {
 		}
 		try {
 			buildClassifier();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public WekaClassifierWrapper(Instances training, Classifier classifier) {
+		this.classifier = classifier;
+		this.training = training;
+		try {
+			classifier.buildClassifier(training);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -158,5 +176,41 @@ public class WekaClassifierWrapper {
 	
 	public Instances getTrainingInstances() {
 		return this.training;
+	}
+	
+	public static void main(String[] args) {
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
+			Instances training = (Instances) in.readObject();
+			in.close();
+			System.out.println(training);
+			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(training, new NaiveBayes());
+			
+			try {
+				in = new ObjectInputStream(new FileInputStream(args[1]));
+				Instances test = (Instances) in.readObject();
+				in.close();
+			
+				wrapper.runClassifier(test);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
