@@ -19,7 +19,7 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperActions;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
-import machinelearning.WekaClassifierWrapper;
+import machinelearning.PillarWekaClassifierWrapper;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,9 +30,9 @@ public class CommandRunDungeons implements ICommand {
 	
 	private final List aliases;
 	
-	final List<WekaClassifierWrapper.DungeonTrainExample> training;
+	final List<PillarWekaClassifierWrapper.DungeonTrainExample> training;
 	
-	public CommandRunDungeons(List<WekaClassifierWrapper.DungeonTrainExample> training) {
+	public CommandRunDungeons(List<PillarWekaClassifierWrapper.DungeonTrainExample> training) {
 		aliases = new ArrayList();
 		aliases.add("runDungeons");
 		
@@ -69,7 +69,7 @@ public class CommandRunDungeons implements ICommand {
 		Classifier classifier = new NaiveBayes();
 		
 		if (args.length == 1) {
-			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(15, this.training, classifier);
+			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(15, this.training, classifier);
 			ObjectOutputStream out;
 			try {
 				out = new ObjectOutputStream(new FileOutputStream(args[0] + ".dat"));
@@ -145,12 +145,12 @@ public class CommandRunDungeons implements ICommand {
 						}
 						System.out.println(d.getName());
 						// @bug I don't know why, but the player position gets off on the second teleport
-						WekaClassifierWrapper.DungeonTrainExample example = MinecraftSolver.plan(d, PLANNER, true, true, args);
+						PillarWekaClassifierWrapper.DungeonTrainExample example = MinecraftSolver.plan(d, PLANNER, true, true, args);
 						if (example != null) { training.add(example); }
 						System.out.println(example);
 						//break;
 					}
-					for (WekaClassifierWrapper.DungeonTrainExample e : training) {
+					for (PillarWekaClassifierWrapper.DungeonTrainExample e : training) {
 						System.out.println("TRAINING:" + e);
 					}
 					// @note make instance of WekaClassifierWrapper, do computation and recording here?

@@ -14,6 +14,7 @@ import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
+import weka.classifiers.functions.Logistic;
 import weka.core.Attribute;
 import weka.core.FastVector;
 import weka.core.Instance;
@@ -23,7 +24,7 @@ import burlap.oomdp.core.objects.ObjectInstance;
 import burlap.oomdp.core.states.State;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 
-public class WekaClassifierWrapper {
+public class PillarWekaClassifierWrapper {
 	
 	public static class DungeonTrainExample {
 		
@@ -51,7 +52,7 @@ public class WekaClassifierWrapper {
 	
 	private Classifier classifier;
 	
-	public WekaClassifierWrapper(int maxPillarHeight, List<DungeonTrainExample> training, Classifier classifier) {
+	public PillarWekaClassifierWrapper(int maxPillarHeight, List<DungeonTrainExample> training, Classifier classifier) {
 		this.maxPillarHeight = maxPillarHeight;
 		this.classifier = classifier;
 		for (DungeonTrainExample example : training) {
@@ -65,7 +66,14 @@ public class WekaClassifierWrapper {
 		}
 	}
 	
-	public WekaClassifierWrapper(Instances training, Classifier classifier) {
+	public PillarWekaClassifierWrapper(String trainingString, Classifier classifier) throws Exception {
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(trainingString));
+		this.training = (Instances) in.readObject();
+		in.close();
+		classifier.buildClassifier(this.training);
+	}
+	
+	public PillarWekaClassifierWrapper(Instances training, Classifier classifier) {
 		this.classifier = classifier;
 		this.training = training;
 		try {
@@ -165,11 +173,16 @@ public class WekaClassifierWrapper {
 		try {
 			Evaluation e = new Evaluation(training);
 			e.evaluateModel(classifier, test);
+			System.out.println(e.toMatrixString());
 			System.out.println(e.toSummaryString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public double predict(Instance test) throws Exception {
+		return classifier.classifyInstance(test);
 	}
 	
 	public Instances getTrainingInstances() {
@@ -182,7 +195,7 @@ public class WekaClassifierWrapper {
 			Instances training = (Instances) in.readObject();
 			in.close();
 			System.out.println(training);
-			WekaClassifierWrapper wrapper = new WekaClassifierWrapper(training, new NaiveBayes());
+			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new NaiveBayes());
 			
 			try {
 				in = new ObjectInputStream(new FileInputStream(args[1]));
@@ -210,5 +223,13 @@ public class WekaClassifierWrapper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public int getFeatLength() {
+		return featLength;
+	}
+
+	public FastVector getAttrs() {
+		return attrs;
 	}
 }

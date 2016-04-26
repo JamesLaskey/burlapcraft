@@ -28,7 +28,7 @@ import edu.brown.cs.h2r.burlapcraft.block.BlockRedRock;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerDungeonGeneration;
 import edu.brown.cs.h2r.burlapcraft.handler.HandlerEvents;
-import machinelearning.WekaClassifierWrapper;
+import machinelearning.PillarWekaClassifierWrapper;
 
 @Mod(modid = BurlapCraft.MODID, version = BurlapCraft.VERSION)
 public class BurlapCraft {
@@ -101,7 +101,7 @@ public class BurlapCraft {
     	List<Thread> threads = new ArrayList<Thread>();
     	
     	// the list of training info
-    	List<WekaClassifierWrapper.DungeonTrainExample> training = new ArrayList();
+    	List<PillarWekaClassifierWrapper.DungeonTrainExample> training = new ArrayList();
     	
         // register server commands
     	event.registerServerCommand(new CommandTeleport());

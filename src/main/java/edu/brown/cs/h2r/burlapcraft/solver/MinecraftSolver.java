@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import weka.classifiers.Evaluation;
+import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
 import weka.core.Attribute;
 import weka.core.FastVector;
@@ -39,6 +40,7 @@ import burlap.oomdp.singleagent.RewardFunction;
 import burlap.oomdp.statehashing.SimpleHashableStateFactory;
 import edu.brown.cs.h2r.burlapcraft.BurlapCraft;
 import edu.brown.cs.h2r.burlapcraft.action.ActionChangeItemSimulated;
+import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionLearnedSimulated;
 import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionSimulated;
 import edu.brown.cs.h2r.burlapcraft.domaingenerator.MinecraftDomainGenerator;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.Dungeon;
@@ -49,7 +51,7 @@ import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperGeometry.Pose;
 import edu.brown.cs.h2r.burlapcraft.stategenerator.StateGenerator;
-import machinelearning.WekaClassifierWrapper;
+import machinelearning.PillarWekaClassifierWrapper;
 
 /**
  * @author James MacGlashan.
@@ -71,7 +73,7 @@ public class MinecraftSolver {
 	 * @param plannerToUse 0: BFS; 1: A*
 	 * @param closedLoop if true then a closed loop policy will be followed; if false, then open loop.
 	 */
-	public static WekaClassifierWrapper.DungeonTrainExample plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place, String[] params){
+	public static PillarWekaClassifierWrapper.DungeonTrainExample plan(Dungeon d, int plannerToUse, boolean closedLoop, boolean place, String[] params){
 
 		int [][][] map = StateGenerator.getMap(d);
 
@@ -132,19 +134,19 @@ public class MinecraftSolver {
 		}
 		ActionPillarParameterizedOptionSimulated pillarAction = new ActionPillarParameterizedOptionSimulated(
 				HelperNameSpace.ACTIONPILLAR, domain, map, minHeight, maxHeight);
-//		pillarAction.setExernalTermination(null);
 		
-//		State selectedBlockState = initialState.copy();
-//		ObjectInstance agent = selectedBlockState.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
-//		agent.setValue(HelperNameSpace.ATSELECTEDITEMID, 4);
-//		System.out.println(selectedBlockState);
-//		for (GroundedAction a : pillarAction.getAllApplicableGroundedActions(selectedBlockState)) {
-//			State resultState = pillarAction.performAction(selectedBlockState, a);
-//			System.out.println(resultState);
-//		}
-		
-		//System.out.println(((ActionPillarParameterizedOptionSimulated) pillarAction).getMinPillarHeight());
-		planner.addNonDomainReferencedAction(pillarAction);
+		PillarWekaClassifierWrapper classifier;
+		try {
+			classifier = new PillarWekaClassifierWrapper("../trainingRound1/complete.dat", new NaiveBayes());
+			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
+					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
+			planner.addNonDomainReferencedAction(pillarActionLearned);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		//planner.addNonDomainReferencedAction(pillarAction);
 		planner.planFromState(initialState);
 
 		Policy p = closedLoop ? new DDPlannerPolicy(planner) : new SDPlannerPolicy(planner);
@@ -171,7 +173,7 @@ public class MinecraftSolver {
 					stateIter.next();
 				}
 			}
-			return new WekaClassifierWrapper.DungeonTrainExample(map, pillarStates, pillarHeights);//, 20, map.length);
+			return new PillarWekaClassifierWrapper.DungeonTrainExample(map, pillarStates, pillarHeights);//, 20, map.length);
 		} return null;
 	}
 
