@@ -60,7 +60,7 @@ public class CommandRunDungeons implements ICommand {
 	}
 
 	//Usage:
-	// Step 1: /runDungeons 0 14 run
+	// Step 1: /runDungeons run normal 0 14     /runDunegons run learned
 	// Step 2: once step 1 finishes run /runDungeons nameOfFile
 	
 	@Override

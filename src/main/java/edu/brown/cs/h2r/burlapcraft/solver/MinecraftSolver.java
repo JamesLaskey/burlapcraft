@@ -120,13 +120,30 @@ public class MinecraftSolver {
 			throw new RuntimeException("Error: planner type is " + planner + "; use 0 for BFS or 1 for A*");
 		}
 //		planner.setTf(tf);
+		
+		
+		PillarWekaClassifierWrapper classifier;
+		
+		//to run with learned do, /runDungeons run learned
+		try {
+			classifier = new PillarWekaClassifierWrapper("../trainingRound1/complete.dat", new NaiveBayes());
+			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
+					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
+			if (params[1].equals("learned")) {
+				planner.addNonDomainReferencedAction(pillarActionLearned);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		int minHeight = 0;
 		int maxHeight = 15;
-		if (params.length >= 2) {
+		if (params.length >= 4) {
 			try {
-				minHeight = Integer.valueOf(params[0]);
+				minHeight = Integer.valueOf(params[2]);
 				System.out.println("Pillar minHeight param " + minHeight);
-				maxHeight = Integer.valueOf(params[1]);
+				maxHeight = Integer.valueOf(params[3]);
 				System.out.println("Pillar maxHeight param " + maxHeight);
 			} catch (NumberFormatException e) {
 				System.out.println("invalid params arguments, need two integers for minPillar and MaxPillar");
@@ -135,18 +152,10 @@ public class MinecraftSolver {
 		ActionPillarParameterizedOptionSimulated pillarAction = new ActionPillarParameterizedOptionSimulated(
 				HelperNameSpace.ACTIONPILLAR, domain, map, minHeight, maxHeight);
 		
-		PillarWekaClassifierWrapper classifier;
-		try {
-			classifier = new PillarWekaClassifierWrapper("../trainingRound1/complete.dat", new NaiveBayes());
-			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
-					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
-			planner.addNonDomainReferencedAction(pillarActionLearned);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//to run with parameters do /runDungeons run normal 0 14
+		if (params[1].equals("normal")) {
+			planner.addNonDomainReferencedAction(pillarAction);
 		}
-
-		//planner.addNonDomainReferencedAction(pillarAction);
 		planner.planFromState(initialState);
 
 		Policy p = closedLoop ? new DDPlannerPolicy(planner) : new SDPlannerPolicy(planner);
@@ -155,7 +164,7 @@ public class MinecraftSolver {
 		me.setTerminalFunction(tf);
 		
 		// do we only want to generate a state instance if the "run" option is set?
-		if (params.length >=3 && params[2].equals("run")) {
+		if (params[0].equals("run")) {
 			
 			EpisodeAnalysis analysis = p.evaluateBehavior(me);
 			List<State> states = analysis.stateSequence;
