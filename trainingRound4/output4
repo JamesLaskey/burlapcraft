@@ -1,0 +1,1250 @@
+****************************
+ Powered By MCP:             
+ http://modcoderpack.com/    
+ Searge, ProfMobius, Fesh0r, 
+ R4wk, ZeuX, IngisKahn, bspkrs
+ MCP Data version : unknown
+****************************
+:downloadClient SKIPPED
+:downloadServer SKIPPED
+:getVersionJson
+:extractUserDev UP-TO-DATE
+:mergeJars SKIPPED
+:applyBinPatches SKIPPED
+:downloadMcpTools SKIPPED
+:extractMcpData UP-TO-DATE
+:genSrgs SKIPPED
+:deobfBinJar SKIPPED
+:compileApiJava UP-TO-DATE
+:processApiResources UP-TO-DATE
+:apiClasses UP-TO-DATE
+:sourceMainJava
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:jar
+:extractNatives UP-TO-DATE
+:getAssetsIndex
+:getAssets
+:makeStart SKIPPED
+:runClient
+[22:54:39] [main/INFO]: Extra: []
+[22:54:39] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, /home/exwu/.gradle/caches/minecraft/assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[22:54:39] [main/INFO]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[22:54:39] [main/INFO]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[22:54:39] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[22:54:39] [main/INFO]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[22:54:39] [main/INFO]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_51, running on Linux:amd64:3.17.7-300.fc21.x86_64, installed at /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.51-4.b16.fc21.x86_64/jre
+[22:54:39] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[22:54:39] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:54:39] [main/INFO]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[22:54:39] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[22:54:39] [main/INFO]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:39] [main/INFO]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[22:54:39] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:39] [main/ERROR]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[22:54:39] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[22:54:39] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:54:39] [main/INFO]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[22:54:39] [main/INFO]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[22:54:39] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[22:54:40] [main/INFO]: Setting user: Player80
+[22:54:41] [Client thread/INFO]: LWJGL Version: 2.9.1
+[22:54:41] [Client thread/INFO]: [tv.twitch.StandardCoreAPI:<init>:16]: If on Windows, make sure to provide all of the necessary dll's as specified in the twitchsdk README. Also, make sure to set the PATH environment variable to point to the directory containing the dll's.
+[22:54:41] [Client thread/ERROR]: Couldn't initialize twitch stream
+[22:54:41] [Client thread/INFO]: [cpw.mods.fml.client.SplashProgress:start:188]: ---- Minecraft Crash Report ----
+// Ooh. Shiny.
+
+Time: 4/26/16 10:54 PM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Linux (amd64) version 3.17.7-300.fc21.x86_64
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 200321176 bytes (191 MB) / 237502464 bytes (226 MB) up to 1847590912 bytes (1762 MB)
+	JVM Flags: 0 total; 
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	GL info: ' Vendor: 'X.Org' Version: '3.0 Mesa 10.4.7' Renderer: 'Gallium 0.4 on AMD PITCAIRN'
+[22:54:41] [Client thread/INFO]: Attempting early MinecraftForge initialization
+[22:54:41] [Client thread/INFO]: MinecraftForge v10.13.4.1614 Initialized
+[22:54:41] [Client thread/INFO]: Replaced 183 ore recipies
+[22:54:41] [Client thread/INFO]: Completed early MinecraftForge initialization
+[22:54:41] [Client thread/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
+[22:54:41] [Client thread/INFO]: Searching /home/exwu/tempMinecraft/burlapcraft/eclipse/mods for mods
+[22:54:46] [Client thread/INFO]: Mod examplemod is missing the required element 'name'. Substituting examplemod
+[22:54:46] [Client thread/INFO]: Forge Mod Loader has identified 5 mods to load
+[22:54:46] [Client thread/INFO]: [org.apache.log4j.helpers.LogLog:warn:170]: log4j:WARN No appenders could be found for logger (io.netty.util.internal.logging.InternalLoggerFactory).
+[22:54:46] [Client thread/INFO]: [org.apache.log4j.helpers.LogLog:warn:170]: log4j:WARN Please initialize the log4j system properly.
+[22:54:46] [Client thread/INFO]: Attempting connection with missing mods [mcp, FML, Forge, examplemod, burlapcraftmod] at CLIENT
+[22:54:46] [Client thread/INFO]: Attempting connection with missing mods [mcp, FML, Forge, examplemod, burlapcraftmod] at SERVER
+[22:54:46] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:examplemod, FMLFileResourcePack:BurlapCraft
+[22:54:46] [Client thread/INFO]: Processing ObjectHolder annotations
+[22:54:46] [Client thread/INFO]: Found 341 ObjectHolder annotations
+[22:54:46] [Client thread/INFO]: Identifying ItemStackHolder annotations
+[22:54:46] [Client thread/INFO]: Found 0 ItemStackHolder annotations
+[22:54:46] [Client thread/INFO]: Configured a dormant chunk cache size of 0
+[22:54:46] [Client thread/INFO]: Applying holder lookups
+[22:54:46] [Client thread/INFO]: Holder lookups applied
+[22:54:46] [Client thread/INFO]: Injecting itemstacks
+[22:54:46] [Client thread/INFO]: Itemstack injection complete
+[22:54:46] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:46] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[22:54:47] [Thread-7/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[22:54:47] [Thread-7/INFO]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:54:47] [Thread-7/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[22:54:47] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[22:54:47] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[22:54:47] [Client thread/INFO]: [com.example.examplemod.ExampleMod:init:18]: DIRT BLOCK >> tile.dirt
+[22:54:47] [Client thread/INFO]: Injecting itemstacks
+[22:54:47] [Client thread/INFO]: Itemstack injection complete
+[22:54:47] [Client thread/INFO]: Forge Mod Loader has successfully loaded 5 mods
+[22:54:47] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:examplemod, FMLFileResourcePack:BurlapCraft
+[22:54:47] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:47] [Sound Library Loader/INFO]: Sound engine started
+[22:54:47] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[22:54:47] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[22:54:47] [Client thread/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:47] [Client thread/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: SoundSystem shutting down...
+[22:54:47] [Client thread/INFO]: [paulscode.sound.SoundSystemLogger:importantMessage:90]:     Author: Paul Lamb, www.paulscode.com
+[22:54:47] [Client thread/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:47] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:47] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: Starting up SoundSystem...
+[22:54:48] [Thread-9/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: Initializing LWJGL OpenAL
+[22:54:48] [Thread-9/INFO]: [paulscode.sound.SoundSystemLogger:message:69]:     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:54:48] [Thread-9/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: OpenAL initialized.
+[22:54:48] [Sound Library Loader/INFO]: [paulscode.sound.SoundSystemLogger:message:69]: 
+[22:54:48] [Sound Library Loader/INFO]: Sound engine started
+[22:54:51] [Client thread/INFO]: Deleting level New World
+[22:54:51] [Client thread/INFO]: Attempt 1...
+[22:54:56] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[22:54:56] [Server thread/INFO]: Generating keypair
+[22:54:56] [Server thread/INFO]: Converting map!
+[22:54:56] [Server thread/INFO]: Scanning folders...
+[22:54:56] [Server thread/INFO]: Total conversion count is 0
+[22:54:56] [Server thread/INFO]: Injecting existing block and item data into this server instance
+[22:54:56] [Server thread/INFO]: Applying holder lookups
+[22:54:56] [Server thread/INFO]: Holder lookups applied
+[22:54:57] [Server thread/INFO]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@2d4c1116)
+[22:54:57] [Server thread/INFO]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@2d4c1116)
+[22:54:57] [Server thread/INFO]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@2d4c1116)
+[22:54:57] [Server thread/INFO]: Preparing start region for level 0
+[22:54:57] [Server thread/INFO]: Changing view distance to 12, from 10
+[22:54:58] [Netty Client IO #0/INFO]: Server protocol version 2
+[22:54:58] [Netty IO #1/INFO]: Client protocol version 2
+[22:54:58] [Netty IO #1/INFO]: Client attempting to join with 5 mods : FML@7.10.99.99,burlapcraftmod@1.1,Forge@10.13.4.1614,mcp@9.05,examplemod@1.0
+[22:54:58] [Netty IO #1/INFO]: Attempting connection with missing mods [] at CLIENT
+[22:54:58] [Netty Client IO #0/INFO]: Attempting connection with missing mods [] at SERVER
+[22:54:58] [Server thread/INFO]: [Server thread] Server side modded connection established
+[22:54:58] [Server thread/INFO]: Player80[local:E:b6e774cc] logged in with entity id 23 at (109.5, 4.0, -936.5)
+[22:54:58] [Server thread/INFO]: Player80 joined the game
+[22:54:58] [Client thread/INFO]: [Client thread] Client side modded connection established
+[22:54:59] [Server thread/INFO]: [edu.brown.cs.h2r.burlapcraft.dungeongenerator.ReadDungeon:generate:63]: dungeon generated
+[22:55:09] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #1
+[22:55:09] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar1
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[22:55:09] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[22:55:09] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[22:55:09] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 4
+Min F Expanded: -24.0; Nodes expanded so far: 6; Open size: 19
+Min F Expanded: -25.0; Nodes expanded so far: 23; Open size: 63
+Min F Expanded: -26.0; Nodes expanded so far: 73; Open size: 151
+Min F Expanded: -27.0; Nodes expanded so far: 179; Open size: 313
+Min F Expanded: -28.0; Nodes expanded so far: 391; Open size: 671
+Min F Expanded: -29.0; Nodes expanded so far: 830; Open size: 1493
+Min F Expanded: -30.0; Nodes expanded so far: 1796; Open size: 3337
+Min F Expanded: -31.0; Nodes expanded so far: 3983; Open size: 7492
+Num Expanded: 7474
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 4
+Min F Expanded: -24.0; Nodes expanded so far: 6; Open size: 19
+Min F Expanded: -25.0; Nodes expanded so far: 23; Open size: 63
+Min F Expanded: -26.0; Nodes expanded so far: 73; Open size: 151
+Min F Expanded: -27.0; Nodes expanded so far: 179; Open size: 313
+Min F Expanded: -28.0; Nodes expanded so far: 391; Open size: 671
+Min F Expanded: -29.0; Nodes expanded so far: 830; Open size: 1493
+Min F Expanded: -30.0; Nodes expanded so far: 1796; Open size: 3337
+Min F Expanded: -31.0; Nodes expanded so far: 3983; Open size: 7492
+Num Expanded: 7474
+[22:55:26] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.action.ActionControllerChangeItem:executeAction:21]: Change Item
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 15
+Min F Expanded: -24.0; Nodes expanded so far: 16; Open size: 62
+Min F Expanded: -25.0; Nodes expanded so far: 65; Open size: 151
+Min F Expanded: -26.0; Nodes expanded so far: 171; Open size: 314
+Min F Expanded: -27.0; Nodes expanded so far: 383; Open size: 673
+Min F Expanded: -28.0; Nodes expanded so far: 823; Open size: 1496
+Min F Expanded: -29.0; Nodes expanded so far: 1792; Open size: 3340
+Min F Expanded: -30.0; Nodes expanded so far: 3982; Open size: 7493
+Num Expanded: 5069
+3
+[22:55:32] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.action.ActionControllerChangeYaw:executeAction:45]: Face East
+[22:55:33] [Timer-0/INFO]: [edu.brown.cs.h2r.burlapcraft.helper.HelperActions$3:run:335]: moveYawToTarget: target reached.
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -24.0; Nodes expanded so far: 18; Open size: 85
+Min F Expanded: -25.0; Nodes expanded so far: 91; Open size: 258
+Min F Expanded: -26.0; Nodes expanded so far: 275; Open size: 591
+Min F Expanded: -27.0; Nodes expanded so far: 649; Open size: 1253
+Min F Expanded: -28.0; Nodes expanded so far: 1426; Open size: 2676
+Min F Expanded: -29.0; Nodes expanded so far: 3121; Open size: 5889
+Num Expanded: 5653
+Min F Expanded: -21.0; Nodes expanded so far: 4; Open size: 38
+Min F Expanded: -22.0; Nodes expanded so far: 41; Open size: 166
+Min F Expanded: -23.0; Nodes expanded so far: 171; Open size: 411
+Min F Expanded: -24.0; Nodes expanded so far: 435; Open size: 870
+Min F Expanded: -25.0; Nodes expanded so far: 951; Open size: 1840
+Min F Expanded: -26.0; Nodes expanded so far: 2078; Open size: 4004
+Num Expanded: 2923
+Min F Expanded: -20.0; Nodes expanded so far: 3; Open size: 25
+Min F Expanded: -21.0; Nodes expanded so far: 28; Open size: 114
+Min F Expanded: -22.0; Nodes expanded so far: 118; Open size: 283
+Min F Expanded: -23.0; Nodes expanded so far: 302; Open size: 606
+Min F Expanded: -24.0; Nodes expanded so far: 664; Open size: 1303
+Min F Expanded: -25.0; Nodes expanded so far: 1474; Open size: 2851
+Num Expanded: 3210
+Min F Expanded: -19.0; Nodes expanded so far: 2; Open size: 12
+Min F Expanded: -20.0; Nodes expanded so far: 15; Open size: 62
+Min F Expanded: -21.0; Nodes expanded so far: 66; Open size: 168
+Min F Expanded: -22.0; Nodes expanded so far: 181; Open size: 379
+Min F Expanded: -23.0; Nodes expanded so far: 418; Open size: 857
+Min F Expanded: -24.0; Nodes expanded so far: 968; Open size: 1983
+Num Expanded: 1493
+Min F Expanded: -18.0; Nodes expanded so far: 3; Open size: 23
+Min F Expanded: -19.0; Nodes expanded so far: 26; Open size: 103
+Min F Expanded: -20.0; Nodes expanded so far: 108; Open size: 264
+Min F Expanded: -21.0; Nodes expanded so far: 283; Open size: 590
+Min F Expanded: -22.0; Nodes expanded so far: 647; Open size: 1351
+Num Expanded: 1155
+Min F Expanded: -17.0; Nodes expanded so far: 2; Open size: 11
+Min F Expanded: -18.0; Nodes expanded so far: 14; Open size: 56
+Min F Expanded: -19.0; Nodes expanded so far: 61; Open size: 160
+Min F Expanded: -20.0; Nodes expanded so far: 176; Open size: 402
+Min F Expanded: -21.0; Nodes expanded so far: 445; Open size: 979
+Num Expanded: 519
+Min F Expanded: -16.0; Nodes expanded so far: 3; Open size: 21
+Min F Expanded: -17.0; Nodes expanded so far: 25; Open size: 102
+Min F Expanded: -18.0; Nodes expanded so far: 109; Open size: 289
+Min F Expanded: -19.0; Nodes expanded so far: 311; Open size: 695
+Num Expanded: 655
+Min F Expanded: -15.0; Nodes expanded so far: 2; Open size: 10
+Min F Expanded: -16.0; Nodes expanded so far: 14; Open size: 60
+Min F Expanded: -17.0; Nodes expanded so far: 67; Open size: 197
+Min F Expanded: -18.0; Nodes expanded so far: 215; Open size: 519
+Num Expanded: 451
+Min F Expanded: -14.0; Nodes expanded so far: 4; Open size: 29
+Min F Expanded: -15.0; Nodes expanded so far: 34; Open size: 136
+Min F Expanded: -16.0; Nodes expanded so far: 144; Open size: 373
+Num Expanded: 328
+Min F Expanded: -13.0; Nodes expanded so far: 3; Open size: 19
+Min F Expanded: -14.0; Nodes expanded so far: 24; Open size: 99
+Min F Expanded: -15.0; Nodes expanded so far: 106; Open size: 283
+Num Expanded: 211
+Min F Expanded: -12.0; Nodes expanded so far: 2; Open size: 9
+Min F Expanded: -13.0; Nodes expanded so far: 14; Open size: 62
+Min F Expanded: -14.0; Nodes expanded so far: 69; Open size: 204
+Num Expanded: 197
+Min F Expanded: -11.0; Nodes expanded so far: 5; Open size: 35
+Min F Expanded: -12.0; Nodes expanded so far: 39; Open size: 142
+Num Expanded: 107
+Min F Expanded: -10.0; Nodes expanded so far: 4; Open size: 26
+Min F Expanded: -11.0; Nodes expanded so far: 30; Open size: 110
+Num Expanded: 105
+Min F Expanded: -9.0; Nodes expanded so far: 3; Open size: 17
+Min F Expanded: -10.0; Nodes expanded so far: 21; Open size: 78
+Num Expanded: 47
+Min F Expanded: -8.0; Nodes expanded so far: 2; Open size: 8
+Min F Expanded: -9.0; Nodes expanded so far: 12; Open size: 46
+Num Expanded: 42
+Min F Expanded: -7.0; Nodes expanded so far: 4; Open size: 23
+Num Expanded: 19
+Min F Expanded: -6.0; Nodes expanded so far: 3; Open size: 15
+Num Expanded: 17
+Min F Expanded: -5.0; Nodes expanded so far: 2; Open size: 7
+Num Expanded: 9
+Num Expanded: 2
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: changeItem
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: changeItem
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: rotateLeft
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: rotateLeft
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 1 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 1 1(1)--jumpAndPlace 1
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 3 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 4 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 5 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 6 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 7 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 0(0)--jumpAndPlace 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 1(1)--jumpAndPlace 1
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 2(2)--jumpAndPlace 2
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:150]: machinelearning.PillarWekaClassifierWrapper$DungeonTrainExample@52c0c06d
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #2
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar2
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[22:56:43] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[22:56:43] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -24.0; Nodes expanded so far: 3; Open size: 29
+Min F Expanded: -25.0; Nodes expanded so far: 34; Open size: 164
+Min F Expanded: -26.0; Nodes expanded so far: 171; Open size: 494
+Min F Expanded: -27.0; Nodes expanded so far: 521; Open size: 1212
+Min F Expanded: -28.0; Nodes expanded so far: 1308; Open size: 2837
+Min F Expanded: -29.0; Nodes expanded so far: 3134; Open size: 6488
+Min F Expanded: -30.0; Nodes expanded so far: 7290; Open size: 14600
+Min F Expanded: -31.0; Nodes expanded so far: 16562; Open size: 32498
+Num Expanded: 21648
+Min F Expanded: -24.0; Nodes expanded so far: 3; Open size: 29
+Min F Expanded: -25.0; Nodes expanded so far: 34; Open size: 164
+Min F Expanded: -26.0; Nodes expanded so far: 171; Open size: 494
+Min F Expanded: -27.0; Nodes expanded so far: 521; Open size: 1212
+Min F Expanded: -28.0; Nodes expanded so far: 1308; Open size: 2837
+Min F Expanded: -29.0; Nodes expanded so far: 3134; Open size: 6488
+Min F Expanded: -30.0; Nodes expanded so far: 7290; Open size: 14600
+Min F Expanded: -31.0; Nodes expanded so far: 16562; Open size: 32498
+Num Expanded: 21648
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -24.0; Nodes expanded so far: 19; Open size: 102
+Min F Expanded: -25.0; Nodes expanded so far: 109; Open size: 356
+Min F Expanded: -26.0; Nodes expanded so far: 374; Open size: 922
+Min F Expanded: -27.0; Nodes expanded so far: 981; Open size: 2150
+Min F Expanded: -28.0; Nodes expanded so far: 2338; Open size: 4847
+Min F Expanded: -29.0; Nodes expanded so far: 5397; Open size: 10768
+Min F Expanded: -30.0; Nodes expanded so far: 12186; Open size: 23571
+[22:57:57] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2912ms behind, skipping 58 tick(s)
+Num Expanded: 25029
+Min F Expanded: -22.0; Nodes expanded so far: 5; Open size: 55
+Min F Expanded: -23.0; Nodes expanded so far: 59; Open size: 249
+Min F Expanded: -24.0; Nodes expanded so far: 258; Open size: 659
+Min F Expanded: -25.0; Nodes expanded so far: 696; Open size: 1521
+Min F Expanded: -26.0; Nodes expanded so far: 1631; Open size: 3391
+Min F Expanded: -27.0; Nodes expanded so far: 3733; Open size: 7377
+Min F Expanded: -28.0; Nodes expanded so far: 8302; Open size: 15901
+Num Expanded: 11453
+Min F Expanded: -21.0; Nodes expanded so far: 4; Open size: 41
+Min F Expanded: -22.0; Nodes expanded so far: 45; Open size: 192
+Min F Expanded: -23.0; Nodes expanded so far: 199; Open size: 503
+Min F Expanded: -24.0; Nodes expanded so far: 534; Open size: 1137
+Min F Expanded: -25.0; Nodes expanded so far: 1228; Open size: 2474
+Min F Expanded: -26.0; Nodes expanded so far: 2753; Open size: 5249
+Min F Expanded: -27.0; Nodes expanded so far: 5977; Open size: 11085
+Num Expanded: 9972
+Min F Expanded: -20.0; Nodes expanded so far: 3; Open size: 27
+Min F Expanded: -21.0; Nodes expanded so far: 31; Open size: 135
+Min F Expanded: -22.0; Nodes expanded so far: 141; Open size: 362
+Min F Expanded: -23.0; Nodes expanded so far: 385; Open size: 805
+Min F Expanded: -24.0; Nodes expanded so far: 873; Open size: 1723
+Min F Expanded: -25.0; Nodes expanded so far: 1925; Open size: 3631
+Min F Expanded: -26.0; Nodes expanded so far: 4154; Open size: 7612
+Num Expanded: 7449
+Min F Expanded: -19.0; Nodes expanded so far: 2; Open size: 13
+Min F Expanded: -20.0; Nodes expanded so far: 17; Open size: 78
+Min F Expanded: -21.0; Nodes expanded so far: 84; Open size: 235
+Min F Expanded: -22.0; Nodes expanded so far: 251; Open size: 544
+Min F Expanded: -23.0; Nodes expanded so far: 589; Open size: 1158
+Min F Expanded: -24.0; Nodes expanded so far: 1290; Open size: 2429
+Min F Expanded: -25.0; Nodes expanded so far: 2780; Open size: 5114
+Num Expanded: 5884
+Min F Expanded: -17.0; Nodes expanded so far: 4; Open size: 35
+Min F Expanded: -18.0; Nodes expanded so far: 38; Open size: 150
+Min F Expanded: -19.0; Nodes expanded so far: 155; Open size: 369
+Min F Expanded: -20.0; Nodes expanded so far: 391; Open size: 777
+Min F Expanded: -21.0; Nodes expanded so far: 843; Open size: 1592
+Min F Expanded: -22.0; Nodes expanded so far: 1785; Open size: 3264
+Num Expanded: 2805
+Min F Expanded: -16.0; Nodes expanded so far: 3; Open size: 23
+Min F Expanded: -17.0; Nodes expanded so far: 26; Open size: 103
+Min F Expanded: -18.0; Nodes expanded so far: 107; Open size: 253
+Min F Expanded: -19.0; Nodes expanded so far: 271; Open size: 530
+Min F Expanded: -20.0; Nodes expanded so far: 584; Open size: 1086
+Min F Expanded: -21.0; Nodes expanded so far: 1241; Open size: 2211
+Num Expanded: 2544
+Min F Expanded: -15.0; Nodes expanded so far: 2; Open size: 11
+Min F Expanded: -16.0; Nodes expanded so far: 14; Open size: 56
+Min F Expanded: -17.0; Nodes expanded so far: 60; Open size: 150
+Min F Expanded: -18.0; Nodes expanded so far: 162; Open size: 327
+Min F Expanded: -19.0; Nodes expanded so far: 362; Open size: 688
+Min F Expanded: -20.0; Nodes expanded so far: 786; Open size: 1449
+Num Expanded: 1640
+Min F Expanded: -14.0; Nodes expanded so far: 3; Open size: 21
+Min F Expanded: -15.0; Nodes expanded so far: 24; Open size: 92
+Min F Expanded: -16.0; Nodes expanded so far: 96; Open size: 224
+Min F Expanded: -17.0; Nodes expanded so far: 240; Open size: 459
+Min F Expanded: -18.0; Nodes expanded so far: 508; Open size: 949
+Num Expanded: 680
+Min F Expanded: -13.0; Nodes expanded so far: 2; Open size: 10
+Min F Expanded: -14.0; Nodes expanded so far: 13; Open size: 50
+Min F Expanded: -15.0; Nodes expanded so far: 54; Open size: 132
+Min F Expanded: -16.0; Nodes expanded so far: 145; Open size: 293
+Min F Expanded: -17.0; Nodes expanded so far: 329; Open size: 630
+Num Expanded: 687
+Min F Expanded: -12.0; Nodes expanded so far: 3; Open size: 19
+Min F Expanded: -13.0; Nodes expanded so far: 22; Open size: 81
+Min F Expanded: -14.0; Nodes expanded so far: 86; Open size: 202
+Min F Expanded: -15.0; Nodes expanded so far: 219; Open size: 430
+Num Expanded: 380
+Min F Expanded: -11.0; Nodes expanded so far: 2; Open size: 9
+Min F Expanded: -12.0; Nodes expanded so far: 12; Open size: 44
+Min F Expanded: -13.0; Nodes expanded so far: 49; Open size: 122
+Min F Expanded: -14.0; Nodes expanded so far: 136; Open size: 286
+Num Expanded: 242
+Min F Expanded: -10.0; Nodes expanded so far: 3; Open size: 17
+Min F Expanded: -11.0; Nodes expanded so far: 21; Open size: 78
+Min F Expanded: -12.0; Nodes expanded so far: 83; Open size: 199
+Num Expanded: 115
+Min F Expanded: -9.0; Nodes expanded so far: 2; Open size: 8
+Min F Expanded: -10.0; Nodes expanded so far: 12; Open size: 46
+Min F Expanded: -11.0; Nodes expanded so far: 51; Open size: 131
+Num Expanded: 131
+Min F Expanded: -8.0; Nodes expanded so far: 4; Open size: 23
+Min F Expanded: -9.0; Nodes expanded so far: 26; Open size: 86
+Num Expanded: 51
+Min F Expanded: -7.0; Nodes expanded so far: 3; Open size: 15
+Min F Expanded: -8.0; Nodes expanded so far: 18; Open size: 59
+Num Expanded: 62
+Min F Expanded: -6.0; Nodes expanded so far: 2; Open size: 7
+Min F Expanded: -7.0; Nodes expanded so far: 10; Open size: 32
+Num Expanded: 35
+Min F Expanded: -5.0; Nodes expanded so far: 3; Open size: 13
+Num Expanded: 15
+Min F Expanded: -4.0; Nodes expanded so far: 2; Open size: 6
+Num Expanded: 8
+Num Expanded: 2
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 1 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 2 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 2 1(1)--jumpAndPlace 1
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 4 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 5 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 6 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 7 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 8 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 9 0(0)--jumpAndPlace 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 9 1(1)--jumpAndPlace 1
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:150]: machinelearning.PillarWekaClassifierWrapper$DungeonTrainExample@59c07921
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #3
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar3
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[22:59:35] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[22:59:35] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -25.0; Nodes expanded so far: 3; Open size: 29
+Min F Expanded: -26.0; Nodes expanded so far: 32; Open size: 136
+Min F Expanded: -27.0; Nodes expanded so far: 142; Open size: 364
+Min F Expanded: -28.0; Nodes expanded so far: 389; Open size: 856
+Min F Expanded: -29.0; Nodes expanded so far: 939; Open size: 2006
+Min F Expanded: -30.0; Nodes expanded so far: 2257; Open size: 4687
+Min F Expanded: -31.0; Nodes expanded so far: 5344; Open size: 11066
+Num Expanded: 8417
+Min F Expanded: -25.0; Nodes expanded so far: 3; Open size: 29
+Min F Expanded: -26.0; Nodes expanded so far: 32; Open size: 136
+Min F Expanded: -27.0; Nodes expanded so far: 142; Open size: 364
+Min F Expanded: -28.0; Nodes expanded so far: 389; Open size: 856
+Min F Expanded: -29.0; Nodes expanded so far: 939; Open size: 2006
+Min F Expanded: -30.0; Nodes expanded so far: 2257; Open size: 4687
+Min F Expanded: -31.0; Nodes expanded so far: 5344; Open size: 11066
+Num Expanded: 8417
+Min F Expanded: -24.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -25.0; Nodes expanded so far: 17; Open size: 74
+Min F Expanded: -26.0; Nodes expanded so far: 80; Open size: 226
+Min F Expanded: -27.0; Nodes expanded so far: 244; Open size: 594
+Min F Expanded: -28.0; Nodes expanded so far: 643; Open size: 1477
+Min F Expanded: -29.0; Nodes expanded so far: 1622; Open size: 3532
+Min F Expanded: -30.0; Nodes expanded so far: 3950; Open size: 8393
+Num Expanded: 5798
+Min F Expanded: -23.0; Nodes expanded so far: 3; Open size: 27
+Min F Expanded: -24.0; Nodes expanded so far: 32; Open size: 147
+Min F Expanded: -25.0; Nodes expanded so far: 155; Open size: 433
+Min F Expanded: -26.0; Nodes expanded so far: 459; Open size: 1046
+Min F Expanded: -27.0; Nodes expanded so far: 1127; Open size: 2477
+Min F Expanded: -28.0; Nodes expanded so far: 2722; Open size: 5900
+Num Expanded: 4682
+Min F Expanded: -22.0; Nodes expanded so far: 2; Open size: 13
+Min F Expanded: -23.0; Nodes expanded so far: 18; Open size: 90
+Min F Expanded: -24.0; Nodes expanded so far: 98; Open size: 305
+Min F Expanded: -25.0; Nodes expanded so far: 326; Open size: 792
+Min F Expanded: -26.0; Nodes expanded so far: 854; Open size: 1888
+Min F Expanded: -27.0; Nodes expanded so far: 2080; Open size: 4445
+Num Expanded: 4694
+Min F Expanded: -20.0; Nodes expanded so far: 5; Open size: 47
+Min F Expanded: -21.0; Nodes expanded so far: 51; Open size: 208
+Min F Expanded: -22.0; Nodes expanded so far: 217; Open size: 559
+Min F Expanded: -23.0; Nodes expanded so far: 596; Open size: 1341
+Min F Expanded: -24.0; Nodes expanded so far: 1453; Open size: 3133
+Num Expanded: 3361
+Min F Expanded: -19.0; Nodes expanded so far: 4; Open size: 35
+Min F Expanded: -20.0; Nodes expanded so far: 39; Open size: 161
+Min F Expanded: -21.0; Nodes expanded so far: 168; Open size: 431
+Min F Expanded: -22.0; Nodes expanded so far: 462; Open size: 1024
+Min F Expanded: -23.0; Nodes expanded so far: 1119; Open size: 2379
+Num Expanded: 2232
+Min F Expanded: -18.0; Nodes expanded so far: 3; Open size: 23
+Min F Expanded: -19.0; Nodes expanded so far: 27; Open size: 114
+Min F Expanded: -20.0; Nodes expanded so far: 120; Open size: 316
+Min F Expanded: -21.0; Nodes expanded so far: 339; Open size: 751
+Min F Expanded: -22.0; Nodes expanded so far: 823; Open size: 1745
+Num Expanded: 1217
+Min F Expanded: -17.0; Nodes expanded so far: 2; Open size: 11
+Min F Expanded: -18.0; Nodes expanded so far: 15; Open size: 67
+Min F Expanded: -19.0; Nodes expanded so far: 73; Open size: 213
+Min F Expanded: -20.0; Nodes expanded so far: 229; Open size: 537
+Min F Expanded: -21.0; Nodes expanded so far: 586; Open size: 1263
+Num Expanded: 1350
+Min F Expanded: -16.0; Nodes expanded so far: 4; Open size: 32
+Min F Expanded: -17.0; Nodes expanded so far: 36; Open size: 144
+Min F Expanded: -18.0; Nodes expanded so far: 151; Open size: 382
+Min F Expanded: -19.0; Nodes expanded so far: 410; Open size: 887
+Num Expanded: 641
+Min F Expanded: -15.0; Nodes expanded so far: 3; Open size: 21
+Min F Expanded: -16.0; Nodes expanded so far: 25; Open size: 102
+Min F Expanded: -17.0; Nodes expanded so far: 108; Open size: 279
+Min F Expanded: -18.0; Nodes expanded so far: 302; Open size: 658
+Num Expanded: 572
+Min F Expanded: -14.0; Nodes expanded so far: 2; Open size: 10
+Min F Expanded: -15.0; Nodes expanded so far: 14; Open size: 60
+Min F Expanded: -16.0; Nodes expanded so far: 66; Open size: 188
+Min F Expanded: -17.0; Nodes expanded so far: 204; Open size: 469
+Num Expanded: 302
+Min F Expanded: -13.0; Nodes expanded so far: 4; Open size: 29
+Min F Expanded: -14.0; Nodes expanded so far: 33; Open size: 127
+Min F Expanded: -15.0; Nodes expanded so far: 134; Open size: 332
+Num Expanded: 245
+Min F Expanded: -12.0; Nodes expanded so far: 3; Open size: 19
+Min F Expanded: -13.0; Nodes expanded so far: 23; Open size: 90
+Min F Expanded: -14.0; Nodes expanded so far: 96; Open size: 242
+Num Expanded: 258
+Min F Expanded: -11.0; Nodes expanded so far: 2; Open size: 9
+Min F Expanded: -12.0; Nodes expanded so far: 13; Open size: 53
+Min F Expanded: -13.0; Nodes expanded so far: 59; Open size: 163
+Num Expanded: 119
+Min F Expanded: -10.0; Nodes expanded so far: 4; Open size: 26
+Min F Expanded: -11.0; Nodes expanded so far: 30; Open size: 110
+Num Expanded: 105
+Min F Expanded: -9.0; Nodes expanded so far: 3; Open size: 17
+Min F Expanded: -10.0; Nodes expanded so far: 21; Open size: 78
+Num Expanded: 47
+Min F Expanded: -8.0; Nodes expanded so far: 2; Open size: 8
+Min F Expanded: -9.0; Nodes expanded so far: 12; Open size: 46
+Num Expanded: 42
+Min F Expanded: -7.0; Nodes expanded so far: 4; Open size: 23
+Num Expanded: 19
+Min F Expanded: -6.0; Nodes expanded so far: 3; Open size: 15
+Num Expanded: 17
+Min F Expanded: -5.0; Nodes expanded so far: 2; Open size: 7
+Num Expanded: 9
+Num Expanded: 2
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 1 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 2 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 2 1(1)--jumpAndPlace 1
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 4 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 5 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 6 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 7 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 0(0)--jumpAndPlace 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 1(1)--jumpAndPlace 1
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 2 8 2(2)--jumpAndPlace 2
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:150]: machinelearning.PillarWekaClassifierWrapper$DungeonTrainExample@6875addf
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #4
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar4
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[23:01:12] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[23:01:12] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -26.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -27.0; Nodes expanded so far: 18; Open size: 88
+Min F Expanded: -28.0; Nodes expanded so far: 94; Open size: 287
+Min F Expanded: -29.0; Nodes expanded so far: 303; Open size: 716
+Min F Expanded: -30.0; Nodes expanded so far: 774; Open size: 1635
+Min F Expanded: -31.0; Nodes expanded so far: 1816; Open size: 3655
+Min F Expanded: -32.0; Nodes expanded so far: 4145; Open size: 8190
+Min F Expanded: -33.0; Nodes expanded so far: 9385; Open size: 18321
+Min F Expanded: -34.0; Nodes expanded so far: 21166; Open size: 40906
+Num Expanded: 44061
+Min F Expanded: -26.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -27.0; Nodes expanded so far: 18; Open size: 88
+Min F Expanded: -28.0; Nodes expanded so far: 94; Open size: 287
+Min F Expanded: -29.0; Nodes expanded so far: 303; Open size: 716
+Min F Expanded: -30.0; Nodes expanded so far: 774; Open size: 1635
+Min F Expanded: -31.0; Nodes expanded so far: 1816; Open size: 3655
+Min F Expanded: -32.0; Nodes expanded so far: 4145; Open size: 8190
+Min F Expanded: -33.0; Nodes expanded so far: 9385; Open size: 18321
+Min F Expanded: -34.0; Nodes expanded so far: 21166; Open size: 40906
+[23:02:26] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2264ms behind, skipping 45 tick(s)
+Num Expanded: 44061
+Min F Expanded: -25.0; Nodes expanded so far: 4; Open size: 41
+Min F Expanded: -26.0; Nodes expanded so far: 45; Open size: 195
+Min F Expanded: -27.0; Nodes expanded so far: 201; Open size: 519
+Min F Expanded: -28.0; Nodes expanded so far: 546; Open size: 1167
+Min F Expanded: -29.0; Nodes expanded so far: 1261; Open size: 2589
+Min F Expanded: -30.0; Nodes expanded so far: 2875; Open size: 5728
+Min F Expanded: -31.0; Nodes expanded so far: 6481; Open size: 12590
+Min F Expanded: -32.0; Nodes expanded so far: 14456; Open size: 27790
+Num Expanded: 17709
+Min F Expanded: -24.0; Nodes expanded so far: 3; Open size: 27
+Min F Expanded: -25.0; Nodes expanded so far: 31; Open size: 138
+Min F Expanded: -26.0; Nodes expanded so far: 143; Open size: 378
+Min F Expanded: -27.0; Nodes expanded so far: 399; Open size: 863
+Min F Expanded: -28.0; Nodes expanded so far: 929; Open size: 1896
+Min F Expanded: -29.0; Nodes expanded so far: 2102; Open size: 4121
+Min F Expanded: -30.0; Nodes expanded so far: 4678; Open size: 8961
+Min F Expanded: -31.0; Nodes expanded so far: 10329; Open size: 19665
+Num Expanded: 22366
+Min F Expanded: -23.0; Nodes expanded so far: 2; Open size: 13
+Min F Expanded: -24.0; Nodes expanded so far: 17; Open size: 81
+Min F Expanded: -25.0; Nodes expanded so far: 86; Open size: 251
+Min F Expanded: -26.0; Nodes expanded so far: 265; Open size: 599
+Min F Expanded: -27.0; Nodes expanded so far: 644; Open size: 1324
+Min F Expanded: -28.0; Nodes expanded so far: 1464; Open size: 2889
+Min F Expanded: -29.0; Nodes expanded so far: 3276; Open size: 6313
+Min F Expanded: -30.0; Nodes expanded so far: 7283; Open size: 13859
+Num Expanded: 14124
+Min F Expanded: -22.0; Nodes expanded so far: 4; Open size: 38
+Min F Expanded: -23.0; Nodes expanded so far: 41; Open size: 166
+Min F Expanded: -24.0; Nodes expanded so far: 172; Open size: 420
+Min F Expanded: -25.0; Nodes expanded so far: 445; Open size: 916
+Min F Expanded: -26.0; Nodes expanded so far: 993; Open size: 1969
+Min F Expanded: -27.0; Nodes expanded so far: 2202; Open size: 4239
+Min F Expanded: -28.0; Nodes expanded so far: 4868; Open size: 9242
+Num Expanded: 10403
+Min F Expanded: -21.0; Nodes expanded so far: 3; Open size: 25
+Min F Expanded: -22.0; Nodes expanded so far: 28; Open size: 114
+Min F Expanded: -23.0; Nodes expanded so far: 119; Open size: 291
+Min F Expanded: -24.0; Nodes expanded so far: 312; Open size: 641
+Min F Expanded: -25.0; Nodes expanded so far: 703; Open size: 1376
+Min F Expanded: -26.0; Nodes expanded so far: 1560; Open size: 2937
+Min F Expanded: -27.0; Nodes expanded so far: 3417; Open size: 6384
+Num Expanded: 5789
+Min F Expanded: -20.0; Nodes expanded so far: 2; Open size: 12
+Min F Expanded: -21.0; Nodes expanded so far: 15; Open size: 62
+Min F Expanded: -22.0; Nodes expanded so far: 67; Open size: 176
+Min F Expanded: -23.0; Nodes expanded so far: 191; Open size: 414
+Min F Expanded: -24.0; Nodes expanded so far: 456; Open size: 922
+Min F Expanded: -25.0; Nodes expanded so far: 1042; Open size: 2014
+Min F Expanded: -26.0; Nodes expanded so far: 2334; Open size: 4446
+Num Expanded: 3309
+Min F Expanded: -19.0; Nodes expanded so far: 3; Open size: 23
+Min F Expanded: -20.0; Nodes expanded so far: 27; Open size: 111
+Min F Expanded: -21.0; Nodes expanded so far: 117; Open size: 291
+Min F Expanded: -22.0; Nodes expanded so far: 312; Open size: 628
+Min F Expanded: -23.0; Nodes expanded so far: 693; Open size: 1352
+Min F Expanded: -24.0; Nodes expanded so far: 1539; Open size: 2994
+Num Expanded: 2269
+Min F Expanded: -18.0; Nodes expanded so far: 2; Open size: 11
+Min F Expanded: -19.0; Nodes expanded so far: 15; Open size: 64
+Min F Expanded: -20.0; Nodes expanded so far: 70; Open size: 187
+Min F Expanded: -21.0; Nodes expanded so far: 204; Open size: 432
+Min F Expanded: -22.0; Nodes expanded so far: 481; Open size: 945
+Min F Expanded: -23.0; Nodes expanded so far: 1086; Open size: 2094
+Num Expanded: 2222
+Min F Expanded: -16.0; Nodes expanded so far: 4; Open size: 29
+Min F Expanded: -17.0; Nodes expanded so far: 32; Open size: 118
+Min F Expanded: -18.0; Nodes expanded so far: 124; Open size: 291
+Min F Expanded: -19.0; Nodes expanded so far: 317; Open size: 646
+Min F Expanded: -20.0; Nodes expanded so far: 722; Open size: 1421
+Num Expanded: 1361
+Min F Expanded: -15.0; Nodes expanded so far: 3; Open size: 19
+Min F Expanded: -16.0; Nodes expanded so far: 22; Open size: 81
+Min F Expanded: -17.0; Nodes expanded so far: 86; Open size: 201
+Min F Expanded: -18.0; Nodes expanded so far: 223; Open size: 455
+Min F Expanded: -19.0; Nodes expanded so far: 518; Open size: 1025
+Num Expanded: 1155
+Min F Expanded: -14.0; Nodes expanded so far: 2; Open size: 9
+Min F Expanded: -15.0; Nodes expanded so far: 12; Open size: 44
+Min F Expanded: -16.0; Nodes expanded so far: 49; Open size: 122
+Min F Expanded: -17.0; Nodes expanded so far: 138; Open size: 300
+Min F Expanded: -18.0; Nodes expanded so far: 343; Open size: 715
+Num Expanded: 501
+Min F Expanded: -13.0; Nodes expanded so far: 3; Open size: 17
+Min F Expanded: -14.0; Nodes expanded so far: 21; Open size: 78
+Min F Expanded: -15.0; Nodes expanded so far: 85; Open size: 213
+Min F Expanded: -16.0; Nodes expanded so far: 234; Open size: 493
+Num Expanded: 335
+Min F Expanded: -12.0; Nodes expanded so far: 2; Open size: 8
+Min F Expanded: -13.0; Nodes expanded so far: 12; Open size: 46
+Min F Expanded: -14.0; Nodes expanded so far: 53; Open size: 145
+Min F Expanded: -15.0; Nodes expanded so far: 162; Open size: 363
+Num Expanded: 354
+Min F Expanded: -11.0; Nodes expanded so far: 4; Open size: 23
+Min F Expanded: -12.0; Nodes expanded so far: 28; Open size: 100
+Min F Expanded: -13.0; Nodes expanded so far: 107; Open size: 255
+Num Expanded: 265
+Min F Expanded: -10.0; Nodes expanded so far: 3; Open size: 15
+Min F Expanded: -11.0; Nodes expanded so far: 20; Open size: 73
+Min F Expanded: -12.0; Nodes expanded so far: 79; Open size: 191
+Num Expanded: 179
+Min F Expanded: -9.0; Nodes expanded so far: 2; Open size: 7
+Min F Expanded: -10.0; Nodes expanded so far: 12; Open size: 46
+Min F Expanded: -11.0; Nodes expanded so far: 52; Open size: 136
+Num Expanded: 126
+Min F Expanded: -8.0; Nodes expanded so far: 5; Open size: 27
+Min F Expanded: -9.0; Nodes expanded so far: 30; Open size: 92
+Num Expanded: 81
+Min F Expanded: -7.0; Nodes expanded so far: 4; Open size: 20
+Min F Expanded: -8.0; Nodes expanded so far: 23; Open size: 70
+Num Expanded: 74
+Min F Expanded: -6.0; Nodes expanded so far: 3; Open size: 13
+Min F Expanded: -7.0; Nodes expanded so far: 16; Open size: 48
+Num Expanded: 41
+Min F Expanded: -5.0; Nodes expanded so far: 2; Open size: 6
+Min F Expanded: -6.0; Nodes expanded so far: 9; Open size: 26
+Num Expanded: 28
+Min F Expanded: -4.0; Nodes expanded so far: 3; Open size: 11
+Num Expanded: 13
+Min F Expanded: -3.0; Nodes expanded so far: 2; Open size: 5
+Num Expanded: 7
+Num Expanded: 2
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 1 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 2 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 3 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 4 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 4 1(1)--jumpAndPlace 1
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 6 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 7 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 8 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 9 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 10 0(0)--jumpAndPlace 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:150]: machinelearning.PillarWekaClassifierWrapper$DungeonTrainExample@70c3d902
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #5
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar5
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[23:05:01] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[23:05:01] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -27.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -28.0; Nodes expanded so far: 18; Open size: 88
+Min F Expanded: -29.0; Nodes expanded so far: 94; Open size: 287
+Min F Expanded: -30.0; Nodes expanded so far: 303; Open size: 716
+Min F Expanded: -31.0; Nodes expanded so far: 773; Open size: 1627
+Min F Expanded: -32.0; Nodes expanded so far: 1805; Open size: 3614
+Min F Expanded: -33.0; Nodes expanded so far: 4096; Open size: 8093
+Min F Expanded: -34.0; Nodes expanded so far: 9264; Open size: 18255
+Min F Expanded: -35.0; Nodes expanded so far: 21025; Open size: 41393
+Num Expanded: 34004
+Min F Expanded: -27.0; Nodes expanded so far: 2; Open size: 14
+Min F Expanded: -28.0; Nodes expanded so far: 18; Open size: 88
+Min F Expanded: -29.0; Nodes expanded so far: 94; Open size: 287
+Min F Expanded: -30.0; Nodes expanded so far: 303; Open size: 716
+Min F Expanded: -31.0; Nodes expanded so far: 773; Open size: 1627
+Min F Expanded: -32.0; Nodes expanded so far: 1805; Open size: 3614
+Min F Expanded: -33.0; Nodes expanded so far: 4096; Open size: 8093
+Min F Expanded: -34.0; Nodes expanded so far: 9264; Open size: 18255
+Min F Expanded: -35.0; Nodes expanded so far: 21025; Open size: 41393
+Num Expanded: 34004
+Min F Expanded: -26.0; Nodes expanded so far: 4; Open size: 41
+Min F Expanded: -27.0; Nodes expanded so far: 45; Open size: 195
+Min F Expanded: -28.0; Nodes expanded so far: 201; Open size: 519
+Min F Expanded: -29.0; Nodes expanded so far: 545; Open size: 1159
+Min F Expanded: -30.0; Nodes expanded so far: 1251; Open size: 2556
+Min F Expanded: -31.0; Nodes expanded so far: 2836; Open size: 5664
+Min F Expanded: -32.0; Nodes expanded so far: 6398; Open size: 12580
+Min F Expanded: -33.0; Nodes expanded so far: 14389; Open size: 28262
+Num Expanded: 25586
+Min F Expanded: -25.0; Nodes expanded so far: 3; Open size: 27
+Min F Expanded: -26.0; Nodes expanded so far: 31; Open size: 138
+Min F Expanded: -27.0; Nodes expanded so far: 143; Open size: 378
+Min F Expanded: -28.0; Nodes expanded so far: 398; Open size: 855
+Min F Expanded: -29.0; Nodes expanded so far: 919; Open size: 1863
+Min F Expanded: -30.0; Nodes expanded so far: 2064; Open size: 4065
+Min F Expanded: -31.0; Nodes expanded so far: 4606; Open size: 8992
+Min F Expanded: -32.0; Nodes expanded so far: 10311; Open size: 20234
+Num Expanded: 22297
+Min F Expanded: -24.0; Nodes expanded so far: 2; Open size: 13
+Min F Expanded: -25.0; Nodes expanded so far: 17; Open size: 81
+Min F Expanded: -26.0; Nodes expanded so far: 86; Open size: 251
+Min F Expanded: -27.0; Nodes expanded so far: 264; Open size: 591
+Min F Expanded: -28.0; Nodes expanded so far: 634; Open size: 1291
+Min F Expanded: -29.0; Nodes expanded so far: 1427; Open size: 2841
+Min F Expanded: -30.0; Nodes expanded so far: 3215; Open size: 6385
+Min F Expanded: -31.0; Nodes expanded so far: 7313; Open size: 14517
+Num Expanded: 14585
+Min F Expanded: -23.0; Nodes expanded so far: 4; Open size: 38
+Min F Expanded: -24.0; Nodes expanded so far: 41; Open size: 166
+Min F Expanded: -25.0; Nodes expanded so far: 171; Open size: 412
+Min F Expanded: -26.0; Nodes expanded so far: 436; Open size: 891
+Min F Expanded: -27.0; Nodes expanded so far: 965; Open size: 1946
+Min F Expanded: -28.0; Nodes expanded so far: 2168; Open size: 4326
+Min F Expanded: -29.0; Nodes expanded so far: 4924; Open size: 9796
+Num Expanded: 8598
+Min F Expanded: -22.0; Nodes expanded so far: 3; Open size: 25
+Min F Expanded: -23.0; Nodes expanded so far: 28; Open size: 114
+Min F Expanded: -24.0; Nodes expanded so far: 118; Open size: 283
+Min F Expanded: -25.0; Nodes expanded so far: 303; Open size: 616
+Min F Expanded: -26.0; Nodes expanded so far: 676; Open size: 1361
+Min F Expanded: -27.0; Nodes expanded so far: 1536; Open size: 3057
+Min F Expanded: -28.0; Nodes expanded so far: 3510; Open size: 6986
+Num Expanded: 5639
+Min F Expanded: -21.0; Nodes expanded so far: 2; Open size: 12
+Min F Expanded: -22.0; Nodes expanded so far: 15; Open size: 62
+Min F Expanded: -23.0; Nodes expanded so far: 66; Open size: 168
+Min F Expanded: -24.0; Nodes expanded so far: 182; Open size: 389
+Min F Expanded: -25.0; Nodes expanded so far: 430; Open size: 915
+Min F Expanded: -26.0; Nodes expanded so far: 1028; Open size: 2167
+Min F Expanded: -27.0; Nodes expanded so far: 2463; Open size: 5088
+Num Expanded: 4261
+Min F Expanded: -20.0; Nodes expanded so far: 3; Open size: 23
+Min F Expanded: -21.0; Nodes expanded so far: 26; Open size: 103
+Min F Expanded: -22.0; Nodes expanded so far: 109; Open size: 274
+Min F Expanded: -23.0; Nodes expanded so far: 294; Open size: 638
+Min F Expanded: -24.0; Nodes expanded so far: 696; Open size: 1487
+Min F Expanded: -25.0; Nodes expanded so far: 1658; Open size: 3492
+Num Expanded: 2635
+Min F Expanded: -19.0; Nodes expanded so far: 2; Open size: 11
+Min F Expanded: -20.0; Nodes expanded so far: 14; Open size: 56
+Min F Expanded: -21.0; Nodes expanded so far: 62; Open size: 170
+Min F Expanded: -22.0; Nodes expanded so far: 187; Open size: 450
+Min F Expanded: -23.0; Nodes expanded so far: 493; Open size: 1105
+Min F Expanded: -24.0; Nodes expanded so far: 1231; Open size: 2599
+Num Expanded: 2782
+Min F Expanded: -18.0; Nodes expanded so far: 3; Open size: 21
+Min F Expanded: -19.0; Nodes expanded so far: 26; Open size: 112
+Min F Expanded: -20.0; Nodes expanded so far: 119; Open size: 327
+Min F Expanded: -21.0; Nodes expanded so far: 349; Open size: 783
+Min F Expanded: -22.0; Nodes expanded so far: 857; Open size: 1830
+Num Expanded: 1423
+Min F Expanded: -17.0; Nodes expanded so far: 2; Open size: 10
+Min F Expanded: -18.0; Nodes expanded so far: 15; Open size: 70
+Min F Expanded: -19.0; Nodes expanded so far: 77; Open size: 235
+Min F Expanded: -20.0; Nodes expanded so far: 252; Open size: 597
+Min F Expanded: -21.0; Nodes expanded so far: 653; Open size: 1388
+Num Expanded: 975
+Min F Expanded: -16.0; Nodes expanded so far: 5; Open size: 39
+Min F Expanded: -17.0; Nodes expanded so far: 43; Open size: 164
+Min F Expanded: -18.0; Nodes expanded so far: 172; Open size: 423
+Min F Expanded: -19.0; Nodes expanded so far: 459; Open size: 987
+Num Expanded: 1057
+Min F Expanded: -15.0; Nodes expanded so far: 4; Open size: 29
+Min F Expanded: -16.0; Nodes expanded so far: 33; Open size: 127
+Min F Expanded: -17.0; Nodes expanded so far: 133; Open size: 323
+Min F Expanded: -18.0; Nodes expanded so far: 353; Open size: 740
+Num Expanded: 638
+Min F Expanded: -14.0; Nodes expanded so far: 3; Open size: 19
+Min F Expanded: -15.0; Nodes expanded so far: 23; Open size: 90
+Min F Expanded: -16.0; Nodes expanded so far: 95; Open size: 234
+Min F Expanded: -17.0; Nodes expanded so far: 256; Open size: 529
+Num Expanded: 340
+Min F Expanded: -13.0; Nodes expanded so far: 2; Open size: 9
+Min F Expanded: -14.0; Nodes expanded so far: 13; Open size: 53
+Min F Expanded: -15.0; Nodes expanded so far: 58; Open size: 155
+Min F Expanded: -16.0; Nodes expanded so far: 170; Open size: 365
+Num Expanded: 332
+Min F Expanded: -12.0; Nodes expanded so far: 4; Open size: 26
+Min F Expanded: -13.0; Nodes expanded so far: 29; Open size: 102
+Min F Expanded: -14.0; Nodes expanded so far: 109; Open size: 254
+Num Expanded: 117
+Min F Expanded: -11.0; Nodes expanded so far: 3; Open size: 17
+Min F Expanded: -12.0; Nodes expanded so far: 20; Open size: 70
+Min F Expanded: -13.0; Nodes expanded so far: 76; Open size: 177
+Num Expanded: 186
+Min F Expanded: -10.0; Nodes expanded so far: 2; Open size: 8
+Min F Expanded: -11.0; Nodes expanded so far: 11; Open size: 38
+Min F Expanded: -12.0; Nodes expanded so far: 44; Open size: 110
+Num Expanded: 120
+Min F Expanded: -9.0; Nodes expanded so far: 3; Open size: 15
+Min F Expanded: -10.0; Nodes expanded so far: 20; Open size: 73
+Num Expanded: 75
+Min F Expanded: -8.0; Nodes expanded so far: 2; Open size: 7
+Min F Expanded: -9.0; Nodes expanded so far: 12; Open size: 46
+Num Expanded: 41
+Min F Expanded: -7.0; Nodes expanded so far: 5; Open size: 27
+Num Expanded: 27
+Min F Expanded: -6.0; Nodes expanded so far: 4; Open size: 20
+Num Expanded: 19
+Min F Expanded: -5.0; Nodes expanded so far: 3; Open size: 13
+Num Expanded: 15
+Min F Expanded: -4.0; Nodes expanded so far: 2; Open size: 6
+Num Expanded: 8
+Num Expanded: 2
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 1 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 2 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 3 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 4 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 5 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 6 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 7 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 0 8 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 9 0(0)--jumpAndPlace 0
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: *pillar 1 9 1(1)--jumpAndPlace 1
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: jumpAndPlace
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:176]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:177]: moveForward
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:150]: machinelearning.PillarWekaClassifierWrapper$DungeonTrainExample@1fd98da7
+[23:08:37] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:128]: DUNGEON CALL #6
+[23:08:38] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1:run:146]: pillar6
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.io.FileNotFoundException: ../trainingRound1/complete.dat (No such file or directory)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open0(Native Method)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.open(FileInputStream.java:195)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at machinelearning.PillarWekaClassifierWrapper.<init>(PillarWekaClassifierWrapper.java:70)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:129)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[23:08:38] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[23:08:38] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:145]: Pillar minHeight param 0
+[23:08:38] [Thread-13/INFO]: [edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver:plan:147]: Pillar maxHeight param 14
+Min F Expanded: -28.0; Nodes expanded so far: 5; Open size: 59
+Min F Expanded: -29.0; Nodes expanded so far: 64; Open size: 288
+Min F Expanded: -30.0; Nodes expanded so far: 298; Open size: 820
+Min F Expanded: -31.0; Nodes expanded so far: 865; Open size: 2068
+Min F Expanded: -32.0; Nodes expanded so far: 2214; Open size: 5051
+Min F Expanded: -33.0; Nodes expanded so far: 5516; Open size: 11946
+Min F Expanded: -34.0; Nodes expanded so far: 13217; Open size: 27836
+Min F Expanded: -35.0; Nodes expanded so far: 31012; Open size: 64410
+[23:09:16] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2831ms behind, skipping 56 tick(s)
+[23:09:37] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3944ms behind, skipping 78 tick(s)
+[23:10:19] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 20345ms behind, skipping 406 tick(s)
+[23:10:22] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2535ms behind, skipping 50 tick(s)
+[23:10:43] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 6519ms behind, skipping 130 tick(s)
+[23:10:54] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2562ms behind, skipping 51 tick(s)
+[23:11:17] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 9399ms behind, skipping 187 tick(s)
+[23:11:33] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 8084ms behind, skipping 161 tick(s)
+[23:11:44] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2778ms behind, skipping 55 tick(s)
+[23:12:03] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5522ms behind, skipping 110 tick(s)
+[23:12:32] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 13021ms behind, skipping 260 tick(s)
+[23:12:41] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5491ms behind, skipping 109 tick(s)
+[23:12:59] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5586ms behind, skipping 111 tick(s)
+[23:13:25] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 15752ms behind, skipping 315 tick(s)
+[23:13:28] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2700ms behind, skipping 54 tick(s)
+Min F Expanded: -36.0; Nodes expanded so far: 72231; Open size: 147873
+[23:14:15] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 27514ms behind, skipping 550 tick(s)
+[23:14:20] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5027ms behind, skipping 100 tick(s)
+[23:15:23] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 39594ms behind, skipping 791 tick(s)
+[23:15:28] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4944ms behind, skipping 98 tick(s)
+[23:17:17] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 79489ms behind, skipping 1589 tick(s)
+[23:17:29] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 11617ms behind, skipping 232 tick(s)
+[23:19:10] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 89714ms behind, skipping 1794 tick(s)
+[23:19:30] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 20196ms behind, skipping 403 tick(s)
+[23:19:51] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 21136ms behind, skipping 422 tick(s)
+[23:20:15] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 23676ms behind, skipping 473 tick(s)
+[23:20:42] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 26571ms behind, skipping 531 tick(s)
+[23:21:10] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 28928ms behind, skipping 578 tick(s)
+[23:21:44] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 33373ms behind, skipping 667 tick(s)
+[23:22:25] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 41122ms behind, skipping 822 tick(s)
+[23:23:16] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 50926ms behind, skipping 1018 tick(s)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: java.lang.OutOfMemoryError: GC overhead limit exceeded
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.util.HashMap.newNode(HashMap.java:1734)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.util.HashMap.putVal(HashMap.java:630)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.util.HashMap.put(HashMap.java:611)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.core.states.MutableState.addObject(MutableState.java:142)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.core.states.MutableState.<init>(MutableState.java:51)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.core.states.MutableState.copy(MutableState.java:63)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.core.states.MutableState.copy(MutableState.java:13)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.singleagent.Action.performAction(Action.java:205)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.oomdp.singleagent.GroundedAction.executeIn(GroundedAction.java:124)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.behavior.singleagent.planning.deterministic.informed.BestFirst.planFromState(BestFirst.java:147)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at burlap.behavior.singleagent.planning.deterministic.informed.BestFirst.planFromState(BestFirst.java:33)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.solver.MinecraftSolver.plan(MinecraftSolver.java:159)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at edu.brown.cs.h2r.burlapcraft.command.CommandRunDungeons$1.run(CommandRunDungeons.java:148)
+[23:24:11] [Thread-13/INFO]: [java.lang.Throwable$WrappedPrintStream:println:748]: 	at java.lang.Thread.run(Thread.java:745)
+[23:24:11] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 54904ms behind, skipping 1098 tick(s)
+[00:13:31] [Server thread/INFO]: Saving and pausing game...
+[00:13:31] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[00:13:31] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[00:13:31] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+136
+[00:13:40] [Server thread/INFO]: [machinelearning.PillarWekaClassifierWrapper:runClassifier:176]: === Confusion Matrix ===
+
+ a b c d e f g h i j k l m n   <-- classified as
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | a = 1
+ 0 5 0 0 0 0 0 0 0 0 0 0 0 0 | b = 2
+ 0 0 4 0 0 0 0 0 0 0 0 0 0 0 | c = 3
+ 0 0 0 3 0 0 0 0 0 0 0 0 0 0 | d = 4
+ 0 0 0 1 4 0 0 0 0 0 0 0 0 0 | e = 5
+ 0 0 0 0 0 1 3 0 0 0 0 0 0 0 | f = 6
+ 0 0 0 0 0 0 5 0 0 0 0 0 0 0 | g = 7
+ 0 0 0 0 0 0 0 5 0 0 0 0 0 0 | h = 8
+ 0 0 0 0 0 0 0 0 5 0 0 0 0 0 | i = 9
+ 0 0 0 0 0 0 0 0 0 3 0 0 0 0 | j = 10
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | k = 11
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | l = 12
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | m = 13
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | n = 14
+
+[00:13:40] [Server thread/INFO]: [machinelearning.PillarWekaClassifierWrapper:runClassifier:177]: 
+Correctly Classified Instances          35               89.7436 %
+Incorrectly Classified Instances         4               10.2564 %
+Kappa statistic                          0.884 
+Mean absolute error                      0.0159
+Root mean squared error                  0.1214
+Relative absolute error                 12.4388 %
+Root relative squared error             48.2127 %
+Total Number of Instances               39     
+
+[00:13:45] [Server thread/INFO]: Saving and pausing game...
+[00:13:45] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[00:13:45] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[00:13:45] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[00:13:50] [Client Shutdown Thread/INFO]: Stopping server
+[00:13:50] [Client Shutdown Thread/INFO]: Saving players
