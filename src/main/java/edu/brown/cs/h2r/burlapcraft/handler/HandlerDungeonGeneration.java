@@ -20,7 +20,7 @@ import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonGrid;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze0;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze1;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomOneDimensionPillar;
-import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomTwoDimensionPillar;
+//import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomTwoDimensionPillar;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonSmallBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTest;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTinyBridge;
@@ -87,9 +87,9 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		List<Pose> poses2d = new ArrayList<Pose>();
 		
 		int xIncOffset = 40;
-		int numDungeons = 2;
+		int numDungeons = 1;
 		
-		int numDungeons2d = 5;
+		int numDungeons2d = 1;
 		for (int i = 0; i < numDungeons; i++) {
 			poses.add(Pose.fromXyz(playerSpawnPose.getX() + (i * xIncOffset), 
 					playerSpawnPose.getY() + height, playerSpawnPose.getZ()));
@@ -103,13 +103,13 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int n = 1;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, (n * 2) + 4, n > 10 ? 40 : 15));
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, 20, 20));
 		}
 		
 		n = 1;
 		for (Pose pose : poses2d) {
 			String name = "2dpillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomTwoDimensionPillar(name, pose, (n * 2) + 4, (n * 2) + 4, n > 10 ? 40 : 15));
+			//BurlapCraft.registerDungeon(new DungeonRandomTwoDimensionPillar(name, pose, (n * 2) + 4, (n * 2) + 4, n > 10 ? 40 : 15));
 		}
 		
 		// @note the reason why it's not making more than one dungeon is because the poses are the same.

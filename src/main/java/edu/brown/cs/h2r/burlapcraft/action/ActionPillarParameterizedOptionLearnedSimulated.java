@@ -7,6 +7,8 @@ import machinelearning.PillarWekaClassifierWrapper;
 import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionSimulated.SimpleParameterizedGroundedAction;
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import weka.classifiers.Classifier;
+import weka.core.Instance;
+import weka.core.Utils;
 import burlap.oomdp.core.Domain;
 import burlap.oomdp.core.objects.ObjectInstance;
 import burlap.oomdp.core.states.State;
@@ -44,8 +46,18 @@ public class ActionPillarParameterizedOptionLearnedSimulated extends ActionPilla
 		
 		int optPillarHeight = 2;
 		try {
-			optPillarHeight = (int) classifier.predict(
-					classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength(), classifier.getAttrs()));
+			Instance instance = classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength(), classifier.getAttrs());
+			instance.setDataset(classifier.getTrainingInstances());
+			double optPillarHeightD = classifier.predict(instance);
+			
+			double missing = instance.missingValue();
+			
+			double[] dist = classifier.classifier.distributionForInstance(instance);
+		    double pred = Utils.maxIndex(dist);
+		    if (dist[(int) pred] <= 0) {
+		        pred = Instance.missingValue();
+		    }
+			optPillarHeight = (int) optPillarHeightD;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

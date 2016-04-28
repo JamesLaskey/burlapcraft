@@ -41,7 +41,7 @@ public class PillarWekaClassifierWrapper {
 	
 	
 	
-	private int maxDungeonHeight = 0;
+	private int maxDungeonHeight = 20;
 	private int maxPillarHeight = 0;
 	private int dataSetSize = 0;
 	private List<DungeonTrainExample> rawTrainExamples = new ArrayList<DungeonTrainExample>();
@@ -50,7 +50,7 @@ public class PillarWekaClassifierWrapper {
 	private FastVector attrs;
 	private int featLength;
 	
-	private Classifier classifier;
+	public Classifier classifier;
 	
 	public PillarWekaClassifierWrapper(int maxPillarHeight, List<DungeonTrainExample> training, Classifier classifier) {
 		this.maxPillarHeight = maxPillarHeight;
@@ -59,6 +59,7 @@ public class PillarWekaClassifierWrapper {
 			addDungeonTrainExample(example);
 		}
 		try {
+			setupAttrs();
 			buildClassifier();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -70,12 +71,15 @@ public class PillarWekaClassifierWrapper {
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream(trainingString));
 		this.training = (Instances) in.readObject();
 		in.close();
+		setupAttrs();
 		classifier.buildClassifier(this.training);
+		this.classifier = classifier;
 	}
 	
 	public PillarWekaClassifierWrapper(Instances training, Classifier classifier) {
 		this.classifier = classifier;
 		this.training = training;
+		setupAttrs();
 		try {
 			classifier.buildClassifier(training);
 		} catch (Exception e) {
@@ -99,6 +103,7 @@ public class PillarWekaClassifierWrapper {
 			instance.setValue((Attribute) attrs.elementAt(featno), map[y][x][z]);
 		}
 	}
+	
 	
 	public static Instance getInstanceFromData(int[][][] map, State s, int pillarHeight, int featLength,
 			FastVector attrs) {
@@ -127,29 +132,30 @@ public class PillarWekaClassifierWrapper {
 		}
 		
 		instance.setValue((Attribute) attrs.elementAt(featno), pillarHeight);
-		System.out.println(featno);
 		
 		return instance;
 	}
 	
-	private Instances generateTrainingInstances() {
+	public void setupAttrs() {
 		attrs = new FastVector();
 		
-		int numFeats = (3 * 3 * maxDungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
-		for (int i = 0; i < numFeats; i++) { 
+		featLength = (3 * 3 * maxDungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
+		for (int i = 0; i < featLength; i++) { 
 			Attribute attr = new Attribute(i + "Numeric");
 			attrs.addElement(attr);
 		}
-		System.out.println(numFeats);
 		FastVector classTypes = new FastVector();
 		for (int i = 1; i < maxPillarHeight; i++) {
 			classTypes.addElement(new Integer(i).toString());
 		}
 		Attribute classAttribute = new Attribute("theClass", classTypes);
 		attrs.addElement(classAttribute);
+	}
+	
+	private Instances generateTrainingInstances() {
 		
 		training = new Instances("TrainingData", attrs, dataSetSize);
-		training.setClassIndex(numFeats);
+		training.setClassIndex(featLength);
 		
 		for (DungeonTrainExample dungeon : rawTrainExamples) {
 			Iterator<State> stateIter = dungeon.states.iterator();
@@ -158,7 +164,7 @@ public class PillarWekaClassifierWrapper {
 			int dungeonExampleSize = dungeon.states.size();
 			for (int i = 0; i < dungeonExampleSize; i++) {
 				training.add(getInstanceFromData(dungeon.map, stateIter.next(), 
-						heightIter.next(), numFeats, attrs));
+						heightIter.next(), featLength, attrs));
 			}
 		}
 
