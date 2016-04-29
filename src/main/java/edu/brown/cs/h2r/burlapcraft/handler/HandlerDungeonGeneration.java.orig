@@ -20,7 +20,7 @@ import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonGrid;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze0;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonMaze1;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomOneDimensionPillar;
-import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomTwoDimensionPillar;
+//import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonRandomTwoDimensionPillar;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonSmallBridge;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTest;
 import edu.brown.cs.h2r.burlapcraft.dungeongenerator.DungeonTinyBridge;
@@ -88,8 +88,11 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		
 		int xIncOffset = 40;
 		int numDungeons = 1;
+<<<<<<< HEAD
+=======
 		
 		int numDungeons2d = 1;
+>>>>>>> afe67df167eaeed8448edd1b2d547d14d610da4e
 		for (int i = 0; i < numDungeons; i++) {
 			poses.add(Pose.fromXyz(playerSpawnPose.getX() + (i * xIncOffset), 
 					playerSpawnPose.getY() + height, playerSpawnPose.getZ()));
@@ -103,7 +106,10 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int n = 1;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose 20));
+<<<<<<< HEAD
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, (5 * 1) + 15, 15));
+=======
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, 20, 20));
 		}
 		
 		n = 1;
