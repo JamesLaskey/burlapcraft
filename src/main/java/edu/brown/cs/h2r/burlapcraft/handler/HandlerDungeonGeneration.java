@@ -87,7 +87,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		List<Pose> poses2d = new ArrayList<Pose>();
 		
 		int xIncOffset = 40;
-		int numDungeons = 1;
+		int numDungeons = 5;
 		
 		int numDungeons2d = 1;
 		for (int i = 0; i < numDungeons; i++) {
@@ -103,24 +103,17 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int n = 1;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose 20));
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, (n*2)+4,15));
 		}
 		
 		n = 1;
 		for (Pose pose : poses2d) {
 			String name = "2dpillar" + new Integer(n++).toString();
 			//BurlapCraft.registerDungeon(new DungeonRandomTwoDimensionPillar(name, pose, (n * 2) + 4, (n * 2) + 4, n > 10 ? 40 : 15));
->>>>>>> afe67df167eaeed8448edd1b2d547d14d610da4e
 		}
 		
 		// @note the reason why it's not making more than one dungeon is because the poses are the same.
 		// One's overwriting the next
-		try {
-			//BurlapCraft.registerDungeon(new ReadDungeon("testfile.5x2x5.df", testPose));
-			BurlapCraft.registerDungeon(new ReadDungeon("pillar.5x10x5.df", testPose));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		for (Dungeon d : BurlapCraft.dungeons) {
 			d.regenerate(world);

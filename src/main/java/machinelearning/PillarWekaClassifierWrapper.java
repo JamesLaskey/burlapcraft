@@ -41,7 +41,7 @@ public class PillarWekaClassifierWrapper {
 	
 	
 	
-	private int maxDungeonHeight = 20;
+	private int maxDungeonHeight = 15;
 	private int maxPillarHeight = 0;
 	private int dataSetSize = 0;
 	private List<DungeonTrainExample> rawTrainExamples = new ArrayList<DungeonTrainExample>();
@@ -70,6 +70,8 @@ public class PillarWekaClassifierWrapper {
 	public PillarWekaClassifierWrapper(String trainingString, Classifier classifier) throws Exception {
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream(trainingString));
 		this.training = (Instances) in.readObject();
+		System.out.println("class index: " + this.training.classIndex());
+		System.out.println("attribute length: " + this.training.numAttributes());
 		in.close();
 		setupAttrs();
 		classifier.buildClassifier(this.training);

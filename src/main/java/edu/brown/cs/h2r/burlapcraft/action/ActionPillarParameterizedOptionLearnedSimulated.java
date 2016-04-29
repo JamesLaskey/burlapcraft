@@ -8,6 +8,7 @@ import edu.brown.cs.h2r.burlapcraft.action.ActionPillarParameterizedOptionSimula
 import edu.brown.cs.h2r.burlapcraft.helper.HelperNameSpace;
 import weka.classifiers.Classifier;
 import weka.core.Instance;
+import weka.core.Instances;
 import weka.core.Utils;
 import burlap.oomdp.core.Domain;
 import burlap.oomdp.core.objects.ObjectInstance;
@@ -44,37 +45,33 @@ public class ActionPillarParameterizedOptionLearnedSimulated extends ActionPilla
 			}
 		}
 		
-		int optPillarHeight = 2;
+		int optPillarHeight = -1;
 		try {
 			Instance instance = classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength(), classifier.getAttrs());
-			instance.setDataset(classifier.getTrainingInstances());
+			Instances testInstances = new Instances("TestInstances", classifier.getAttrs(), 1);
+			testInstances.add(instance);
+			instance.setDataset(testInstances);
 			double optPillarHeightD = classifier.predict(instance);
 			
-			double missing = instance.missingValue();
-			
-			double[] dist = classifier.classifier.distributionForInstance(instance);
-		    double pred = Utils.maxIndex(dist);
-		    if (dist[(int) pred] <= 0) {
-		        pred = Instance.missingValue();
-		    }
 			optPillarHeight = (int) optPillarHeightD;
+			System.out.println(optPillarHeight);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int minPillarHeight = optPillarHeight - 1;
-		int maxPillarHeight = optPillarHeight + 1;
+		int minPillarHeight = optPillarHeight;
+		int maxPillarHeight = optPillarHeight;
 		
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
-		for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
+		//for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
 					new String[]{
-						new Integer(i).toString(),  //height of pillar
+						new Integer(optPillarHeight).toString(),  //height of pillar
 						new Integer(curY).toString(), //current height
 						new Integer(0).toString() //number of iterations attempted
 					});
 			actions.add(a);
-		}
+		//}
 		
 		return actions;
 	}
