@@ -126,7 +126,7 @@ public class MinecraftSolver {
 		
 		//to run with learned do, /runDungeons run learned
 		try {
-			classifier = new PillarWekaClassifierWrapper("../trainingRound1/complete.dat", new NaiveBayes());
+			classifier = new PillarWekaClassifierWrapper("../trainingRound2/complete.dat", new NaiveBayes());
 			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
 					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
 			if (params[1].equals("learned")) {

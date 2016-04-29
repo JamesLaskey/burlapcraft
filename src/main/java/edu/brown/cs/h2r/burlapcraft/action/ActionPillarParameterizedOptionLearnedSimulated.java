@@ -44,8 +44,10 @@ public class ActionPillarParameterizedOptionLearnedSimulated extends ActionPilla
 		
 		int optPillarHeight = 2;
 		try {
-			optPillarHeight = (int) classifier.predict(
+			double optPillarHeightD = classifier.predict(
 					classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength(), classifier.getAttrs()));
+			System.out.println("opt pillar height" + optPillarHeightD + " " + (int) optPillarHeightD);
+			optPillarHeight = (int) optPillarHeightD;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
