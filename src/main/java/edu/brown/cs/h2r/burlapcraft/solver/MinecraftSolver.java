@@ -8,6 +8,7 @@ import java.util.List;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
+import weka.classifiers.functions.Logistic;
 import weka.core.Attribute;
 import weka.core.FastVector;
 import weka.core.Instance;
@@ -126,7 +127,7 @@ public class MinecraftSolver {
 		
 		//to run with learned do, /runDungeons run learned
 		try {
-			classifier = new PillarWekaClassifierWrapper("../trainingRound2/complete.dat", new NaiveBayes());
+			classifier = new PillarWekaClassifierWrapper("../trainingRound2/complete.dat", new Logistic());
 			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
 					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
 			if (params[1].equals("learned")) {
@@ -177,7 +178,7 @@ public class MinecraftSolver {
 				System.out.println(a.action.getName());
 				if (a.toString().contains("pillar") && a.toString().charAt(12) == '0') {
 					pillarStates.add(stateIter.next());
-					pillarHeights.add(Integer.valueOf(a.toString().split(" ")[2]));
+					pillarHeights.add(Integer.valueOf(a.toString().split(" ")[1])); //*pillar 1 7 0(0)--jumpAndPlace 0
 				} else {
 					stateIter.next();
 				}

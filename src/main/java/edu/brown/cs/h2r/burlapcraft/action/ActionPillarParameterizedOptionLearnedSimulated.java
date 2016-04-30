@@ -47,22 +47,25 @@ public class ActionPillarParameterizedOptionLearnedSimulated extends ActionPilla
 		
 		int optPillarHeight = -1;
 		try {
-			Instance instance = classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength(), classifier.getAttrs());
+			Instance instance = classifier.getInstanceFromData(map, s, 0, classifier.getFeatLength() + 1, classifier.getAttrs());
 			Instances testInstances = new Instances("TestInstances", classifier.getAttrs(), 1);
+			testInstances.setClassIndex(classifier.getFeatLength());
 			testInstances.add(instance);
 			instance.setDataset(testInstances);
 			double optPillarHeightD = classifier.predict(instance);
 			
 			optPillarHeight = (int) optPillarHeightD;
-			System.out.println(optPillarHeight);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int minPillarHeight = optPillarHeight;
-		int maxPillarHeight = optPillarHeight;
 		
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
+		
+		optPillarHeight = Math.max(Math.min(optPillarHeight, map.length - 4 - curY), 0);
+		int minPillarHeight = optPillarHeight;
+		int maxPillarHeight = optPillarHeight;
+
 		//for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
 					new String[]{
