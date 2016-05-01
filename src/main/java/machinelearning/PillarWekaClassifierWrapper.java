@@ -41,7 +41,7 @@ public class PillarWekaClassifierWrapper {
 	
 	
 	
-	private int maxDungeonHeight = 15;
+	public int maxDungeonHeight = 15;
 	private int maxPillarHeight = 0;
 	private int dataSetSize = 0;
 	private List<DungeonTrainExample> rawTrainExamples = new ArrayList<DungeonTrainExample>();
@@ -67,9 +67,10 @@ public class PillarWekaClassifierWrapper {
 		}
 	}
 	
-	public PillarWekaClassifierWrapper(String trainingString, Classifier classifier) throws Exception {
+	public PillarWekaClassifierWrapper(String trainingString, Classifier classifier, int dungeonHeight) throws Exception {
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream(trainingString));
 		this.training = (Instances) in.readObject();
+		this.maxDungeonHeight = dungeonHeight;
 		System.out.println("class index: " + this.training.classIndex());
 		System.out.println("attribute length: " + this.training.numAttributes());
 		in.close();
@@ -102,7 +103,7 @@ public class PillarWekaClassifierWrapper {
 		if (y < 0 || y >= map.length || x < 0 || x >= map[y].length || z < 0 || z >= map[y][x].length) {
 			instance.setValue((Attribute) attrs.elementAt(featno), 0);
 		} else {
-			instance.setValue((Attribute) attrs.elementAt(featno), map[y][x][z]);
+			instance.setValue((Attribute) attrs.elementAt(featno), 1);
 		}
 	}
 	
@@ -119,7 +120,7 @@ public class PillarWekaClassifierWrapper {
 		
 		int featno = 0;
 		instance.setValue((Attribute) attrs.elementAt(featno++), curY);
-		for (int y = 0; y < map.length; y++) {
+		for (int y = curY-1; y < curY + 16; y++) {
 			addMapFeat(instance, attrs, featno++, map, y, curX, curZ);
 			//cardinal
 			addMapFeat(instance, attrs, featno++, map, y, curX, curZ+1);
@@ -141,13 +142,13 @@ public class PillarWekaClassifierWrapper {
 	public void setupAttrs() {
 		attrs = new FastVector();
 		
-		featLength = (3 * 3 * maxDungeonHeight) + 1; //3 by 3 by dungeonheight patch of the map
+		featLength = (3 * 3 * 18) + 1; //3 by 3 by dungeonheight patch of the map
 		for (int i = 0; i < featLength; i++) { 
 			Attribute attr = new Attribute(i + "Numeric");
 			attrs.addElement(attr);
 		}
 		FastVector classTypes = new FastVector();
-		for (int i = 1; i < maxPillarHeight; i++) {
+		for (int i = 0; i < 15; i++) {
 			classTypes.addElement(new Integer(i).toString());
 		}
 		Attribute classAttribute = new Attribute("theClass", classTypes);
@@ -202,8 +203,11 @@ public class PillarWekaClassifierWrapper {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
 			Instances training = (Instances) in.readObject();
 			in.close();
-			System.out.println(training);
-			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new NaiveBayes());
+			System.out.println(training.classIndex());
+			for (int i = 0; i < 50; i++) {
+				System.out.println(training.instance(i).classValue());
+			}
+			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new Logistic());
 			
 			try {
 				in = new ObjectInputStream(new FileInputStream(args[1]));
