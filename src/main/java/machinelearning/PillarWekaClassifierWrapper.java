@@ -142,7 +142,7 @@ public class PillarWekaClassifierWrapper {
 	public void setupAttrs() {
 		attrs = new FastVector();
 		
-		featLength = (3 * 3 * 18) + 1; //3 by 3 by dungeonheight patch of the map
+		featLength = (3 * 3 * 17) + 1; //3 by 3 by dungeonheight patch of the map
 		for (int i = 0; i < featLength; i++) { 
 			Attribute attr = new Attribute(i + "Numeric");
 			attrs.addElement(attr);
@@ -203,10 +203,7 @@ public class PillarWekaClassifierWrapper {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
 			Instances training = (Instances) in.readObject();
 			in.close();
-			System.out.println(training.classIndex());
-			for (int i = 0; i < 50; i++) {
-				System.out.println(training.instance(i).classValue());
-			}
+			System.out.println(training.instance(2).value(154));
 			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new Logistic());
 			
 			try {
