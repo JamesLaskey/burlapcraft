@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import cern.colt.Arrays;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.bayes.NaiveBayesMultinomial;
@@ -176,7 +177,7 @@ public class MinecraftSolver {
 			for (GroundedAction a : analysis.actionSequence) {
 				System.out.println(a);
 				System.out.println(a.action.getName());
-				if (a.toString().contains("pillar") && a.toString().charAt(12) == '0') {
+				if (a.toString().contains("pillar") && a.getParametersAsString()[0].equals("0")) {
 					pillarStates.add(stateIter.next());
 					pillarHeights.add(Integer.valueOf(a.toString().split(" ")[1])); //*pillar 1 7 0(0)--jumpAndPlace 0
 				} else {

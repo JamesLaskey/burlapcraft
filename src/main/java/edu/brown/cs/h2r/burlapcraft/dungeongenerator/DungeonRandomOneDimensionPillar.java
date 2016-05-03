@@ -29,11 +29,13 @@ public class DungeonRandomOneDimensionPillar extends Dungeon {
 			heights[i] = r.nextInt(h - 1) + 1;
 		}
 		
+		heights[l-1] = h - 1;
+		
 		// have cliffs be ascending
 		Arrays.sort(heights);
 		
 		// set blocks for various cliff heights, fill with air for remainder of height
-		for (int i = 0; i < l; i++) {
+		for (int i = 0; i <= l; i++) {
 			int height = heights[i];
 			for (int j = 0; j < height; j++) {
 				world.setBlock(x + i, y + j, z, Block.getBlockById(7));
