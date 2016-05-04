@@ -103,7 +103,7 @@ public class PillarWekaClassifierWrapper {
 		if (y < 0 || y >= map.length || x < 0 || x >= map[y].length || z < 0 || z >= map[y][x].length) {
 			instance.setValue((Attribute) attrs.elementAt(featno), 0);
 		} else {
-			instance.setValue((Attribute) attrs.elementAt(featno), 1);
+			instance.setValue((Attribute) attrs.elementAt(featno), map[y][x][z] == 0 ? 0 : 1);
 		}
 	}
 	
@@ -203,7 +203,14 @@ public class PillarWekaClassifierWrapper {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
 			Instances training = (Instances) in.readObject();
 			in.close();
+
 			System.out.println(training);
+			for (int i = 0; i < training.numInstances(); i++) {
+				Instance inst = training.instance(i);
+				if (inst.value(154) == 1) {
+					System.out.println(inst);
+				}
+			}
 			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new Logistic());
 			
 			try {
