@@ -99,7 +99,7 @@ public class PillarWekaClassifierWrapper {
 		rawTrainExamples.add(example);
 	}
 	
-	private static void addMapFeat(Instance instance, FastVector attrs, int featno, int[][][] map, int x, int y, int z) {
+	private static void addMapFeat(Instance instance, FastVector attrs, int featno, int[][][] map, int y, int x, int z) {
 		if (y < 0 || y >= map.length || x < 0 || x >= map[y].length || z < 0 || z >= map[y][x].length) {
 			instance.setValue((Attribute) attrs.elementAt(featno), 0);
 		} else {
@@ -204,10 +204,10 @@ public class PillarWekaClassifierWrapper {
 			Instances training = (Instances) in.readObject();
 			in.close();
 
-			System.out.println(training);
+			//System.out.println(training);
 			for (int i = 0; i < training.numInstances(); i++) {
 				Instance inst = training.instance(i);
-				if (inst.value(154) == 1) {
+				if (inst.value(154) == 3) {
 					System.out.println(inst);
 				}
 			}
