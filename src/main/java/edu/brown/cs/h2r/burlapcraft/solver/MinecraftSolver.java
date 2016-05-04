@@ -176,9 +176,10 @@ public class MinecraftSolver {
 			List<Integer> pillarHeights = new ArrayList<Integer>();
 			for (GroundedAction a : analysis.actionSequence) {
 				System.out.println(a);
-				System.out.println(a.action.getName());
 				if (a.toString().contains("pillar") && a.getParametersAsString()[0].equals("0")) {
-					pillarStates.add(stateIter.next());
+					State s = stateIter.next();
+					System.out.println(s);
+					pillarStates.add(s);
 					pillarHeights.add(Integer.valueOf(a.toString().split(" ")[1])); //*pillar 1 7 0(0)--jumpAndPlace 0
 				} else {
 					stateIter.next();

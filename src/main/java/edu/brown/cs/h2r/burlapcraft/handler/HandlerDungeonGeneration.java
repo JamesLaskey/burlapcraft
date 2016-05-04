@@ -87,7 +87,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		List<Pose> poses2d = new ArrayList<Pose>();
 		
 		int xIncOffset = 40;
-		int numDungeons = 30;
+		int numDungeons = 1;
 		
 		int numDungeons2d = 1;
 		for (int i = 0; i < numDungeons; i++) {
@@ -103,7 +103,7 @@ public class HandlerDungeonGeneration implements IWorldGenerator {
 		int n = 1;
 		for (Pose pose : poses) {
 			String name = "pillar" + new Integer(n++).toString();
-			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, 15, 20));
+			BurlapCraft.registerDungeon(new DungeonRandomOneDimensionPillar(name, pose, 8, 15));
 		}
 		
 		n = 1;

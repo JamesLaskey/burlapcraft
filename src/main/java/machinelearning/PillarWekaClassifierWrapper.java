@@ -134,7 +134,7 @@ public class PillarWekaClassifierWrapper {
 			addMapFeat(instance, attrs, featno++, map, y, curX-1, curZ+1);
 		}
 		
-		instance.setValue((Attribute) attrs.elementAt(featno), pillarHeight);
+		instance.setValue((Attribute) attrs.elementAt(featno), Integer.toString(pillarHeight));
 		
 		return instance;
 	}
@@ -203,7 +203,7 @@ public class PillarWekaClassifierWrapper {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
 			Instances training = (Instances) in.readObject();
 			in.close();
-			System.out.println(training.instance(2).value(154));
+			System.out.println(training);
 			PillarWekaClassifierWrapper wrapper = new PillarWekaClassifierWrapper(training, new Logistic());
 			
 			try {

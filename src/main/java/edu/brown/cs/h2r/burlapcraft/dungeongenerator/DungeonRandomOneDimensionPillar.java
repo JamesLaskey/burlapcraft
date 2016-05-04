@@ -10,7 +10,7 @@ import scala.actors.threadpool.Arrays;
 public class DungeonRandomOneDimensionPillar extends Dungeon {
 
 	public DungeonRandomOneDimensionPillar(String name, Pose _pose, int maxLength, int maxHeight) {
-		super(name, _pose, maxLength, maxLength, maxHeight, Pose.fromXyz(2.5, 1, 1.5));
+		super(name, _pose, maxLength, maxLength, maxHeight, Pose.fromXyz(1.5, 1, 1.5));
 	}
 
 	@Override
@@ -20,36 +20,37 @@ public class DungeonRandomOneDimensionPillar extends Dungeon {
 		int l = getLength() - 3;
 		int h = getHeight() - 3;
 		
-		int[] heights = new int[getLength() - 1];
+		int[] heights = new int[l];
 		
 		heights[0] = 1;
+		heights[1] = 1;
 		
 		// generate random heights for cliffs
-		for (int i = 1; i < l; i++) {
+		for (int i = 2; i < l; i++) {
 			heights[i] = r.nextInt(h - 1) + 1;
 		}
 		
-		heights[l-1] = h - 1;
+		heights[l-1] = h;
 		
 		// have cliffs be ascending
 		Arrays.sort(heights);
 		
 		// set blocks for various cliff heights, fill with air for remainder of height
-		for (int i = 0; i <= l; i++) {
+		for (int i = 0; i < l; i++) {
 			int height = heights[i];
 			for (int j = 0; j < height; j++) {
-				world.setBlock(x + i, y + j, z, Block.getBlockById(7));
-				world.setBlock(x + i, y + j, z + 1, Block.getBlockById(7));
-				world.setBlock(x + i, y + j, z + 2, Block.getBlockById(7));
+				world.setBlock(x, y + j, z + i, Block.getBlockById(7));
+				world.setBlock(x + 1, y + j, z + i, Block.getBlockById(7));
+				world.setBlock(x + 2, y + j, z + i, Block.getBlockById(7));
 			}
-			for (int j = height; j < h; j++) {
-				world.setBlock(x + i, y + j, z, Block.getBlockById(0));
-				world.setBlock(x + i, y + j, z + 1, Block.getBlockById(0));
-				world.setBlock(x + i, y + j, z + 2, Block.getBlockById(0));
-			}
+//			for (int j = height; j < h; j++) {
+//				world.setBlock(x + i, y + j, z, Block.getBlockById(0));
+//				world.setBlock(x + i, y + j, z + 1, Block.getBlockById(0));
+//				world.setBlock(x + i, y + j, z + 2, Block.getBlockById(0));
+//			}
 		}
 		// set goal block as topmost, farthest part of dungeon
-		world.setBlock(x + l, y + h - 2, z + 1, Block.getBlockById(41));
+		world.setBlock(x + 1, y + h - 1, z + l, Block.getBlockById(41));
 	}
 	
 	
