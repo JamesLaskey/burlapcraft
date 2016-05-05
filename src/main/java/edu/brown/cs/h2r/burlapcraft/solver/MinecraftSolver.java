@@ -128,7 +128,7 @@ public class MinecraftSolver {
 		
 		//to run with learned do, /runDungeons run learned
 		try {
-			classifier = new PillarWekaClassifierWrapper("train4.dat", new Logistic(), map.length);
+			classifier = new PillarWekaClassifierWrapper("trainFull.dat", new Logistic(), map.length);
 			ActionPillarParameterizedOptionLearnedSimulated pillarActionLearned = new ActionPillarParameterizedOptionLearnedSimulated(
 					HelperNameSpace.ACTIONPILLAR, domain, map, classifier);
 			if (params[1].equals("learned")) {

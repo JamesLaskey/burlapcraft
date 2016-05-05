@@ -46,17 +46,16 @@ public class ActionRedstoneParameterizedOptionSimulated extends Option {
 
 	@Override
 	public double probabilityOfTermination(State s, GroundedAction groundedAction) {
-		int height = Integer.valueOf(groundedAction.getParametersAsString()[0]);
 		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
-		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
-		int startY = Integer.valueOf(groundedAction.getParametersAsString()[1]);
-		int iters = Integer.valueOf(groundedAction.getParametersAsString()[2]);
+		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
+		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+		
+		int targetX = Integer.valueOf(groundedAction.getParametersAsString()[0]);
+		int targetZ = Integer.valueOf(groundedAction.getParametersAsString()[1]);
 
-		if (iters == height) {
-			groundedAction.getParametersAsString()[2] = new Integer(0).toString();
+		if (curX == targetX && curZ == targetZ) {
 			return 1.;
 		} else {
-			groundedAction.getParametersAsString()[2] = new Integer(iters + 1).toString();
 			return 0.;
 		}
 	}
@@ -70,8 +69,47 @@ public class ActionRedstoneParameterizedOptionSimulated extends Option {
 	@Override
 	public GroundedAction oneStepActionSelection(State s,
 			GroundedAction groundedAction) {
-		Action jumpPlace = new ActionJumpPlaceSimulated(HelperNameSpace.ACTIONJUMPANDPLACE, domain, map);
-		return jumpPlace.getAssociatedGroundedAction();
+		
+		ObjectInstance agent = s.getFirstObjectOfClass(HelperNameSpace.CLASSAGENT);
+		int vertDir = agent.getIntValForAttribute(HelperNameSpace.ATVERTDIR);
+		int curX = agent.getIntValForAttribute(HelperNameSpace.ATX);
+		int curZ = agent.getIntValForAttribute(HelperNameSpace.ATZ);
+		
+		//get block objects and their positions
+		List<ObjectInstance> blocks = s.getObjectsOfClass(HelperNameSpace.CLASSBLOCK);
+		boolean alreadyPlaced = false;
+		
+		int redstoneId = 331;
+		for (ObjectInstance block : blocks) {
+			int blockX = block.getIntValForAttribute(HelperNameSpace.ATX);
+			int blockZ = block.getIntValForAttribute(HelperNameSpace.ATZ);
+			int blockId = block.getIntValForAttribute(HelperNameSpace.ATBTYPE);
+			
+			if (blockX == curX && blockZ == curZ && blockId == redstoneId) {
+				alreadyPlaced = true;
+			}
+		}
+		
+		Action action = null;
+		
+		if (vertDir == 0 && !alreadyPlaced) {
+			//facing forward? and no redstone, so need to rotate down
+			action = new ActionChangePitchSimulated(HelperNameSpace.ACTIONDOWNONE, domain, 1);
+			
+		} else if(vertDir == 1 && !alreadyPlaced){
+			//facing down and no redstone there, need to place redstone
+			action = new ActionPlaceBlockSimulated(HelperNameSpace.ACTIONPLACEBLOCK, domain, map);
+			
+		} else if(vertDir == 1 && alreadyPlaced) {
+			//facing down and redstone is placed, need to rotate up
+			action = new ActionChangePitchSimulated(HelperNameSpace.ACTIONDOWNONE, domain, 0);
+			
+		} else if(vertDir == 0 && alreadyPlaced) {
+			//facing forward? after completing putting down redstone
+			
+		}
+		
+		return action.getAssociatedGroundedAction();
 	}
 
 	@Override

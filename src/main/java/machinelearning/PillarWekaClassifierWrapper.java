@@ -207,7 +207,7 @@ public class PillarWekaClassifierWrapper {
 			//System.out.println(training);
 			for (int i = 0; i < training.numInstances(); i++) {
 				Instance inst = training.instance(i);
-				if (inst.value(154) == 3) {
+				if (inst.value(154) == 8) {
 					System.out.println(inst);
 				}
 			}
