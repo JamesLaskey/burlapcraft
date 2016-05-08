@@ -269,7 +269,7 @@ public class StateGenerator {
 		}
 		
 		//total hack cuz I don't know why its not aware of inventory blocks
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 150; i++) {
 			ObjectInstance o = new MutableObjectInstance(
 								domain.getObjectClass(HelperNameSpace.CLASSINVENTORYBLOCK),
 								"inventoryBlockCobble" + i);

@@ -203,7 +203,7 @@ public class ActionPillarParameterizedOptionSimulated extends Option {
 		}
 		
 		int curY = agent.getIntValForAttribute(HelperNameSpace.ATY);
-		for (int i = minPillarHeight; i < Math.min(maxPillarHeight, numBlocks); i++) {
+		for (int i = minPillarHeight; i <= Math.min(maxPillarHeight, numBlocks); i++) {
 			GroundedAction a = new SimpleParameterizedGroundedAction(this, 
 					new String[]{
 						new Integer(i).toString(),  //height of pillar

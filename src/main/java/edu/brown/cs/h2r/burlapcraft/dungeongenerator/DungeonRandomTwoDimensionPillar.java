@@ -41,7 +41,7 @@ public class DungeonRandomTwoDimensionPillar extends Dungeon {
 			}
 		}
 		
-		world.setBlock(x + l, y + h - 2, z + w, Block.getBlockById(41));
+		world.setBlock(x + l -1, y + h - 2, z + w -1, Block.getBlockById(41));
 	}
 
 }

@@ -230,9 +230,9 @@ public class MinecraftSolver {
 			String[] params = a.getParametersAsString();
 			if (params != null && params.length == 1) {
 				if (Integer.valueOf(params[0]) > 0) {
-					return -1;
+					return -.01;
 				} else {
-					return -2;
+					return -1;
 				}
 			}
 
